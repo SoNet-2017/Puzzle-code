@@ -5,7 +5,7 @@
 //1)Dichiaro dipendenza dal route
 // il servizio $route
 angular.module('myApp', [
-    'ngRoute']);
+    'ngRoute', 'firebase']);
 
 //CONFIGURARE ROUTE PROVIDER -> E' quello che dice come vengono gestite le viste! o $routeProvider:
 // esso consente di specificare tramite il when() la mappatura tra un URL relativo e un oggetto di configurazione. Questa mappatura è appunto chiamata route.
