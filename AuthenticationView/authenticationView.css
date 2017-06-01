@@ -6,14 +6,12 @@
 
 html {
 	height: 100%;
-	/*Image only BG fallback*/
 
-	/*background = gradient + image pattern combo*/
-	background: url(InizioSito_90.png);
 }
 
 body {
 	font-family: montserrat, arial, verdana;
+	background: url(InizioSito_90.png);
 }
 /*form styles*/
 #msform {
@@ -32,7 +30,6 @@ body {
 	box-sizing: border-box;
 	width: 80%;
 	margin: 0 10%;
-	
 	/*stacking fieldsets above each other*/
 	position: relative;
 }
@@ -140,11 +137,23 @@ body {
 	/*connector not needed before the first step*/
 	content: none; 
 }
-/*marking active/completed steps green*/
-/*The number of the step and the connector before it = green*/
+/*marking active/completed steps blue*/
+/*The number of the step and the connector before it = blue*/
 #progressbar li.active:before,  #progressbar li.active:after{
 	background: rgb(48,142,137);
 	color: white;
 }
 
 
+#payoff{
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
+#registrato{
+	font-size: 12px;
+}
+#registrati{
+	color:rgb(48,142,137);
+	font-size: 13px;
+}
