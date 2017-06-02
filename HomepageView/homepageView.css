@@ -1,0 +1,56 @@
+body {
+    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background: url(InizioSito_50.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+.menuSuperiore{
+    background: #308E89;  /* turchese: #308E89 , bordeaux: #461220*/
+    padding: 5px 50px 3px 150px;
+}
+
+.menuLaterale {
+    position: fixed;
+    width: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    left: 50px;
+    padding: 30px 15px;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
+}
+
+.paginaDiario{
+    width: 900px;
+    margin-top: 20px;
+    margin-left: 300px;
+    padding-top: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background: url(Copy-of-graph-paper-background.gif) repeat;
+}
+
+hData{
+    padding-top: 100px;
+    padding-left: 650px;
+    font-family: "Brush Script MT";
+    font-size: 36px;
+    color: #308E89;
+}
+
+h4{
+    font-size: 18px;
+    color: #308E89;
+}
+
+.testoNomi{
+    color: #308E89;
+}
+
+#registrati{
+    color:rgb(48,142,137);
+    font-size: 13px;
+}
