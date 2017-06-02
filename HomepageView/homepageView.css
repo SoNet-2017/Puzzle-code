@@ -107,29 +107,34 @@ i, span {
     SIDEBAR STYLE
 ----------------------------------------------------- */
 .wrapper {
-    background: url(homepageImages/InizioSito_50.png) repeat;
     display: flex;
-    align-items: stretch;
+    align-items: stretch; /*così la mantiente su tutta la pagina */
+    background: url(homepageImages/InizioSito_50.png) repeat;
 }
 
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #308E89;
+    background: #308e89;
     color: #fff;
     transition: all 0.3s;
 }
 
+
+/*quando passi al menù piccolo si allinea tutto centralmente */
 #sidebar.active {
     min-width: 80px;
     max-width: 80px;
-    text-align: center;
+    /*text-align: center; sminchia quando si chiude, meglio che non si allinei centralmente*/
 }
+
 
 #sidebar.active .sidebar-header h3, #sidebar.active .CTAs {
     display: none;
 }
 
+
+/*nel menu' rimpicciolito mantengo anche il menu' di sopra */
 #sidebar.active .sidebar-header strong {
     display: block;
 }
@@ -152,6 +157,7 @@ i, span {
     padding: 10px !important;
 }
 
+/*
 #sidebar.active a[aria-expanded="false"]::before, #sidebar.active a[aria-expanded="true"]::before {
     top: auto;
     bottom: 5px;
@@ -159,11 +165,11 @@ i, span {
     -webkit-transform: translateX(50%);
     -ms-transform: translateX(50%);
     transform: translateX(50%);
-}
+} */
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #308E89;
+    background: #308e89;
 }
 
 #sidebar .sidebar-header strong {
@@ -173,7 +179,7 @@ i, span {
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #308E89;
+    border-bottom: 1px solid #308e89;
 }
 
 #sidebar ul li a {
@@ -182,23 +188,24 @@ i, span {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #308E89;
+    color: #308e89;
     background: #fff;
 }
 #sidebar ul li a i {
     margin-right: 10px;
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
+/*#sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #308E89;
-}
+    background: #6d7fcc;
+}*/
 
 
 a[data-toggle="collapse"] {
     position: relative;
 }
 
+/*frecce */
 a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
     content: '\e259';
     display: block;
@@ -212,12 +219,14 @@ a[aria-expanded="true"]::before {
 }
 
 
+/*menu' a tendina*/
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #308E89;
+    background: #308e89;
 }
 
+/*
 ul.CTAs {
     padding: 20px;
 }
@@ -229,16 +238,21 @@ ul.CTAs a {
     border-radius: 5px;
     margin-bottom: 5px;
 }
+*/
 
+/*
 a.download {
     background: #fff;
-    color: #308E89;
+    color: #7386D5;
 }
+*/
 
+/*
 a.article, a.article:hover {
-    background: #308E89 !important;
+    background: #6d7fcc !important;
     color: #fff !important;
 }
+*/
 
 
 
