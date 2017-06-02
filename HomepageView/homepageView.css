@@ -20,6 +20,8 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
+
+/*navbar */
 .navbar {
     padding: 15px 10px;
     background: #fff;
@@ -37,6 +39,9 @@ a, a:hover, a:focus {
     outline: none !important;
     border: none;
 }
+
+
+
 
 #content{
     background: #fff;
@@ -121,15 +126,15 @@ i, span {
 }
 
 
-/*quando passi al menù piccolo si allinea tutto centralmente */
+/*SIDEBAR PICCOLO ATTIVATO */
 #sidebar.active {
     min-width: 80px;
     max-width: 80px;
-    /*text-align: center; sminchia quando si chiude, meglio che non si allinei centralmente*/
+    /*text-align: center; si sminchia quando si chiude, mi piacerebbe allinearlo centralmente ma non ci sono riuscita*/
 }
 
 
-#sidebar.active .sidebar-header h3, #sidebar.active .CTAs {
+#sidebar.active .sidebar-header h3 {
     display: none;
 }
 
@@ -157,7 +162,8 @@ i, span {
     padding: 10px !important;
 }
 
-/*
+
+/*menu piccolo attivo, traslazione icone + testi */
 #sidebar.active a[aria-expanded="false"]::before, #sidebar.active a[aria-expanded="true"]::before {
     top: auto;
     bottom: 5px;
@@ -165,7 +171,7 @@ i, span {
     -webkit-transform: translateX(50%);
     -ms-transform: translateX(50%);
     transform: translateX(50%);
-} */
+}
 
 #sidebar .sidebar-header {
     padding: 20px;
@@ -182,11 +188,13 @@ i, span {
     border-bottom: 1px solid #308e89;
 }
 
+/*testi */
 #sidebar ul li a {
     padding: 10px;
     font-size: 1.1em;
     display: block;
 }
+/*testi con mouse */
 #sidebar ul li a:hover {
     color: #308e89;
     background: #fff;
@@ -195,25 +203,28 @@ i, span {
     margin-right: 10px;
 }
 
-/*#sidebar ul li.active > a, a[aria-expanded="true"] {
+#sidebar ul li.active > a, a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
-}*/
+    background: #2a75b4;
+}
 
-
+/*insegnanti/genitori */
 a[data-toggle="collapse"] {
     position: relative;
 }
 
-/*frecce */
+
+/*dico che i bottoni devono contenere la freccia in basso quando sono chiusi, e do' impostazioni sia a bottoni chiusi, sia a bottoni aperti  */
 a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-    content: '\e259';
+    content: '\e259'; /*freccia in basso */
     display: block;
     position: absolute;
     right: 20px;
     font-family: 'Glyphicons Halflings';
     font-size: 0.6em;
 }
+
+/*freccia in basso (modifico solo un parametro rispetto al codice precedente) */
 a[aria-expanded="true"]::before {
     content: '\e260';
 }
@@ -226,33 +237,8 @@ ul ul a {
     background: #308e89;
 }
 
-/*
-ul.CTAs {
-    padding: 20px;
-}
 
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-*/
 
-/*
-a.download {
-    background: #fff;
-    color: #7386D5;
-}
-*/
-
-/*
-a.article, a.article:hover {
-    background: #6d7fcc !important;
-    color: #fff !important;
-}
-*/
 
 
 
@@ -288,7 +274,7 @@ a.article, a.article:hover {
         margin-left: 0 !important;
     }
 
-    #sidebar .sidebar-header h3, #sidebar .CTAs {
+    #sidebar .sidebar-header h3 {
         display: none;
     }
 
