@@ -1,58 +1,85 @@
+/*
+    DEMO STYLE
+*/
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+
 body {
-    font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
-    background: url(homepageImages/InizioSito_50.png) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    background: #fafafa;
 }
 
-.menuSuperiore{
-    background: #308E89;  /* turchese: #308E89 , bordeaux: #461220*/
-    padding: 5px 50px 3px 150px;
+p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
 }
 
-.menuLaterale {
-    position: fixed;
-    width: 300px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    left: 50px;
-    padding: 30px 15px;
+a, a:hover, a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
     background: #fff;
-    background: rgba(255,255,255,0.9);
-}
-
-.paginaDiario{
-    width: 900px;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
     margin-top: 20px;
-    margin-left: 300px;
-    padding-top: 30px;
-    padding-left: 40px;
-    padding-right: 30px;
-    padding-bottom: 500px;
-    background: url(homepageImages/Copy-of-graph-paper-background.gif) repeat;
+    margin-right: 10px;
+    margin-left: 260px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-hData{ /*Data in alto a destra nella pagina di diario*/
-    padding-top: 100px;
-    padding-left: 680px;
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+#content{
+    background: #fff;
+    background: rgba(255,255,255,0.8);
+    margin-top: 110px;
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.data{
+    text-align: right;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
     font-family: "Brush Script MT";
     font-size: 36px;
     color: #308E89;
 }
 
-.post {  /*Rettangolino contenente singolo post*/
-    background-color: rgba(255,255,255,0.6);
-    border: 1px solid lightgrey;
-    margin-top: 62px;
-    margin-left: 50px;
-    margin-right: 20px;
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
 }
 
+i, span {
+    display: inline-block;
+}
+
+
 .post .post-intestazione {
+    margin-left: 50px;
     height: 95px;
     padding: 20px 15px;
+}
+
+.nomeUtentePost{
+    font-size: 24px;
 }
 
 .post .post-intestazione .avatar {
@@ -62,9 +89,6 @@ hData{ /*Data in alto a destra nella pagina di diario*/
     margin-right: 15px;
 }
 
-.post .post-intestazione .meta .nomeUtentePost a {  /*Nome utente che ha pubblicato il post*/
-    color: #1b6d85;
-}
 
 .post .post-intestazione .meta .time {  /*Orario pubblicazione il post*/
     margin-top: 8px;
@@ -72,5 +96,218 @@ hData{ /*Data in alto a destra nella pagina di diario*/
 }
 
 .post .post-testo {
+    margin-left: 50px;
+    margin-right: 50px;
     padding: 15px;
+}
+
+
+
+
+
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+.wrapper {
+    background: url(homepageImages/InizioSito_50.png) repeat;
+    display: flex;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 250px;
+    max-width: 250px;
+    background: #308E89;
+    color: #fff;
+    transition: all 0.3s;
+}
+
+#sidebar.active {
+    min-width: 80px;
+    max-width: 80px;
+    text-align: center;
+}
+
+#sidebar.active .sidebar-header h3, #sidebar.active .CTAs {
+    display: none;
+}
+
+#sidebar.active .sidebar-header strong {
+    display: block;
+}
+
+#sidebar.active ul li a {
+    padding: 20px 10px;
+}
+
+#sidebar.active ul li a {
+    font-size: 0.85em;
+}
+#sidebar.active ul li a i {
+    margin-right:  0;
+    display: block;
+    font-size: 1.8em;
+    margin-bottom: 5px;
+}
+
+#sidebar.active ul ul a {
+    padding: 10px !important;
+}
+
+#sidebar.active a[aria-expanded="false"]::before, #sidebar.active a[aria-expanded="true"]::before {
+    top: auto;
+    bottom: 5px;
+    right: 50%;
+    -webkit-transform: translateX(50%);
+    -ms-transform: translateX(50%);
+    transform: translateX(50%);
+}
+
+#sidebar .sidebar-header {
+    padding: 20px;
+    background: #308E89;
+}
+
+#sidebar .sidebar-header strong {
+    display: none;
+    font-size: 1.8em;
+}
+
+#sidebar ul.components {
+    padding: 20px 0;
+    border-bottom: 1px solid #308E89;
+}
+
+#sidebar ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+}
+#sidebar ul li a:hover {
+    color: #308E89;
+    background: #fff;
+}
+#sidebar ul li a i {
+    margin-right: 10px;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+    color: #fff;
+    background: #308E89;
+}
+
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+    content: '\e259';
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-family: 'Glyphicons Halflings';
+    font-size: 0.6em;
+}
+a[aria-expanded="true"]::before {
+    content: '\e260';
+}
+
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #308E89;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #308E89;
+}
+
+a.article, a.article:hover {
+    background: #308E89 !important;
+    color: #fff !important;
+}
+
+
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+#content {
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        min-width: 80px;
+        max-width: 80px;
+        text-align: center;
+        margin-left: -80px !important ;
+    }
+    a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+        top: auto;
+        bottom: 5px;
+        right: 50%;
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+    }
+    #sidebar.active {
+        margin-left: 0 !important;
+    }
+
+    #sidebar .sidebar-header h3, #sidebar .CTAs {
+        display: none;
+    }
+
+    #sidebar .sidebar-header strong {
+        display: block;
+    }
+
+    #sidebar ul li a {
+        padding: 20px 10px;
+    }
+
+    #sidebar ul li a span {
+        font-size: 0.85em;
+    }
+    #sidebar ul li a i {
+        margin-right:  0;
+        display: block;
+    }
+
+    #sidebar ul ul a {
+        padding: 10px !important;
+    }
+
+    #sidebar ul li a i {
+        font-size: 1.3em;
+    }
+    #sidebar {
+        margin-left: 0;
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
 }
