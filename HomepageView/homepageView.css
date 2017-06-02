@@ -27,30 +27,50 @@ body {
     width: 900px;
     margin-top: 20px;
     margin-left: 300px;
-    padding-top: 10px;
+    padding-top: 30px;
     padding-left: 40px;
-    padding-right: 40px;
+    padding-right: 30px;
+    padding-bottom: 500px;
     background: url(homepageImages/Copy-of-graph-paper-background.gif) repeat;
 }
 
-hData{
+hData{ /*Data in alto a destra nella pagina di diario*/
     padding-top: 100px;
-    padding-left: 650px;
+    padding-left: 680px;
     font-family: "Brush Script MT";
     font-size: 36px;
     color: #308E89;
 }
 
-h4{
-    font-size: 18px;
-    color: #308E89;
+.post {  /*Rettangolino contenente singolo post*/
+    background-color: rgba(255,255,255,0.6);
+    border: 1px solid lightgrey;
+    margin-top: 62px;
+    margin-left: 50px;
+    margin-right: 20px;
 }
 
-.testoNomi{
-    color: #308E89;
+.post .post-intestazione {
+    height: 95px;
+    padding: 20px 15px;
 }
 
-#registrati{
-    color:rgb(48,142,137);
-    font-size: 13px;
+.post .post-intestazione .avatar {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin-right: 15px;
+}
+
+.post .post-intestazione .meta .nomeUtentePost a {  /*Nome utente che ha pubblicato il post*/
+    color: #1b6d85;
+}
+
+.post .post-intestazione .meta .time {  /*Orario pubblicazione il post*/
+    margin-top: 8px;
+    color: #999;
+}
+
+.post .post-testo {
+    padding: 15px;
 }
