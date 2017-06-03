@@ -40,9 +40,6 @@ a, a:hover, a:focus {
     border: none;
 }
 
-
-
-
 #content{
     background: #fff;
     background: rgba(255,255,255,0.8);
@@ -74,39 +71,34 @@ i, span {
 }
 
 
-.post .post-intestazione {
-    margin-left: 50px;
-    height: 95px;
-    padding: 20px 15px;
+/* ---------------------------------------------------
+    POST
+----------------------------------------------------- */
+
+.post img {
+    margin-left: 60px;
+    width: 70px;
+    height: 70px;
+    display: block;
 }
 
-.nomeUtentePost{
+.post a {
+    height: 95px;
+    padding: 20px 15px;
     font-size: 24px;
 }
 
-.post .post-intestazione .avatar {
-    width: 60px;
+.post h6 {
     height: 60px;
-    display: block;
-    margin-right: 15px;
-}
-
-
-.post .post-intestazione .meta .time {  /*Orario pubblicazione il post*/
+    padding-left: 15px;
     margin-top: 8px;
     color: #999;
 }
 
-.post .post-testo {
+.post p {
     margin-left: 50px;
     margin-right: 50px;
-    padding: 15px;
 }
-
-
-
-
-
 
 /* ---------------------------------------------------
     SIDEBAR STYLE
