@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Puzzle</title>
+    <title>PUZZLE - Fuori Diario</title>
 
     <!-- bootstrap -->
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
@@ -22,9 +22,20 @@
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
 
-    <!-- qui poi dovranno essere importati TUTTI gli altri file javascript di TUTTE COSE -->
-    <script src="app.js"></script> <!-- modulo principale -->
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
 
+    <!-- IMPORTAZIONE APP.JS -->
+    <script src="app.js"></script>                                              <!-- modulo principale -->
+
+    <!-- IMPORTAZIONE VISTE -->
+    <script src="loginView/loginView.js"></script>                              <!-- loginView -->
+    <script src="authenticationView/authenticationView.js"></script>            <!-- authView -->
+    <script src="homepageView/homepageView.js"></script>                        <!-- authView -->
+
+    <!-- IMPORTAZIONE COMPONENTI -->
+    <script src="components/authentication/authentication.js"></script>         <!-- autenticazione -->
+    <script src="components/authentication/authentication-service.js"></script> <!-- auth-servizio -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -32,34 +43,25 @@
 </head>
 
 
-<body ng-app="myApp">
-
-    <!-- Navigation bar -->
-
-    <!-- Navigation bar -->
-    <header class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Puzzle</a>
-            </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li> <a href="#">Intro</a></li>
-                <li> <a href="#">Concept</a></li>
-                <li> <a href="#">Funzionalità</a></li>
-                <li> <a href="#">Cosa dicono di noi</a></li>
-                <li> <a href="#">Test GitHub - Peppe</a></li>
-            </ul>
-        </div>
-    </header>
-    <!--  fine Navigation bar -->
-
-
+<body ng-app="puzzle">
 
     <!-- con ng-view gli dico dove deve caricare le differenti viste!-->
-
     <div class="container-fluid" ng-view>
-
     </div>
+
+
+    <!-- MENU TEST -->
+    <!-- Da abilitare soltanto durante le prove -->
+
+    <!--
+        <ul class="menu">
+            <li><a href="#!/loginView">view1</a></li>
+            <li><a href="#!/authView">view2</a></li>
+            <li><a href="#!/homepageView">view3</a></li>
+        </ul>
+    -->
+
+    <!-- FINE MENU TEST -->
 
 
 

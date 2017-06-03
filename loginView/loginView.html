@@ -1,45 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Puzzle - login </title>
 
-    <!--bootstrap Temporaneamente dichiaro la dipedenza, poi è da cancellare-->
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="../lib/bootstrap/css/bootstrap-theme.css">
-
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <!--css-->
-    <link rel="stylesheet" href="../AuthenticationView/authenticationView.css">
+    <link rel="stylesheet" href="../Puzzle-code/AuthenticationView/authenticationView.css">
 
 </head>
 
+<body ng-app="LoginCtrl">
 
 
-<body>
+<!-- MESSAGGIO DI ERRORE -->
+<div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">
+    Login failed! {{ error.message }}
+</div>
+<!-- FINE MESSAGGIO DI ERRORE -->
 
-<form id="msform">
-
+<form id="msform" role="form" ng-submit="signIn()">
 
     <!-- fieldsets -->
 
     <!-- fieldsets 0 -->
-    <img src="../images/logo/banner2.png" height="130" width="325" id="imPuzzle_login"/>
+    <img src="../Puzzle-code/images/logo/banner2.png" height="130" width="325" id="imPuzzle_login"/>
     <h2 id="payoff">Entra nella classe di tuo figlio! <br> Parla con gli insegnanti e interagisci con gli altri
         genitori: chiedi consigli o aiuti e organizza con loro nuove attività! </h2>
 
     <fieldset>
         <br>
-        <input type="text" name="email_login" placeholder="Inserisci Email" />
-        <input type="password" name="password_login" placeholder="Inserisci password" />
+        <input type="text" name="email_login" placeholder="Inserisci Email" required="" autofocus="" ng-model="user.email"/>
+        <input type="password" name="password_login" placeholder="Inserisci password" required="" ng-model="user.password"/>
         <br>
-        <input type="button" name="next" class="next action-button" value="Log in" />
+        <input type="submit" name="next" class="next action-button" value="LogIn"/>
         <br>
         <br>
-        <h2 id="registrato" align="left"> Non sei ancora registrato? <span id="registrati"> Registrati </span> </h2 >
+        <h2 id="registrato" align="left"> Non sei ancora registrato?
+            <span id="registrati">
+                <a href="#!authView">Registrati</a>
+            </span>
+        </h2 >
 
     </fieldset>
 
@@ -68,4 +67,3 @@
     </div> -->
 
 </body>
-</html>
