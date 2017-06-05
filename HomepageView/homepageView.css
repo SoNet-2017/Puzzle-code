@@ -37,7 +37,7 @@ a, a:hover, a:focus {
     margin-bottom: 40px;
     margin-top: 20px;
     margin-right: 10px;
-    position: relative;
+    position: relative; /* da verificare il fixed */
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
