@@ -40,7 +40,7 @@ a, a:hover, a:focus {
     border: none;
 }
 
-#content{
+.content{
     background: #fff;
     background: rgba(255,255,255,0.8);
     margin-top: 110px;
