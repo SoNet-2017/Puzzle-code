@@ -50,7 +50,7 @@ i, span {
 
 #box.active{
     transition: all 0.3s ease-in-out;
-    margin-left: 100px;
+    margin-left: 150px;
 }
 
 /* ---------------------------------------------------
