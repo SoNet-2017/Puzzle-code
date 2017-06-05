@@ -1,9 +1,18 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+html{
+    height: 100vh;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
+    background-image: url(homepageImages/InizioSito_50.png);
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
 }
 
 p {
@@ -21,16 +30,17 @@ a, a:hover, a:focus {
 }
 
 
-/*navbar */
 .navbar {
-    padding: 15px 10px;
+    padding: 15px 40px 15px 40px;
     background: #fff;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
     margin-top: 20px;
     margin-right: 10px;
-    margin-left: 260px;
+    /*margin-left: 260px;*/
+    /*min-width: 1000px;*/
+    position: relative;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -43,7 +53,6 @@ a, a:hover, a:focus {
 .content{
     background: #fff;
     background: rgba(255,255,255,0.8);
-    margin-top: 110px;
     margin-right: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
@@ -106,7 +115,6 @@ i, span {
 .wrapper {
     display: flex;
     align-items: stretch; /*così la mantiente su tutta la pagina */
-    background: url(homepageImages/InizioSito_50.png) repeat;
 }
 
 #sidebar {
@@ -236,13 +244,13 @@ ul ul a {
 
 /* ---------------------------------------------------
     CONTENT STYLE
------------------------------------------------------ */
+z
 #content {
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;
 }
-
+---------------------------------------------------- */
 
 /* ---------------------------------------------------
     MEDIAQUERIES
