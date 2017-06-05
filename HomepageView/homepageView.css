@@ -38,8 +38,6 @@ a, a:hover, a:focus {
     margin-bottom: 40px;
     margin-top: 20px;
     margin-right: 10px;
-    /*margin-left: 260px;*/
-    /*min-width: 1000px;*/
     position: relative;
     box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
@@ -88,7 +86,7 @@ i, span {
     margin-left: 60px;
     width: 70px;
     height: 70px;
-    display: block;
+    /*display: block;*/
 }
 
 .post a {
