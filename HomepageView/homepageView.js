@@ -15,10 +15,3 @@ angular.module('puzzle.homepageView', [
         });
     }]);
 
-
-$(document).ready(function () {
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-        //aggiungere funzione per sistemare il menu sopra fisso e anche
-    });
-});
