@@ -17,7 +17,7 @@
 </div>
 <!-- FINE MESSAGGIO DI ERRORE -->
 
-<form id="msform" role="form" ng-submit="signIn()">
+<form id="msform" name="loginForm" role="form" ng-submit="signIn()">
 
     <!-- fieldsets -->
 
@@ -25,13 +25,13 @@
     <img src="../Puzzle-code/images/logo/banner2.png" height="130" width="325" id="imPuzzle_login"/>
     <h2 id="payoff">Entra nella classe di tuo figlio! <br> Parla con gli insegnanti e interagisci con gli altri
         genitori: chiedi consigli o aiuti e organizza con loro nuove attività! </h2>
-
-    <fieldset>
-        <br>
+    <br>
+    <div>
         <input type="text" name="email_login" placeholder="Inserisci Email" required="" autofocus="" ng-model="user.email"/>
         <input type="password" name="password_login" placeholder="Inserisci password" required="" ng-model="user.password"/>
+
         <br>
-        <input type="submit" name="next" class="next action-button" value="LogIn"/>
+        <input type="submit" name="next" class="next action-button" value="LogIn" ng-disabled="loginForm.$invalid"/>
         <br>
         <br>
         <h2 id="registrato" align="left"> Non sei ancora registrato?
@@ -40,7 +40,7 @@
             </span>
         </h2 >
 
-    </fieldset>
+    </div>
 
 </form>
 

@@ -16,6 +16,8 @@
     <script src="lib/angular/angular.min.js"></script>
     <script src="lib/angular/angular-route.min.js"></script>
     <script src="lib/angular/angular-resource.min.js"></script>
+    <script src="lib/angular/angular-animate.js"></script>
+
     <!--bootstrap -->
     <script src="lib/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
 
@@ -31,40 +33,40 @@
     <!-- IMPORTAZIONE VISTE -->
     <script src="loginView/loginView.js"></script>                              <!-- loginView -->
     <script src="authenticationView/authenticationView.js"></script>            <!-- authView -->
-                        <!-- authView -->
+    <script src="homepageView/homepageView.js"></script>                        <!-- authView -->
 
     <!-- IMPORTAZIONE COMPONENTI -->
     <script src="components/authentication/authentication.js"></script>         <!-- autenticazione -->
-    <script src="components/authentication/authentication-service.js"></script> <!-- auth-servizio -->
-    <script src="HomepageView/homepageView.js"></script>
+    <script src="components/authentication/authentication-service.js"></script> <!-- auth-servizio  -->
+    <script src="components/utenti/utenti.js"></script>                         <!-- utenti -->
+    <script src="components/utenti/utenti-service.js"></script>                 <!-- utenti-service -->
+
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-
 
 </head>
 
 
 <body ng-app="puzzle">
 
-    <!-- con ng-view gli dico dove deve caricare le differenti viste!-->
-    <div class="container-fluid" ng-view>
-    </div>
+<!-- con ng-view gli dico dove deve caricare le differenti viste! -->
+<div class="container-fluid" ng-view></div>
 
 
-    <!-- MENU TEST -->
-    <!-- Da abilitare soltanto durante le prove -->
+<!-- MENU TEST -->
+<!-- Da abilitare soltanto durante le prove -->
 
-    <!--
-        <ul class="menu">
-            <li><a href="#!/loginView">view1</a></li>
-            <li><a href="#!/authView">view2</a></li>
-            <li><a href="#!/homepageView">view3</a></li>
-        </ul>
-    -->
+<!--
+    <ul class="menu">
+        <li><a href="#!/loginView">view1</a></li>
+        <li><a href="#!/authView">view2</a></li>
+        <li><a href="#!/homepageView">view3</a></li>
+    </ul>
+-->
 
-    <!-- FINE MENU TEST -->
+<!-- FINE MENU TEST -->
 
 
 

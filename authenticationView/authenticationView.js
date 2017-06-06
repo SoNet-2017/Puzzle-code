@@ -1,3 +1,4 @@
+'use strict'
 
 angular.module('puzzle.authView', ['ngRoute'])
 
@@ -8,95 +9,89 @@ angular.module('puzzle.authView', ['ngRoute'])
         });
     }])
 
-    .controller('AuthCtrl', [function() {
+    .controller('AuthCtrl', ['$scope', '$rootScope', 'Auth', 'utenti', '$location', function($scope, $rootScope, Auth, utenti, $location) {
+
+        // ELENCO CITTA'
+        $scope.elencoCitta = ["Roma", "Milano", "Napoli", "Palermo", "Taranto", "Torino"];
+
+        // ELENCO SCUOLE
+        $scope.elencoScuole = [
+            {codice: "Roma", scuola: "Leonardo Da Vinci"},
+            {codice: "Roma", scuola: "Antonio Pacinotti"},
+            {codice: "Roma", scuola: "Galileo Galilei"},
+            {codice: "Taranto", scuola: "Eugenio Ferraris"},
+            {codice: "Taranto", scuola: "Scuola Taranto 2"},
+            {codice: "Torino", scuola: "Alessandro Volta"},
+            {codice: "Milano", scuola: "Scuola Milano 1"},
+            {codice: "Milano", scuola: "Scuola Milano 2"},
+            {codice: "Milano", scuola: "Scuola Milano 3"},
+            {codice: "Napoli", scuola: "Scuola Napoli 1"},
+            {codice: "Napoli", scuola: "Scuola Napoli 2"},
+            {codice: "Palermo", scuola: "Scuola Palermo 1"},
+            {codice: "Palermo", scuola: "Scuola Palermo 2"}
+        ];
+
+        // NUMERO CLASSE
+        $scope.numeriClassi = ["I", "II", "III", "IV", "V"];
+
+        // SEZIONE CLASSE
+        $scope.sezioniClassi = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
+
+        // MATERIE DISPONIBILI PER LA SCELTA
+        $scope.elencoMaterie = ["Italiano", "Storia", "Geografia", "Matematica", "Scienze", "Religione", "Educazione Motoria"];
+
+
+        $scope.user = {};
+
+        $scope.signUp = function () {
+            //check if the second password is equal to the first one
+            if ($scope.user.password != '' && $scope.user.password === $scope.user.password2) {
+                //create a new user with specified email and password
+                Auth.$createUserWithEmailAndPassword($scope.user.email, $scope.user.password)
+                    .then(function (firebaseUser) {
+                        Auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function (internalFirebaseUser) {
+                            var userId = internalFirebaseUser.uid;
+
+                            // Registazione GENITORE
+                            if ($scope.user.ruolo === 'GENITORE') {
+                                utenti.registerNewUserInfoGENITORE(userId, $scope.user.nome, $scope.user.cognome, $scope.user.email, $scope.user.ruolo,
+                                    $scope.user.citta, $scope.user.nomeFiglio, $scope.user.cognomeFiglio,
+                                    $scope.user.scuola, $scope.user.fasciaClasse, $scope.user.sezioneClasse);
+                            }
+
+                            // Registazione INSEGNANTE
+                            if ($scope.user.ruolo === 'INSEGNANTE') {
+                                utenti.registerNewUserInfoINSEGNANTE(userId, $scope.user.nome, $scope.user.cognome, $scope.user.email, $scope.user.ruolo,
+                                    $scope.user.citta, $scope.user.scuola, $scope.user.fasciaClasse, $scope.user.sezioneClasse, $scope.user.materia);
+                            }
+
+                            // LOGIN
+                            utenti.registerLogin(userId, $scope.user.email);
+                            // LOGIN ESEGUITO: Reindirizzamento alla HomepageView
+                            $location.path("/homepageView");
+
+                        }).catch(function (error) {
+                            $scope.error = error;
+                            console.log(error.message);
+                        });
+                    }).catch(function (error) {
+                    $scope.error = error;
+                    console.log(error.message);
+                });
+            }
+        };
+
+
+        // FUNZIONI RELATIVO ALLO SCORRERE DEGLI STEP DI REGISTRAZIONE
+        $rootScope.step = {};
+        $rootScope.step.vistaCorrente = 0;
+
+        $scope.stepUp = function(){
+            $rootScope.step.vistaCorrente = $rootScope.step.vistaCorrente + 1;
+        };
+
+        $scope.stepDown = function(){
+            $rootScope.step.vistaCorrente = $rootScope.step.vistaCorrente - 1;
+        };
 
     }]);
-
-/*
-//jQuery time
-var current_fs, next_fs, previous_fs; //fieldsets
-var left, opacity, scale; //fieldset properties which we will animate
-var animating; //flag to prevent quick multi-click glitches
-
-$(".next").click(function(){
-	if(animating) return false;
-	animating = true;
-
-	current_fs = $(this).parent();
-	next_fs = $(this).parent().next();
-
-	//activate next step on progressbar using the index of next_fs
-	$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
-
-	//show the next fieldset
-	next_fs.show();
-	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//as the opacity of current_fs reduces to 0 - stored in "now"
-			//1. scale current_fs down to 80%
-			scale = 1 - (1 - now) * 0.2;
-			//2. bring next_fs from the right(50%)
-			left = (now * 50)+"%";
-			//3. increase opacity of next_fs to 1 as it moves in
-			opacity = 1 - now;
-			current_fs.css({
-        'transform': 'scale('+scale+')',
-        'position': 'absolute'
-      });
-			next_fs.css({'left': left, 'opacity': opacity});
-		},
-		duration: 800,
-		complete: function(){
-			current_fs.hide();
-			animating = false;
-		},
-		//this comes from the custom easing plugin
-		easing: 'easeInOutBack'
-	});
-});
-
-$(".previous").click(function(){
-	if(animating) return false;
-	animating = true;
-
-	current_fs = $(this).parent();
-	previous_fs = $(this).parent().prev();
-
-	//de-activate current step on progressbar
-	$("#progressbar li").eq($("fieldset").index(current_fs)).removeClass("active");
-
-	//show the previous fieldset
-	previous_fs.show();
-	//hide the current fieldset with style
-	current_fs.animate({opacity: 0}, {
-		step: function(now, mx) {
-			//as the opacity of current_fs reduces to 0 - stored in "now"
-			//1. scale previous_fs from 80% to 100%
-			scale = 0.8 + (1 - now) * 0.2;
-			//2. take current_fs to the right(50%) - from 0%
-			left = ((1-now) * 50)+"%";
-			//3. increase opacity of previous_fs to 1 as it moves in
-			opacity = 1 - now;
-			current_fs.css({'left': left});
-			previous_fs.css({'transform': 'scale('+scale+')', 'opacity': opacity});
-		},
-		duration: 800,
-		complete: function(){
-			current_fs.hide();
-			animating = false;
-		},
-		//this comes from the custom easing plugin
-		easing: 'easeInOutBack'
-	});
-});
-
-$(".submit").click(function(){
-	return false;
-})
-
-
-
-
-
-*/

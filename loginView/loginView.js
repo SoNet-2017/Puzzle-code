@@ -13,7 +13,7 @@ angular.module('puzzle.loginView', [
     }])
 
     .controller('LoginCtrl', ['$scope', 'Auth', '$location', '$log', function($scope, Auth, $location, $log) {
-        $scope.user={};
+        $scope.user = {};
         $scope.auth = Auth;   // DA app.js (SE LOGIN CORRETTO)
 
         $scope.signIn = function() {

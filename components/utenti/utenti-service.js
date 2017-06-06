@@ -31,8 +31,8 @@ angular.module('puzzle.utenti.utentiService', [])
                 });
             },
 
-            registerNewUserInfo: function (userId, nome, cognome, email, ruolo, citta, nomeFiglio,
-                                           cognomeFiglio /* scuolaFiglio */, classeFiglio, sezioneFiglio) {
+            registerNewUserInfoGENITORE: function (userId, nome, cognome, email, ruolo, citta, nomeFiglio,
+                                                   cognomeFiglio, scuolaFiglio, classeFiglio, sezioneFiglio) {
 
                 // AGGIUNTA NUOVO UTENTE AL DATABASE
                 var ref = firebase.database().ref().child("utenti").child(userId);
@@ -49,10 +49,32 @@ angular.module('puzzle.utenti.utentiService', [])
                 refFiglio1.set({
                     nomeFiglio: nomeFiglio,
                     cognomeFiglio: cognomeFiglio,
-                    //scuolaFiglio: scuolaFiglio,
+                    scuolaFiglio: scuolaFiglio,
                     classeFiglio: classeFiglio,
                     sezioneFiglio: sezioneFiglio
                 });
+
+
+            },
+
+            registerNewUserInfoINSEGNANTE: function (userId, nome, cognome, email, ruolo, citta,
+                                                     scuolaFiglio, classeFiglio, sezioneFiglio, materia) {
+
+                // AGGIUNTA NUOVO UTENTE AL DATABASE
+                var ref = firebase.database().ref().child("utenti").child(userId);
+
+                ref.set({
+                    nome: nome,
+                    cognome: cognome,
+                    email: email,
+                    citta: citta,
+                    ruolo: ruolo,
+                    scuola: scuolaFiglio,
+                    classe: classeFiglio,
+                    sezione: sezioneFiglio,
+                    materia: materia
+                });
+
             }
         };
     });

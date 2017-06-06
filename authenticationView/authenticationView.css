@@ -13,6 +13,8 @@ body {
 	font-family: montserrat, arial, verdana;
 	background: url(InizioSito_90.png);
 }
+
+
 /*form styles*/
 #msform {
 	width: 400px;
@@ -21,7 +23,7 @@ body {
 	position: relative;
 	padding-top: 20px;
 }
-#msform fieldset {
+#msform div {
 	background: white;
 	border: 0 none;
 	border-radius: 3px;
@@ -33,10 +35,8 @@ body {
 	/*stacking fieldsets above each other*/
 	position: relative;
 }
-/*Nascondo tutti le schermate eccetto la prima*/
-#msform fieldset:not(:first-of-type) {
-	display:none;
-}
+
+
 /*inputs*/
 #msform input {
 	padding: 15px;
@@ -72,6 +72,13 @@ body {
 	padding: 10px 5px;
 	margin: 10px 5px;
 }
+
+#msform .action-button:disabled {
+	background: rgb(178, 180, 179);
+}
+
+
+
 #msform .action-button:hover, #msform .action-button:focus {
 	box-shadow: 0 0 0 2px rgb(48,142,137);
 	-moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
@@ -87,11 +94,9 @@ body {
 .fs-title {
 	font-size: 15px;
 	text-transform: uppercase;
-		color: #343434;
+	color: #343434;
 	margin-bottom: 10px;
 }
-
-
 
 
 /*progressbar*/
@@ -135,7 +140,7 @@ body {
 }
 #progressbar li:first-child:after {
 	/*connector not needed before the first step*/
-	content: none; 
+	content: none;
 }
 /*marking active/completed steps blue*/
 /*The number of the step and the connector before it = blue*/

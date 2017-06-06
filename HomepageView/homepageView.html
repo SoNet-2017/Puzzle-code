@@ -9,8 +9,8 @@
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="HomepageView/homepageView.css">
     <link rel="stylesheet" href="homepageView.css">
-
     <!-- Our Custom CSS -->
 
 </head>
@@ -22,7 +22,8 @@
             <div class="container-fluid">
 
                 <div class="navbar-header">
-                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn"
+                            class="active: ">
                         <i class="glyphicon glyphicon-align-left"></i>
                         <span>Puzzle</span>
                     </button>
@@ -30,9 +31,10 @@
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Diario di classe</a></li>
-                        <li><a href="#">Profilo</a></li>
-                        <li><a href="#">Posta</a></li>
+                        <li><a href="#!/HomepageView">Diario di classe</a></li>
+                        <li><a href="#!/HomepageView">Profilo</a></li>
+                        <li><a href="#!/HomepageView">Posta</a></li>
+                        <li><a href="#!/loginView">Esci</a></li>
                     </ul>
                 </div>
             </div>
@@ -162,7 +164,7 @@
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
-
+    <!-- ANIMAZIONE BARRA LATERALE -->
     <script type="text/javascript">
         $(document).ready(function () {
             $('#sidebarCollapse').on('click', function () {
@@ -172,6 +174,7 @@
             });
         });
     </script>
+    <!-- FINE ANIMAZIONE -->
 
     <!-- Bootstrap Js CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
