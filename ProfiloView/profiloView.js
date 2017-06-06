@@ -5,7 +5,7 @@
 'use strict';
 
 angular.module('puzzle.profiloView', [
-    'ngRoute'
+    'ngRoute',
 ])
 
     .config(['$routeProvider', function($routeProvider) {
