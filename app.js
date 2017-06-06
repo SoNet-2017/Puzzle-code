@@ -27,6 +27,7 @@ angular.module('puzzle', [
     'puzzle.homepageView',
     'puzzle.authentication',
     'puzzle.utenti',
+    'puzzle.profiloView',
     "firebase"
 ])
 
