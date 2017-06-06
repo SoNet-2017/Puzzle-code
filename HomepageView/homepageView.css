@@ -53,6 +53,55 @@ i, span {
     margin-left: 150px;
 }
 
+/*data*/
+.data{
+    text-align: right;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 30px;
+    font-family: "Brush Script MT";
+    font-size: 36px;
+    color: #308E89;
+}
+
+/*post*/
+.post{
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.post img {
+    margin-left: 60px;
+    width: 70px;
+    height: 70px;
+    /*display: block;*/
+}
+
+.post a {
+    height: 95px;
+    padding: 20px 15px;
+    font-size: 24px;
+}
+
+.post h6 {
+    height: 60px;
+    padding-left: 15px;
+    margin-top: 8px;
+    color: #999;
+}
+
+.post p {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 20px 0;
+}
+
 /* ---------------------------------------------------
     Navigation bar
 ----------------------------------------------------- */
