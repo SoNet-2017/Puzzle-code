@@ -64,13 +64,14 @@ i, span {
     color: #308E89;
 }
 
-/*--------- post e profilo ---------------*/
+/* ---------------------------------------------------
+    post, profilo, lista genitori
+----------------------------------------------------- */
 .post
  {
     padding-top: 50px;
     padding-bottom: 50px;
 }
-
 
 .post img {
     margin-left: 60px;
@@ -79,22 +80,30 @@ i, span {
     /*display: block;*/
 }
 
-
 .post a {
     height: 95px;
     padding: 20px 15px;
     font-size: 24px;
 }
+
 .post p, .profilo p {
     margin-left: 50px;
     margin-right: 50px;
+
 }
 
-.post h6{
+.post h6, .post h4{
     height: 60px;
     padding-left: 15px;
     margin-top: 8px;
     color: #999;
+}
+
+.post button{ /*Bottone CONTATTA nella lista genitori */
+    margin-right: 50px;
+    width: 150px;
+    background-color: #308E89;
+    color: white;
 }
 
 /*Immgaine profilo */
