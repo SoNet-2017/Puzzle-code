@@ -12,11 +12,6 @@ html {
 body {
 	font-family: montserrat, arial, verdana;
 	background: url(InizioSito_90.png);
-	background-repeat: no-repeat;
-	background-position: right top;
-	background-attachment: fixed;
-	background-size: cover;
-	height: 100vh;
 }
 
 
@@ -91,6 +86,26 @@ body {
 	-o-box-shadow: 0 0 2px rgb(48,142,137) inset;
 	box-shadow: 0 0 2px rgb(48,142,137) inset;
 	background-color: rgb(48,142,137);
+	border: 1px solid rgb(48,142,137);
+	outline: none;
+
+}
+
+#tendine, #tendine1, #tendine2, #tendine3, tendine4{
+	margin-bottom: 10px;
+}
+
+
+#tendine:hover, #tendine:focus,
+#tendine1:hover, #tendine1:focus,
+#tendine2:hover, #tendine2:focus,
+#tendine3:hover, #tendine3:focus,
+#tendine4:hover, #tendine4:focus{
+	box-shadow: 0 0 0 2px rgb(48,142,137);
+	-moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
+	-ms-box-shadow: 0 0 2px rgb(48,142,137) inset;
+	-o-box-shadow: 0 0 2px rgb(48,142,137) inset;
+	box-shadow: 0 0 2px rgb(48,142,137) inset;
 	border: 1px solid rgb(48,142,137);
 	outline: none;
 

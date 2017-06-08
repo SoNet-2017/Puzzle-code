@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="authenticationView/authenticationView.css">
 
+
+
 </head>
 
 <body ng-controller="AuthCtrl">
@@ -81,10 +83,12 @@
     <input type="text" class="form-control" id="txtName" name="nome" placeholder="Nome" ng-model="user.nome" required/>
     <input type="text" class="form-control" id="txtSurname" name="cognome" placeholder="Cognome" ng-model="user.cognome" required/>
     <!-- MENU A TENDINA ELENCO CITTA -->
-    <select class="form-control" ng-model="user.citta" required>
+
+    <select id="tendine" class="form-control" ng-model="user.citta" required>
       <option value="noValue">--- SELEZIONA UNA CITTA --- </option>
       <option ng-repeat="citta in elencoCitta" value="{{citta}}">{{citta}}</option>
     </select>
+
     <!-- FINE MENU A TENDINA -->
     <!-- FINE BOX -->
     <br>
@@ -110,24 +114,26 @@
            ng-model="user.cognomeFiglio" ng-if="user.ruolo === 'GENITORE'" required="user.ruolo === 'GENITORE'"/>
     <!-- FINE BOX -->
     <!-- BOX SCELTA SCUOLA -->
-    <select class="form-control" ng-model="user.scuola" required>
+
+    <select id="tendine1" class="form-control" ng-model="user.scuola" required>
       <option ng-repeat="scuola in elencoScuole | filter:{codice: user.citta}" value="{{scuola.scuola}}">{{scuola.scuola}}</option>
     </select>
     <!-- FINE BOX -->
     <!-- BOX SCELTA CLASSE -->
-    <select class="form-control" ng-model="user.fasciaClasse" required>
+    <select id="tendine2" class="form-control" ng-model="user.fasciaClasse" required>
       <option ng-repeat="numero in numeriClassi" value="{{numero}}">{{numero}}</option>
     </select>
     <!-- FINE BOX -->
     <!-- BOX SCELTA CLASSE -->
-    <select class="form-control" ng-model="user.sezioneClasse" required>
+    <select id="tendine3" class="form-control" ng-model="user.sezioneClasse" required>
       <option ng-repeat="sezione in sezioniClassi" value="{{sezione}}">{{sezione}}</option>
     </select>
     <!-- FINE BOX -->
     <!-- BOX MATERIA (solo Insegnante) -->
-    <select class="form-control" ng-model="user.materia" ng-if="user.ruolo === 'INSEGNANTE'" required="user.ruolo === 'INSEGNANTE'">
+    <select id="tendine4" class="form-control" ng-model="user.materia" ng-if="user.ruolo === 'INSEGNANTE'" required="user.ruolo === 'INSEGNANTE'">
       <option ng-repeat="materia in elencoMaterie" value="{{materia}}" ng-if="user.ruolo === 'INSEGNANTE'">{{materia}}</option>
     </select>
+
     <!-- FINE BOX -->
     <br>
     <br>
