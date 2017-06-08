@@ -191,3 +191,45 @@ body {
 	color:rgb(48,142,137);
 	font-size: 13px	;
 }
+
+/*--------------------------------
+     Radio Buttons Utenti
+--------------------------------*/
+
+#genitore, #insegnante {
+	display:none;
+}
+
+.genitore{background-image:url(AvatarGenitore.png);}
+.insegnante{background-image:url(AvatarInsegnante.png);}
+
+#insegnante:active +.simboloUtente{opacity: .9;}  /*simbolo opaco finchè non viene selezionato*/
+#genitore:checked +.simboloUtente{ /*il simbolo si accende quando viene selezionato*/
+	/*-webkit-filter: none;
+	-moz-filter: none;*/
+	filter: none;
+}
+
+#insegnante:checked +.simboloUtente{ /*il simbolo si accende quando viene selezionato*/
+	/*-webkit-filter: none;
+	-moz-filter: none;*/
+	filter: none;
+}
+.simboloUtente{
+	cursor:pointer;             /*manina*/
+	background-size:contain;
+	background-repeat:no-repeat;
+	/*display:inline-block;*/
+	width:70px; height:70px;
+	-webkit-transition: all 100ms ease-in;
+	-moz-transition: all 100ms ease-in;
+	transition: all 100ms ease-in;
+	-webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+	-moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+	filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.simboloUtente:hover{
+	-webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+	-moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+	filter: brightness(1.2) grayscale(.5) opacity(.9);
+}

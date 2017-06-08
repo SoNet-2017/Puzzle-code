@@ -38,9 +38,20 @@
     <br>
     <h2 class="fs-title">Chi sono</h2>
     <br>
-    <!-- BOX SCELTA INSEGNANTE/GENITORE -->
+    <!-- BOX SCELTA INSEGNANTE/GENITORE
     <input type="radio" name="ruolo" value="INSEGNANTE" ng-model="user.ruolo"> Insegnante<br>
     <input type="radio" name="ruolo" value="GENITORE" ng-model="user.ruolo"> Genitore<br>
+    -->
+
+
+    <input id="genitore" type="radio" name="ruolo" value="GENITORE" ng-model="user.ruolo"/>
+    <label class="simboloUtente genitore" for="genitore"></label> <br>Genitore<br><br>
+
+    <input id="insegnante" type="radio" name="ruolo" value="INSEGNANTE" ng-model="user.ruolo"/>
+    <label class="simboloUtente insegnante"for="insegnante"></label> <br>Insegnante<br>
+
+
+
     <!-- FINE BOX -->
     <br>
     <br>
