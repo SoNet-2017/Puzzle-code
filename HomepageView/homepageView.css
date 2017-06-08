@@ -171,10 +171,11 @@ i, span {
     margin-left:300px;
 }
 
-.navbar-btn {
+#sidebarCollapse {
     box-shadow: none;
     outline: none !important;
     border: none;
+    background-color: #308e89 ;
 }
 
 #navigationbar.active{
