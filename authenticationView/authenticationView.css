@@ -12,6 +12,11 @@ html {
 body {
 	font-family: montserrat, arial, verdana;
 	background: url(InizioSito_90.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+	background-attachment: fixed;
+	background-size: cover;
+	height: 100vh;
 }
 
 
