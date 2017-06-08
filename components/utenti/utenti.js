@@ -8,6 +8,7 @@
 
 angular.module('puzzle.utenti', [
     'puzzle.utenti.utentiService',
+    'puzzle.utenti.CommonProp'
 ])
 
     .value('version', '0.1');

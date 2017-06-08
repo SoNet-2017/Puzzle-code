@@ -9,8 +9,26 @@
 
 angular.module('puzzle.utenti.utentiService', [])
 
-    .factory('utenti', function($firebaseArray) {
+    .factory('utenti', ['$firebaseAuth', function($firebaseAuth){
+
+        var utenteLoggato = "";
+        var auth = $firebaseAuth();
+
         return {
+
+            logoutUser: function(){
+                auth.$signOut();
+                console.log("Utente disconnesso");
+                utenteLoggato = "";
+                localStorage.removeItem('userEmail');
+                //var ref = firebase.database().ref().child("utenti").child(email);
+                // LOGOUT
+                //ref.update({
+                //    logged: false
+                //});
+            },
+
+
             registerLogin: function (userId, email) {
 
                 // AGGIUNTA UTENTE A ELENCO UTENTI
@@ -22,14 +40,6 @@ angular.module('puzzle.utenti.utentiService', [])
                 });
             },
 
-            registerLogout: function (userId)
-            {
-                var ref = firebase.database().ref().child("utenti").child(userId);
-                // LOGOUT
-                ref.update({
-                    logged: false
-                });
-            },
 
             registerNewUserInfoGENITORE: function (userId, nome, cognome, email, ruolo, citta, nomeFiglio,
                                                    cognomeFiglio, scuolaFiglio, classeFiglio, sezioneFiglio) {
@@ -76,5 +86,7 @@ angular.module('puzzle.utenti.utentiService', [])
                 });
 
             }
+
+
         };
-    });
+    }]);
