@@ -45,4 +45,11 @@ angular.module('puzzle', [
                 $location.path("/loginView");
             }
         });
+    }])
+
+    .controller('indexCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+
+        $rootScope.pagina = {};
+        $rootScope.pagina.pagCorrente = 'loginView';
+
     }]);

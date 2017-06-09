@@ -41,7 +41,7 @@
     <script src="components/authentication/authentication-service.js"></script> <!-- auth-servizio  -->
     <script src="components/utenti/utenti.js"></script>                         <!-- utenti -->
     <script src="components/utenti/utenti-service.js"></script>                 <!-- utenti-service -->
-
+    <script src="components/utenti/utenti-CommonProp.js"></script>              <!--  -->
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -51,10 +51,93 @@
 </head>
 
 
-<body ng-app="puzzle">
+<body ng-app="puzzle" ng-controller="indexCtrl">
 
 <!-- con ng-view gli dico dove deve caricare le differenti viste! -->
 <div class="container-fluid" ng-view></div>
+
+<!-- NAVIGATION BAR  -->
+<header>
+    <nav class="navbar navbar-default navbar-fixed-top" id="navigationbar"
+         ng-hide="pagina.pagCorrente === 'authView' || pagina.pagCorrente === 'loginView'">
+        <div class="navbar-header">
+            <!-- PULSANTE -->
+            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+                <!-- IMAGE PULSANTE -->
+                <i class="glyphicon glyphicon-align-left"></i>
+                <!-- TITOLO PULSANTE -->
+                <span>PUZZLE</span>
+            </button>
+            <!-- FINE PULSANTE -->
+        </div>
+        <!-- LINK RAPIDI HEADER -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#!/homepageView">Diario di classe</a></li>
+                <li><a href="#!/profiloView">Profilo</a></li>
+                <li><a href="#!/homepageView">Posta</a></li>
+                <li><a href="#!/loginView" ng-click="logoutUser()">Logout</a></li>
+                <!-- <li><a href="#!/loginView" ng-click="logOut()">Esci</a></li> -->
+            </ul>
+        </div>
+        <!-- FINE LINK RAPIDI HEADER -->
+    </nav>
+</header>
+
+<!-- SIDEBAR  -->
+<nav class="navbar navbar-fixed-top" id="sidebar" ng-hide="pagina.pagCorrente === 'authView' || pagina.pagCorrente === 'loginView'">
+    <!-- INTESTAZIONE SIDEBAR  -->
+    <div class="sidebar-header">
+        <h3>Puzzle</h3>
+        <strong>PLZ</strong>
+    </div>
+
+    <!-- INIZIO MENU  -->
+    <ul class="list-unstyled components">
+        <!-- TITOLO ELENCO INSEGNANTI  -->
+        <li>
+            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+                <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-352-book-open.png" height="22" width="24"/></i>
+                Insegnanti
+            </a>
+            <!-- ELENCO INSEGNANTI  -->
+            <ul class="collapse list-unstyled" id="homeSubmenu">
+                <li><a href="#">Liliana Scaffidi</a></li>
+                <li><a href="#">Pamela Siclari</a></li>
+                <li><a href="#">Antonella Corigliano</a></li>
+                <li><a href="#">Elisa Musolino</a></li>
+                <li><a href="#">Genoffa Anastasia</a></li>
+            </ul>
+        </li>
+        <!-- TITOLO ELENCO GENITORI  -->
+        <li>
+            <a href="#genitoreSubmenu" data-toggle="collapse" aria-expanded="false">
+                <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-500-family.png" height="22" width="35"/>
+                </i>
+                Genitori
+            </a>
+            <!-- ELENCO GENITORI  -->
+            <ul class="collapse list-unstyled" id="genitoreSubmenu">
+                <li><a href="#">Contatta un genitore</a></li>
+                <li><a href="#">Accedi all'area comune</a></li>
+            </ul>
+        </li>
+        <!-- LINK EVENTI  -->
+        <li>
+            <a href="#">
+                <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/></i>
+                Eventi
+            </a>
+        </li>
+        <!-- LINK SPAZIO SCUOLA  -->
+        <li>
+            <a href="#">
+                <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-712-government.png" height="25" width="26"/></i>
+                Spazio Scuola
+            </a>
+        </li>
+    </ul>
+</nav>
 
 
 <!-- MENU TEST -->

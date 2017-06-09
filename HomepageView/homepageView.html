@@ -1,94 +1,10 @@
-<!DOCTYPE html>
-<html>
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>Puzzle Social Network</title>
-
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="HomepageView/homepageView.css">
-    <link rel="stylesheet" href="homepageView.css">
-    <!-- Our Custom CSS -->
 
 </head>
 <body>
-
-    <!-- Navigation -->
-    <header>
-        <nav class="navbar navbar-default navbar-fixed-top" id="navigationbar">
-            <div class="container-fluid">
-
-                <div class="navbar-header">
-                    <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                        <i class="glyphicon glyphicon-align-left"></i>
-                        <span>Puzzle</span>
-                    </button>
-                </div>
-
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#!/HomepageView">Diario di classe</a></li>
-                        <li><a href="#!/HomepageView">Profilo</a></li>
-                        <li><a href="#!/HomepageView">Posta</a></li>
-                        <li><a href="#!/loginView">Esci</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-
-    <!-- Sidebar  -->
-    <nav class="navbar navbar-fixed-top" id="sidebar" >
-        <div class="sidebar-header">
-            <h3>Puzzle</h3>
-            <strong>PZL</strong>
-        </div>
-
-        <ul class="list-unstyled components">
-            <li>
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i ><img src="glyphicons_free/glyphicons/png/glyphicons-352-book-open.png" height="22" width="24"/></i>
-                    Insegnanti
-                </a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li><a href="#">Liliana Scaffidi</a></li>
-                    <li><a href="#">Pamela Siclari</a></li>
-                    <li><a href="#">Antonella Corigliano</a></li>
-                    <li><a href="#">Elisa Musolino</a></li>
-                    <li><a href="#">Genoffa Anastasia</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#genitoreSubmenu" data-toggle="collapse" aria-expanded="false">
-                    <i> <img src="glyphicons_free/glyphicons/png/glyphicons-500-family.png" height="22" width="35"/>
-                    </i>
-                    Genitori
-                </a>
-                <ul class="collapse list-unstyled" id="genitoreSubmenu">
-                    <li><a href="#">Contatta un genitore</a></li>
-                    <li><a href="#">Accedi all'area comune</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i ><img src="glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/></i>
-                    Eventi
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i ><img src="glyphicons_free/glyphicons/png/glyphicons-712-government.png" height="25" width="26"/></i>
-                    Spazio Scuola
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    
 
     <div class="container-fluid">
         <div class="row ">
@@ -101,7 +17,7 @@
                         <div class="row">
                             <div class="media">
                                 <div class="media-left">
-                                    <img src="homepageImages/personas-Antonia.jpg" class="media-object img-circle" alt="Sample Image">
+                                    <img src="HomepageView/homepageImages/personas-Antonia.jpg" class="media-object img-circle" alt="Sample Image">
                                 </div>
                                 <div class="media-body">
                                     <a href="#">Pamela Siclari</a>
@@ -120,7 +36,7 @@
                         <div class="row">
                             <div class="media">
                                 <div class="media-left">
-                                    <img src="homepageImages/personas-Aurora.jpg" class="media-object img-circle" alt="Sample Image">
+                                    <img src="HomepageView/homepageImages/personas-Aurora.jpg" class="media-object img-circle" alt="Sample Image">
                                 </div>
                                 <div class="media-body">
                                     <a href="#">Liliana Scaffidi</a>
@@ -139,7 +55,7 @@
                         <div class="row">
                             <div class="media">
                                 <div class="media-left">
-                                    <img src="homepageImages/personas-Antonia.jpg" class="media-object img-circle" alt="Sample Image">
+                                    <img src="HomepageView/homepageImages/personas-Antonia.jpg" class="media-object img-circle" alt="Sample Image">
                                 </div>
                                 <div class="media-body">
                                     <a href="#">Pamela Siclari</a>
@@ -159,25 +75,4 @@
         </div>
     </div>
 
-
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-
-    <!-- ANIMAZIONE BARRA LATERALE -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#sidebarCollapse').on('click', function () {
-                $('#sidebar').toggleClass('active');
-                $('#navigationbar').toggleClass('active');
-                $ ('#box').toggleClass('active');
-            });
-        });
-    </script>
-    <!-- FINE ANIMAZIONE -->
-
-    <!-- Bootstrap Js CDN -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
 </body>
-</html>

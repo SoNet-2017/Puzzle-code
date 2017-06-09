@@ -12,7 +12,10 @@ angular.module('puzzle.loginView', [
         });
     }])
 
-    .controller('LoginCtrl', ['$scope', 'Auth', '$location', '$log', function($scope, Auth, $location, $log) {
+    .controller('LoginCtrl', ['$scope', '$rootScope', 'Auth', '$location', '$log', function($scope, $rootScope, Auth, $location, $log) {
+
+        $rootScope.pagina.pagCorrente = "loginView";
+
         $scope.user = {};
         $scope.auth = Auth;   // DA app.js (SE LOGIN CORRETTO)
 
