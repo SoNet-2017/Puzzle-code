@@ -86,7 +86,7 @@ i, span {
     font-size: 24px;
 }
 
-.post p, .profilo p {
+.post p {
     margin-left: 50px;
     margin-right: 50px;
 
@@ -106,44 +106,77 @@ i, span {
     color: white;
 }
 
-/*Immgaine profilo */
 
-.profilo{
-    padding-top: 30px;
-    padding-bottom:30px;
+
+/*------------------------------------
+ -------------------------- PROFILO */
+.profilo {
+    -webkit-background-size:cover;
+    background-size:cover;
+    -moz-background-size:cover;
     position: relative;
+    padding-left: 0px;
 }
-.img-profilo {
-    margin-left: 250px;
-    width: 200px;
-    height: 200px;
-
+.profilo-info{
+    /*padding: 4em 0;*/
 }
 
-/*informazioni personali nel profilo */
-.profilo li{
-    height: 30px;
-    padding-left: 40px;
-    margin-top: 10px;
-    font-size: 18px;
+.profilo ul{
+    margin:0;
+    padding:0;
+}
+
+
+.header-left img {
+
+    border: 5px solid rgba(255, 255, 255, 0.68);
+    width: 90%;
+}
+
+/*INFORMAZIONI PERONALI */
+.header-right {
+    padding-left: 1em;
+    width: 47%;
+}
+
+/*NOME E COGNOME*/
+.header-right h1 {
+    font-size: 2em;
     color: #343434;
+    margin: 0.5em 0 0;
 }
 
-/*informazioni personali nel profilo */
 
-/*Nome e cognome */
-.profilo h2{
-    height: 40px;
-    font-size: 25px;
-    padding-left: 40px;
+/*sono genitore/insegnante di */
+.header-right h6 {
+    font-size: 1em;
+    color: #C7C7C7;
+    margin-top: 0.8em;
+    letter-spacing: 6px;
+
 }
 
-/*margine tra immagine (puzzle) e scritte (città, nome e figlio)*/
-.infoPersonali li img {
-    margin-right: 10px;
-    height: 22px;
-    width: 22px;
+/*elenco informazioni peronsali */
+ul.informazioniPersonali{
+    margin-top: 2em;
+    border-top: 1px solid #AFAFAF;
+    padding-top: 0.5em;
 }
+ul.informazioniPersonali li {
+    display: block;
+}
+ul.informazioniPersonali li ul.informazioniPersonali-text li {
+    display: inline-block;
+    font-size: 1.2em;
+    color: #343434;
+    margin-top: 1em;
+    font-weight: 100;
+}
+
+/*ul.informazioniPersonali li ul.informazioniPersonali-text li:nth-child(1){
+     width: 20%;
+ }*/
+
 
 /*linea divisoria */
 .line {
