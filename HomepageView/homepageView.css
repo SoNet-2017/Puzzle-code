@@ -5,7 +5,8 @@
     BODY
 ----------------------------------------------------- */
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family:'Roboto Condensed', sans-serif;
+    /*font-family: 'Poppins', sans-serif;*/
     background-image: url(homepageImages/InizioSito_50.png);
     background-repeat: no-repeat;
     background-position: right top;
@@ -15,7 +16,7 @@ body {
 }
 
 p {
-    font-family: 'Poppins', sans-serif;
+    /*font-family: 'Poppins', sans-serif;*/
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
@@ -46,6 +47,7 @@ i, span {
     padding-right:50px;
     background: #fff;
     background: rgba(255,255,255,0.9);
+
 }
 
 #box.active{
@@ -130,13 +132,19 @@ i, span {
 .header-left img {
 
     border: 5px solid rgba(255, 255, 255, 0.68);
-    width: 90%;
+    width: 70%;
+    margin-left: 50px;
+    margin-top: 15px;
+    border: 2px solid #343434;
 }
 
 /*INFORMAZIONI PERONALI */
 .header-right {
     padding-left: 1em;
-    width: 47%;
+    width: 450px;
+    position:relative;
+    float: left;
+    margin-right: 50px;
 }
 
 /*NOME E COGNOME*/
@@ -149,10 +157,11 @@ i, span {
 
 /*sono genitore/insegnante di */
 .header-right h6 {
-    font-size: 1em;
+    font-size: 1.2em;
     color: #C7C7C7;
     margin-top: 0.8em;
     letter-spacing: 6px;
+    font-family: 'Overlock';
 
 }
 
@@ -167,7 +176,7 @@ ul.informazioniPersonali li {
 }
 ul.informazioniPersonali li ul.informazioniPersonali-text li {
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #343434;
     margin-top: 1em;
     font-weight: 100;
@@ -413,4 +422,20 @@ ul ul a {
     #sidebarCollapse span {
         display: none;
     }
+}
+
+
+/* -------- materiale didattico ----------- */
+
+.materialeD{
+    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-right: 70px;
+    margin-left: 330px;
+    padding-top: 50px;
+    padding-bottom:50px;
+    padding-left: 50px;
+    padding-right:50px;
+    background: #fff;
+    background: rgba(255,255,255,0.9);
 }
