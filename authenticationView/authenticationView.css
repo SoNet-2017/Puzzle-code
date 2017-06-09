@@ -11,7 +11,7 @@ html {
 
 body {
 	font-family: montserrat, arial, verdana;
-	background: url(InizioSito_90.png);
+	background: url(../images/sfondo/InizioSito_90.png);
 	background-repeat: no-repeat;
 	background-position: right top;
 	background-attachment: fixed;
@@ -187,10 +187,13 @@ body {
 #registrato{
 	font-size: 12px;
 }
-#registrati{
+
+#msform a{
 	color:rgb(48,142,137);
-	font-size: 13px	;
-}
+	font-size: 13px;
+	font-style: italic;
+	font-weight: bold;
+ }
 
 /*--------------------------------
      Radio Buttons Utenti
@@ -200,8 +203,8 @@ body {
 	display:none;
 }
 
-.genitore{background-image:url(AvatarGenitore.png);}
-.insegnante{background-image:url(AvatarInsegnante.png);}
+.genitore{background-image:url(../images/avatars/AvatarGenitore.png);}
+.insegnante{background-image:url(../images/avatars/AvatarInsegnante.png);}
 
 #insegnante:active +.simboloUtente{opacity: .9;}  /*simbolo opaco finchè non viene selezionato*/
 #genitore:checked +.simboloUtente{ /*il simbolo si accende quando viene selezionato*/

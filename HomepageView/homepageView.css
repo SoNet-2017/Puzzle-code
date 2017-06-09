@@ -244,8 +244,14 @@ ul.informazioniPersonali li ul.informazioniPersonali-text li {
     position: fixed;
     float: right;
     height:100vh;
-
 }
+
+.sidebar-header .img{
+    position: relative;
+    padding-left: 40px;
+}
+
+.img-responsive {margin:0 auto;}
 
 
 /*SIDEBAR PICCOLO ATTIVATO */
@@ -363,10 +369,6 @@ ul ul a {
 
 
 
-
-
-
-
 /* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
@@ -389,9 +391,10 @@ ul ul a {
         margin-left: 0 !important;
     }
 
-    #sidebar .sidebar-header h3 {
+    /*
+    #sidebar .sidebar-header img {   se vogliamo l'animazione della sidebar
         display: none;
-    }
+    }*/
 
     #sidebar .sidebar-header strong {
         display: block;
