@@ -8,35 +8,41 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row ">
-        <div class="col-lg-12" >
+
             <div class="box" id="box">
 
-                <!-- ---------------------------------------------------------------------------------------------------- -->
+                <!-- -------   RIGA SUPERIORE CONTENENTE A SX BOTTONE PER NUOVO POST E A DX DATA GIORNALIERA   --------------- -->
 
-                <!-- DATA ODIERNA -->
-                <div class="data"> {{ today | date : " d MMMM" }} </div>
+                <div class="row ">
 
-                <!-- ---------------------------------------------------------------------------------------------------- -->
+                    <!-- SCRIVI POST | SOLO INSEGNANTE |-->
+                    <div class="col-lg-8" >
+                        <div class="post" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
+                            <button class="btn" type="button" data-toggle="modal" data-target="#creaPost">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                                &nbsp; Condividi la tua giornata
+                            </button>
+                        </div>
+                    </div>
 
-                <!-- SCRIVI POST | SOLO INSEGNANTE | -->
+                    <!-- DATA ODIERNA -->
+                    <div class="data"> {{ today | date : " d MMMM" }} </div>
 
-                <div ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-                    <button type="button" data-toggle="modal" data-target="#creaPost">
-                        Scrivi un nuovo Post
-                    </button>
                 </div>
 
+                <!---------------------------------------------------------------------------------------------------------------->
 
-
-                <!-- ---------------------------------------------------------------------------------------------------- -->
 
                 <div class="post" ng-repeat="singoloPost in post.listaPost | orderBy:'-timestamp'">
+
+                    <div class="line"> </div>
+
                     <div class="row">
                         <div class="media" ng-repeat="utente in tuttiGliUtenti.elencoUtenti | filter: {'ID' : singoloPost.IDutente} : true">
                             <div class="media-left">
-                                <img src="../Puzzle-code/authenticationView/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo" alt="INSEGNANTE">
+                                <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo" alt="INSEGNANTE">
                             </div>
                             <div class="media-body">
                                 <label>
@@ -52,14 +58,17 @@
                         </div>
                     </div>
                     <div class="row" ng-if="singoloPost.IDutente === utenteRegistrato.user.ID">
-                        <div class="col-lg-12">
-                            <button type="button" class="btn bnt-sm btn-primary" ng-click="editPost(singoloPost.$id)" data-toggle="modal" data-target="#modifica">
-                                Modifica
+                        <div class="bottoniPost">
+                            <button type="button" ng-click="editPost(singoloPost.$id)" data-toggle="modal" data-target="#modifica">
+                                <i class="glyphicon glyphicon-edit"></i> &nbsp; Modifica
                             </button>
-                            <button type="button" class="btn bnt-sm btn-danger" ng-click="deletePost(singoloPost)" data-toggle="modal" data-target="#elimina">
-                                Elimina
+                            <button type="button" ng-click="deletePost(singoloPost)" data-toggle="modal" data-target="#elimina">
+                                <i class="glyphicon glyphicon-trash"></i> &nbsp; Elimina
                             </button>
                         </div>
+
+
+
                     </div>
                 </div>
 
@@ -68,7 +77,7 @@
                 <!-- ---------------------------------------------------------------------------------------------------- -->
 
             </div>
-        </div>
+
     </div>
 </div>
 
@@ -80,7 +89,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modifica Post</h4>
+                <h4 class="modal-title">Modifica il tuo post</h4>
             </div>
             <div class="form-group">
                 <form role="form" name="postForm" novalidate="">
@@ -90,8 +99,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updatePost(editPostData.$id)">Aggiorna</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+                <button type="button" class="btn" data-dismiss="modal" ng-click="updatePost(editPostData.$id)">Aggiorna</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
             </div>
         </div>
 
@@ -106,14 +115,14 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Elimina Post</h4>
+                <h4 class="modal-title">Elimina il tuo post</h4>
             </div>
             <div class="modal-body">
-                <p>Sei sicuro di voler cancellare questo post?</p>
+                <p><em>Sei sicuro di voler eliminare questo post?</em></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="confirmDeletePost(postDaEliminare)">Cancella</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+                <button type="button" class="btn" data-dismiss="modal" ng-click="confirmDeletePost(postDaEliminare)">Elimina</button>
+                <button type="button" class="btn" data-dismiss="modal">Annulla</button>
             </div>
         </div>
 
@@ -142,8 +151,8 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary" ng-disabled="postForm.$invalid" ng-click="createPost()" data-dismiss="modal">Aggiungi Post</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+                <button type="submit" class="btn" ng-disabled="postForm.$invalid" ng-click="createPost()" data-dismiss="modal">Aggiungi Post</button>
+                <button type="button" class="btn" data-dismiss="modal">Annulla</button>
             </div>
 
         </div>
