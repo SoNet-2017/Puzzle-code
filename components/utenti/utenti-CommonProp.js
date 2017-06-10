@@ -15,7 +15,15 @@ angular.module('puzzle.utenti.CommonProp', [])
 
                 var userRef = firebase.database().ref().child("utenti").child(userId);
                 return $firebaseObject(userRef);
+            },
+
+            getAllUser: function(){
+
+                // ARRAY DI TUTTI GLI UTENTI REGISTRATI NEL DATABASE
+                var ref = firebase.database().ref().child("utenti");
+                return $firebaseArray(ref);
+
             }
+
         };
     });
-

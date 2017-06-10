@@ -1,78 +1,153 @@
 <head>
 
     <title>Puzzle Social Network</title>
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.css">
     <link rel="stylesheet" href="HomepageView/homepageView.css">
 
 </head>
 <body>
 
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-lg-12" >
-                <div class="box" id="box">
+<div class="container">
+    <div class="row ">
+        <div class="col-lg-12" >
+            <div class="box" id="box">
 
-                    <div class="data"> {{ today | date : " d MMMM" }} </div>
+                <!-- ---------------------------------------------------------------------------------------------------- -->
 
-                    <div class="post">
-                        <div class="row">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="HomepageView/homepageImages/personas-Antonia.jpg" class="media-object img-circle" alt="Sample Image">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#">Pamela Siclari</a>
-                                    <h6>1 minuto fa</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <p>Oggi ho spiegato a scuola l'ultimo argomento del programma. Ricordo che lunedì prossimo ci sarà la verifica in classe di matematica.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="line"> </div>
-                    <div class="post">
-                        <div class="row">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="HomepageView/homepageImages/personas-Aurora.jpg" class="media-object img-circle" alt="Sample Image">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#">Liliana Scaffidi</a>
-                                    <h6>10:54</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <p>Ho caricato, nel mio materiale, la poesia dettata ieri in aula ai bambini. Correggete laddove trovate errori.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="line"> </div>
-                    <div class="post">
-                        <div class="row">
-                            <div class="media">
-                                <div class="media-left">
-                                    <img src="HomepageView/homepageImages/personas-Antonia.jpg" class="media-object img-circle" alt="Sample Image">
-                                </div>
-                                <div class="media-body">
-                                    <a href="#">Pamela Siclari</a>
-                                    <h6>08:48</h6>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <p>Oggi ho spiegato a scuola l'ultimo argomento del programma. Ricordo che lunedì prossimo ci sarà la verifica in classe di matematica.</p>
-                            </div>
-                        </div>
-                    </div>
+                <!-- DATA ODIERNA -->
+                <div class="data"> {{ today | date : " d MMMM" }} </div>
 
+                <!-- ---------------------------------------------------------------------------------------------------- -->
+
+                <!-- SCRIVI POST | SOLO INSEGNANTE | -->
+
+                <div ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
+                    <button type="button" data-toggle="modal" data-target="#creaPost">
+                        Scrivi un nuovo Post
+                    </button>
                 </div>
+
+
+
+                <!-- ---------------------------------------------------------------------------------------------------- -->
+
+                <div class="post" ng-repeat="singoloPost in post.listaPost | orderBy:'-timestamp'">
+                    <div class="row">
+                        <div class="media" ng-repeat="utente in tuttiGliUtenti.elencoUtenti | filter: {'ID' : singoloPost.IDutente} : true">
+                            <div class="media-left">
+                                <img src="../Puzzle-code/authenticationView/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo" alt="INSEGNANTE">
+                            </div>
+                            <div class="media-body">
+                                <label>
+                                    <a href=""> {{utente.nome}} {{utente.cognome}} </a>
+                                </label>
+                                <h6>{{singoloPost.timestamp}}</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <p>{{singoloPost.contenuto}}</p>
+                        </div>
+                    </div>
+                    <div class="row" ng-if="singoloPost.IDutente === utenteRegistrato.user.ID">
+                        <div class="col-lg-12">
+                            <button type="button" class="btn bnt-sm btn-primary" ng-click="editPost(singoloPost.$id)" data-toggle="modal" data-target="#modifica">
+                                Modifica
+                            </button>
+                            <button type="button" class="btn bnt-sm btn-danger" ng-click="deletePost(singoloPost)" data-toggle="modal" data-target="#elimina">
+                                Elimina
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- ---------------------------------------------------------------------------------------------------- -->
+
             </div>
         </div>
     </div>
+</div>
+
+<!-- MODAL: EDIT -->
+<div class="modal fade" id="modifica" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modifica Post</h4>
+            </div>
+            <div class="form-group">
+                <form role="form" name="postForm" novalidate="">
+                 <textarea name="postTxt" class="form-control" placeholder="Scrivi qui la tua giornata"
+                           ng-model="editPostData.contenuto" ng-minlength="20" required="">
+                 </textarea>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="updatePost(editPostData.$id)">Aggiorna</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- MODAL: ELIMINA -->
+<div class="modal fade" id="elimina" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Elimina Post</h4>
+            </div>
+            <div class="modal-body">
+                <p>Sei sicuro di voler cancellare questo post?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="confirmDeletePost(postDaEliminare)">Cancella</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- MODAL: SCRIVI POST -->
+<div class="modal fade" id="creaPost" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Scrivi un nuovo post</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" name="postForm" novalidate="" ng-submit="createPost()">
+
+                    <div class="form-group">
+                 <textarea name="postTxt" class="form-control" placeholder="Scrivi qui la tua giornata"
+                           ng-model="postTxt" ng-minlength="20" required="">
+                 </textarea>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" ng-disabled="postForm.$invalid" ng-click="createPost()" data-dismiss="modal">Aggiungi Post</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Chiudi</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 
 </body>

@@ -28,6 +28,8 @@ angular.module('puzzle', [
     'puzzle.authentication',
     'puzzle.utenti',
     'puzzle.profiloView',
+    'puzzle.addPostView',
+    'puzzle.post',
     "firebase"
 ])
 

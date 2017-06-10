@@ -49,6 +49,7 @@ angular.module('puzzle.utenti.utentiService', [])
                 var refFiglio1 = firebase.database().ref().child("utenti").child(userId).child("figlio1");
 
                 ref.set({
+                    ID: userId,
                     nome: nome,
                     cognome: cognome,
                     email: email,
@@ -74,6 +75,7 @@ angular.module('puzzle.utenti.utentiService', [])
                 var ref = firebase.database().ref().child("utenti").child(userId);
 
                 ref.set({
+                    ID: userId,
                     nome: nome,
                     cognome: cognome,
                     email: email,

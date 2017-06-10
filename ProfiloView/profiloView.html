@@ -12,213 +12,158 @@
 <!--     anzichè richiamarla N volte, in modo tale da ottimizzare il sistema       -->
 <!--                                                               [ Peppe ]       -->
 
-<!-- BOX -->
+    <!-- BOX -->
 
+    <div class="box">
+        <div id="box" class="profilo">
+            <div class="profilo-info">
+                <div class="container">
 
-<div class="container-fluid">
-    <div class="row ">
-        <div class="col-lg-12" >
-            <div class="box" id="box">
+                    <!-- IMMAGINE DEL PROFILO -->
+                    <div class="col-md-4 header-left">
 
-                <!-- ---------------------------------------------------------------------------------------------------- -->
-
-                <!-- PROFILO  -->
-                <div class="profilo" >
-                    <div class="row">
-                        <div class="media">
-
-                            <!-- ---------------------------------------------------------------------------------------------------- -->
-
-                            <!-- IMMAGINE DEL PROFILO -->
-                            <div class="media-left">
-                                <img src="../Puzzle-code/authenticationView/AvatarGenitore.png" class="media-object img-thumbnail img-profilo"
-                                     alt="GENITORE" ng-if="utenteRegistrato.user.ruolo === 'GENITORE'">
-                                <img src="../Puzzle-code/authenticationView/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo"
-                                     alt="INSEGNANTE" ng-if="utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-                            </div>
-                            <!-- FINE IMMAGINE DEL PROFILO -->
-
-                            <!-- ---------------------------------------------------------------------------------------------------- -->
-
-                            <!-- DATI PROFILO -->
-                            <div class="media-body">
-                                <!-- NOME E COGNOME UTENTE -->
-                                <h2>{{utenteRegistrato.user.nome}} {{utenteRegistrato.user.cognome}}</h2>
-                                <!-- FINE NOME E COGNOME    -->
-
-
-                                <!-- EMAIL UTENTE -->
-                                <ul class="list-unstyled infoPersonali">
-                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/> </i>
-                                        Email: {{utenteRegistrato.user.email}}
-                                    </li>
-                                </ul>
-                                <!-- FINE CITTA UTENTE -->
-                                <!-- CITTA UTENTE -->
-                                <ul class="list-unstyled infoPersonali">
-                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/> </i>
-                                        Città: {{utenteRegistrato.user.citta}}
-                                    </li>
-                                </ul>
-                                <!-- FINE CITTA UTENTE -->
-                                <!-- --------------------------------------------------------------------------------------------------- -->
-                                <!-- ----------------- -->         <!-- PER PAMELA E LILIANA -->
-                                <!-- RUOLO == GENITORE -->         <!-- NomeFiglio = nome attributo visualizzato -->
-                                <!-- ----------------- -->         <!-- {{...}} = funzione AngularJS per visualizzare attributo database -->
-                                <!-- --------------------------------------------------------------------------------------------------- -->
-
-                                <!-- DATI ANAGRAFICI FIGLIO -->
-                                <!-- NOME FIGLIO -->
-                                <div ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'">
-                                    <ul class="list-unstyled infoPersonali">
-                                        <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/> </i>
-                                            NomeFiglio: {{utenteRegistrato.user.figlio1.nomeFiglio}}
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- FINE NOME -->
-                                <!-- COGNOME FIGLIO -->
-                                <div ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'">
-                                    <ul class="list-unstyled infoPersonali">
-                                        <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/> </i>
-                                            CognomeFiglio: {{utenteRegistrato.user.figlio1.cognomeFiglio}}
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- FINE COGNOME -->
-                                <!-- FINE DATI ANAGRAFICI FIGLIO -->
-
-                                <!-- DATI SCOLASTICI FIGLIO -->
-                                <!-- SCUOLA -->
-                                <div ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'">
-                                    <ul class="list-unstyled infoPersonali"">
-                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/> </i>
-                                        ScuolaFiglio: {{utenteRegistrato.user.figlio1.scuolaFiglio}}
-                                    </li>
-                                    </ul>
-                                </div>
-                                <!-- FINE SCUOLA -->
-                                <!-- CLASSE -->
-                                <div ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'">
-                                    <ul class="list-unstyled infoPersonali">
-                                        <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/> </i>
-                                            Classe: {{utenteRegistrato.user.figlio1.classeFiglio}}
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- FINE SEZIONE -->
-                                <!-- SEZIONE -->
-                                <div ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'">
-                                    <ul class="list-unstyled infoPersonali">
-                                        <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/> </i>
-                                            Sezione: {{utenteRegistrato.user.figlio1.sezioneFiglio}}
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- FINE SEZIONE -->
-
-                                <!-- ---------------------------------------------------------------------------------------------------- -->
-                                <!-- ------------------- -->
-                                <!-- RUOLO == INSEGNANTE -->
-                                <!-- ------------------- -->
-                                <!-- ---------------------------------------------------------------------------------------------------- -->
-
-
-                                <!-- DATI SCOLASTICI -->
-                                <!-- SCUOLA -->
-                                <ul class="list-unstyled infoPersonali" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/> </i>
-                                        Scuola: {{utenteRegistrato.user.scuola}}
-                                    </li>
-                                </ul>
-                                <!-- FINE SCUOLA -->
-                                <!-- CLASSE -->
-                                <ul class="list-unstyled infoPersonali" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/> </i>
-                                        Classe: {{utenteRegistrato.user.classe}}
-                                    </li>
-                                </ul>
-                                <!-- FINE SEZIONE -->
-                                <!-- SEZIONE -->
-                                <ul class="list-unstyled infoPersonali" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/> </i>
-                                        Sezione: {{utenteRegistrato.user.sezione}}
-                                    </li>
-                                </ul>
-                                <!-- FINE SEZIONE -->
-                                <!-- MATERIA -->
-                                <ul class="list-unstyled infoPersonali" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/> </i>
-                                        Materia: {{utenteRegistrato.user.materia}}
-                                    </li>
-                                </ul>
-                                <!-- FINE MATERIA -->
-                            </div>
-                            <!-- FINE DATI PROFILO -->
-
-                            <!-- ---------------------------------------------------------------------------------------------------- -->
-
-                        </div>
+                        <img src="../Puzzle-code/authenticationView/AvatarGenitore.png" class="media-object img-thumbnail img-profilo"
+                             alt="GENITORE" ng-if="utenteRegistrato.user.ruolo === 'GENITORE'">
+                        <img src="../Puzzle-code/authenticationView/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo"
+                             alt="INSEGNANTE" ng-if="utenteRegistrato.user.ruolo === 'INSEGNANTE'">
                     </div>
+                    <!-- FINE IMMAGINE DEL PROFILO -->
+
+
+                    <!-- INFO PERSONALI -->
+
+                    <div class="col-md-8 header-right">
+                        <!-- NOME E COGNOME UTENTE -->
+                        <h1> {{utenteRegistrato.user.nome}} {{utenteRegistrato.user.cognome}} </h1>
+                        <!-- FINE NOME E COGNOME    -->
+
+
+                        <!-- INTESTAZIONE SONO UN INSEGNANTE DI --->
+                        <h6 ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'"> Insegnante di {{utenteRegistrato.user.materia}}  </h6>
+                        <!-- FINE INTESTAZIONE SONO UN INSEGNANTE DI--->
+
+                        <!-- INTESTAZIONE SONO IL GENITORE DI --->
+                        <h6 ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'"> Genitore di {{utenteRegistrato.user.figlio1.nomeFiglio}}
+                            {{utenteRegistrato.user.figlio1.cognomeFiglio}} </h6>
+                        <!-- FINE INTESTAZIONE SONO il genitore DI--->
+
+                        <!-- INIZIO ELENCO INFORMAZIONI PERSONALI --->
+                        <ul class="informazioniPersonali">
+                            <!-- CITTA' --->
+                            <li>
+                                <ul class="informazioniPersonali-text">
+                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                        &thinsp;  <b> CITTA'</b>
+                                    </li>
+                                    <li>
+                                        &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; {{utenteRegistrato.user.citta}}
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- FINE CITTA' --->
+
+                            <!-- SCUOLA INSEGNANTE -->
+                            <li>
+
+                                <ul class="informazioniPersonali-text" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
+                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                        &thinsp; <b> SCUOLA</b> </li>
+                                    <li>
+                                        &thinsp;  &thinsp;  &thinsp; &nbsp;  &thinsp; {{utenteRegistrato.user.scuola}}
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- FINE SCUOLA -->
+
+                            <!-- SCUOLA GENITORE -->
+                            <li>
+
+                                <ul class="informazioniPersonali-text" ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'">
+                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                        &thinsp; <b> SCUOLA</b> </li>
+                                    <li>
+                                        &thinsp;  &thinsp;  &thinsp; &nbsp;  &thinsp; {{utenteRegistrato.user.figlio1.scuolaFiglio}}
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- FINE SCUOLA -->
+
+
+                            <!-- CLASSE INSEGNANTE --->
+                            <li>
+                                <ul class="informazioniPersonali-text" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
+                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                        &thinsp; <b> CLASSE </b>
+                                    </li>
+                                    <li>
+                                        &thinsp; &thinsp; &thinsp;  &thinsp;  &thinsp;  &thinsp; {{utenteRegistrato.user.classe}}
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- FINE CLASSE --->
+
+                            <!-- CLASSE GENITORE --->
+                            <li>
+                                <ul class="informazioniPersonali-text" ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'">
+                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                        &thinsp; <b> CLASSE </b>
+                                    </li>
+                                    <li>
+                                        &thinsp; &thinsp; &thinsp;  &thinsp;  &thinsp;  &thinsp; {{utenteRegistrato.user.figlio1.classeFiglio}}
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- FINE CLASSE --->
+
+                            <!-- SEZIONE INSEGNANTE --->
+                            <li>
+                                <ul class="informazioniPersonali-text" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
+                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                        &thinsp;  <b> SEZIONE </b>
+                                    </li>
+                                    <li>
+                                        &emsp; &emsp; {{utenteRegistrato.user.sezione}}
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- FINE SEZIONE  --->
+
+                            <!-- SEZIONE GENITORE --->
+                            <li>
+                                <ul class="informazioniPersonali-text" ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'">
+                                    <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                        &thinsp;  <b> SEZIONE </b>
+                                    </li>
+                                    <li>
+                                        &emsp; &emsp; {{utenteRegistrato.user.figlio1.sezioneFiglio}}
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- FINE SEZIONE  --->
+                        </ul>
+                    </div>
+                    <!-- FINE INFORMAZIONI PERSONALI -->
+
+                    <div class="clearfix"> </div>
                 </div>
-
-                <!-- ---------------------------------------------------------------------------------------------------- -->
-
-                <!-- ------------------------------------------ -->
-                <!-- SEZIONE MATERIALE DIDATTICO | INSEGNANTE | -->
-                <!-- ------------------------------------------ -->
-
-                <div ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-                    <p> QUESTO SPAZIO E' PER IL MATERIALE DIDATTICO INSEGNANTE </p>
-                </div>
-
-                <!-- ---------------------------------------------------------------------------------------------------- -->
-
-                <!-- --------------------------------- -->
-                <!-- SEZIONE CALENDARIO | INSEGNANTE | -->
-                <!-- --------------------------------- -->
-
-                <div ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-                    <p> QUESTO SPAZIO E' PER IL CALENDARIO INSEGNANTE</p>
-                </div>
-
-                <!-- ---------------------------------------------------------------------------------------------------- -->
-
-
-                <!-- ------------------------------- -->
-                <!-- SEZIONE CALENDARIO | GENITORE | -->
-                <!-- ------------------------------- -->
-
-                <div ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'">
-                    <p> QUESTO SPAZIO E' PER IL CALENDARIO GENITORE</p>
-                </div>
-
-                <!-- ---------------------------------------------------------------------------------------------------- -->
-
-                <!-- ---------------------------- -->
-                <!-- SPAZIO GENITORI | GENITORE | -->
-                <!-- ---------------------------- -->
-
-                <div ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'">
-                    <button> SPAZIO GENITORI </button>
-                </div>
-
-                <!-- ---------------------------------------------------------------------------------------------------- -->
-
-                <!-- -------------------------------- -->
-                <!-- CONTATTA UN ESPERTO | GENITORE | -->
-                <!-- -------------------------------- -->
-
-                <br>
-                <div ng-if = "utenteRegistrato.user.ruolo === 'GENITORE'">
-                    <button> CONTATTA UN ESPERTO </button>
-                </div>
-
-                <!-- ---------------------------------------------------------------------------------------------------- -->
-
             </div>
         </div>
+        <!--//banner-->
     </div>
-</div>
+
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+
+    <!-- ------------------------------------------ -->
+    <!-- SEZIONE MATERIALE DIDATTICO | INSEGNANTE | -->
+    <!-- ------------------------------------------ -->
+
+    <div class="materialeD">
+        <div ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
+            <p> QUESTO SPAZIO E' PER IL MATERIALE DIDATTICO INSEGNANTE </p>
+        </div>
+    </div>
+
+    <!-- ---------------------------------------------------------------------------------------------------- -->
+
 
 </body>
