@@ -31,6 +31,7 @@ angular.module('puzzle', [
     'puzzle.addPostView',
     'puzzle.post',
     'puzzle.listaGenitoriView',
+    'puzzle.profiloExtView',
     "firebase"
 ])
 
@@ -44,13 +45,15 @@ angular.module('puzzle', [
         $rootScope.$on("$routeChangeError", function(event, next, previous, error) {
             // We can catch the error thrown when the $requireSignIn promise is rejected
             // and redirect the user back to the home page
+
             if (error === "AUTH_REQUIRED") {
                 $location.path("/loginView");
             }
         });
     }])
 
-    .controller('indexCtrl', ['$scope', '$rootScope', function($scope, $rootScope) {
+    .controller('indexCtrl', ['$scope', '$rootScope', 'CommonProp', 'Auth', 'profiloEsterno',
+                    function($scope, $rootScope, CommonProp, Auth, profiloEsterno) {
 
         $rootScope.pagina = {};
         $rootScope.pagina.pagCorrente = 'loginView';
@@ -64,6 +67,16 @@ angular.module('puzzle', [
 
         $scope.showMenuGen = function(){
             $scope.menuGen = !$scope.menuGen;
+        };
+
+        $scope.elencoUtenti = CommonProp.getAllUser();
+
+        $scope.set = function(id){
+            profiloEsterno.setUser(id);
+        };
+
+        $scope.isUserLog = function(id){
+            return true;
         };
 
     }]);

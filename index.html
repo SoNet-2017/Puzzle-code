@@ -41,7 +41,8 @@
     <script src="homepageView/homepageView.js"></script>                        <!-- authView -->
     <script src="ProfiloView/profiloView.js"></script>                          <!-- profiloView -->
     <script src="addPostView/addPostView.js"></script>                          <!-- addPostView -->
-    <script src="listaGenitoriView/listaGenitoriView.js"></script>                          <!-- addPostView -->
+    <script src="listaGenitoriView/listaGenitoriView.js"></script>              <!-- ListaPostView -->
+    <script src="profiloExtView/profiloExtView.js"></script>                    <!--  -->
 
     <!-- IMPORTAZIONE COMPONENTI -->
     <script src="components/authentication/authentication.js"></script>         <!-- autenticazione -->
@@ -49,8 +50,9 @@
     <script src="components/utenti/utenti.js"></script>                         <!-- utenti -->
     <script src="components/utenti/utenti-service.js"></script>                 <!-- utenti-service -->
     <script src="components/utenti/utenti-CommonProp.js"></script>              <!--  -->
+    <script src="components/utenti/utenti-profiloEsterno.js"></script>          <!--  -->
     <script src="components/post/post.js"></script>                             <!--  -->
-    <script src="components/post/postList.js"></script>                              <!--  -->
+    <script src="components/post/postList.js"></script>                         <!--  -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -67,7 +69,7 @@
 <!-- NAVIGATION BAR  -->
 <header>
     <nav class="navbar navbar-default navbar-fixed-top" id="navigationbar"
-         ng-hide="pagina.pagCorrente === 'authView' || pagina.pagCorrente === 'loginView'">
+         ng-if="!(pagina.pagCorrente === 'authView' || pagina.pagCorrente === 'loginView')">
         <div class="navbar-header">
             <!-- PULSANTE -->
             <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" ng-show="false">
@@ -93,14 +95,16 @@
 </header>
 
 <!-- SIDEBAR  -->
-<nav class="navbar navbar-fixed-top" id="sidebar" ng-hide="pagina.pagCorrente === 'authView' || pagina.pagCorrente === 'loginView'">
+<nav class="navbar navbar-fixed-top" id="sidebar" ng-if="!(pagina.pagCorrente === 'authView' || pagina.pagCorrente === 'loginView')">
     <!-- INTESTAZIONE SIDEBAR  -->
     <div class="sidebar-header">
 
+        <a href="#!/homepageView">
         <img src="../Puzzle-code/images/logo/PuzzleLogo_per_sfondo_scuro.png" width="150" class="img-responsive"/>  <!-- height="22" width="24" -->
         <!-- <strong>PLZ</strong> -->     <!-- se vogliamo l'animazione della sidebar -->
-
+        </a>
     </div>
+
 
     <!-- INIZIO MENU  -->
     <ul class="list-unstyled components">
@@ -112,11 +116,9 @@
             </a>
             <!-- ELENCO INSEGNANTI  -->
             <ul ng-show="menuIns">
-                <li><a>Liliana Scaffidi</a></li>
-                <li><a>Pamela Siclari</a></li>
-                <li><a>Antonella Corigliano</a></li>
-                <li><a>Elisa Musolino</a></li>
-                <li><a>Genoffa Anastasia</a></li>
+                <li ng-repeat="insegnante in elencoUtenti | filter: {'ruolo' : 'INSEGNANTE' } : true">
+                    <a href="#!/profiloExtView" ng-click="set(insegnante.ID)" ng-if="isUserLog(insegnante.ID)">{{insegnante.nome}} {{insegnante.cognome}}</a>
+                </li>
             </ul>
         </li>
         <!-- TITOLO ELENCO GENITORI  -->

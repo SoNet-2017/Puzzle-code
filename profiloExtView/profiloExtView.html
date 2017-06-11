@@ -1,0 +1,169 @@
+<head>
+
+    <title>PUZZLE - {{}} {{}}</title>
+
+    <link rel="stylesheet" href="HomepageView/homepageView.css">
+
+</head>
+
+<body>
+
+<!-- NB: Devo ottimizzare il sistema NG-IF con una funzione già realizzata 1 volta -->
+<!--     anzichè richiamarla N volte, in modo tale da ottimizzare il sistema       -->
+<!--                                                               [ Peppe ]       -->
+
+<!-- BOX -->
+
+<div class="box">
+    <div id="box" class="profilo">
+        <div class="profilo-info">
+            <div class="container">
+
+                <!-- IMMAGINE DEL PROFILO -->
+                <div class="col-md-4 header-left">
+
+                    <img src="../Puzzle-code/images/avatars/AvatarGenitore.png" class="media-object img-thumbnail img-profilo"
+                         alt="GENITORE" ng-if="visitatore.ruolo === 'GENITORE'">
+                    <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo"
+                         alt="INSEGNANTE" ng-if="visitatore.ruolo === 'INSEGNANTE'">
+                </div>
+                <!-- FINE IMMAGINE DEL PROFILO -->
+
+
+                <!-- INFO PERSONALI -->
+
+                <div class="col-md-8 header-right">
+                    <!-- NOME E COGNOME UTENTE -->
+                    <h1> {{visitatore.nome}} {{visitatore.cognome}} </h1>
+                    <!-- FINE NOME E COGNOME    -->
+
+
+                    <!-- INTESTAZIONE SONO UN INSEGNANTE DI --->
+                    <h6 ng-if = "visitatore.ruolo === 'INSEGNANTE'"> Insegnante di {{visitatore.materia}}  </h6>
+                    <!-- FINE INTESTAZIONE SONO UN INSEGNANTE DI--->
+
+                    <!-- INTESTAZIONE SONO IL GENITORE DI --->
+                    <h6 ng-if = "visitatore.ruolo === 'GENITORE'"> Genitore di {{visitatore.figlio1.nomeFiglio}}
+                        {{visitatore.cognomeFiglio}} </h6>
+                    <!-- FINE INTESTAZIONE SONO il genitore DI--->
+
+                    <!-- INIZIO ELENCO INFORMAZIONI PERSONALI --->
+                    <ul class="informazioniPersonali">
+                        <!-- CITTA' --->
+                        <li>
+                            <ul class="informazioniPersonali-text">
+                                <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                    &thinsp;  <b> CITTA'</b>
+                                </li>
+                                <li>
+                                    &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; {{visitatore.citta}}
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- FINE CITTA' --->
+
+                        <!-- SCUOLA INSEGNANTE -->
+                        <li>
+
+                            <ul class="informazioniPersonali-text" ng-if = "visitatore.ruolo === 'INSEGNANTE'">
+                                <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                    &thinsp; <b> SCUOLA</b> </li>
+                                <li>
+                                    &thinsp;  &thinsp;  &thinsp; &nbsp;  &thinsp; {{visitatore.scuola}}
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- FINE SCUOLA -->
+
+                        <!-- SCUOLA GENITORE -->
+                        <li>
+
+                            <ul class="informazioniPersonali-text" ng-if = "visitatore.ruolo === 'GENITORE'">
+                                <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                    &thinsp; <b> SCUOLA</b> </li>
+                                <li>
+                                    &thinsp;  &thinsp;  &thinsp; &nbsp;  &thinsp; {{visitatore.figlio1.scuolaFiglio}}
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- FINE SCUOLA -->
+
+
+                        <!-- CLASSE INSEGNANTE --->
+                        <li>
+                            <ul class="informazioniPersonali-text" ng-if = "visitatore.ruolo === 'INSEGNANTE'">
+                                <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                    &thinsp; <b> CLASSE </b>
+                                </li>
+                                <li>
+                                    &thinsp; &thinsp; &thinsp;  &thinsp;  &thinsp;  &thinsp; {{visitatore.classe}}
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- FINE CLASSE --->
+
+                        <!-- CLASSE GENITORE --->
+                        <li>
+                            <ul class="informazioniPersonali-text" ng-if = "visitatore.ruolo === 'GENITORE'">
+                                <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                    &thinsp; <b> CLASSE </b>
+                                </li>
+                                <li>
+                                    &thinsp; &thinsp; &thinsp;  &thinsp;  &thinsp;  &thinsp; {{visitatore.figlio1.classeFiglio}}
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- FINE CLASSE --->
+
+                        <!-- SEZIONE INSEGNANTE --->
+                        <li>
+                            <ul class="informazioniPersonali-text" ng-if = "visitatore.ruolo === 'INSEGNANTE'">
+                                <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                    &thinsp;  <b> SEZIONE </b>
+                                </li>
+                                <li>
+                                    &emsp; &emsp; {{visitatore.sezione}}
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- FINE SEZIONE  --->
+
+                        <!-- SEZIONE GENITORE --->
+                        <li>
+                            <ul class="informazioniPersonali-text" ng-if = "visitatore.ruolo === 'GENITORE'">
+                                <li>  <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="22" width="22"/> </i>
+                                    &thinsp;  <b> SEZIONE </b>
+                                </li>
+                                <li>
+                                    &emsp; &emsp; {{visitatore.figlio1.sezioneFiglio}}
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- FINE SEZIONE  --->
+                    </ul>
+                </div>
+                <!-- FINE INFORMAZIONI PERSONALI -->
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+    <!--//banner-->
+</div>
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+<!-- ------------------------------------------ -->
+<!-- SEZIONE MATERIALE DIDATTICO | INSEGNANTE | -->
+<!-- ------------------------------------------ -->
+
+<div class="materialeD">
+    <div ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
+        <p> QUESTO SPAZIO E' PER IL MATERIALE DIDATTICO INSEGNANTE </p>
+    </div>
+</div>
+
+<!-- ---------------------------------------------------------------------------------------------------- -->
+
+
+</body>
