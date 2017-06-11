@@ -30,6 +30,7 @@ angular.module('puzzle', [
     'puzzle.profiloView',
     'puzzle.addPostView',
     'puzzle.post',
+    'puzzle.listaGenitoriView',
     "firebase"
 ])
 
@@ -53,5 +54,16 @@ angular.module('puzzle', [
 
         $rootScope.pagina = {};
         $rootScope.pagina.pagCorrente = 'loginView';
+
+        $scope.menuIns = false;
+        $scope.menuGen = false;
+
+        $scope.showMenuIns = function(){
+            $scope.menuIns = !$scope.menuIns;
+        };
+
+        $scope.showMenuGen = function(){
+            $scope.menuGen = !$scope.menuGen;
+        };
 
     }]);

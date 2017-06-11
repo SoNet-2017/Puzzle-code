@@ -41,6 +41,7 @@
     <script src="homepageView/homepageView.js"></script>                        <!-- authView -->
     <script src="ProfiloView/profiloView.js"></script>                          <!-- profiloView -->
     <script src="addPostView/addPostView.js"></script>                          <!-- addPostView -->
+    <script src="listaGenitoriView/listaGenitoriView.js"></script>                          <!-- addPostView -->
 
     <!-- IMPORTAZIONE COMPONENTI -->
     <script src="components/authentication/authentication.js"></script>         <!-- autenticazione -->
@@ -50,8 +51,6 @@
     <script src="components/utenti/utenti-CommonProp.js"></script>              <!--  -->
     <script src="components/post/post.js"></script>                             <!--  -->
     <script src="components/post/postList.js"></script>                              <!--  -->
-
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -71,7 +70,7 @@
          ng-hide="pagina.pagCorrente === 'authView' || pagina.pagCorrente === 'loginView'">
         <div class="navbar-header">
             <!-- PULSANTE -->
-            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+            <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn" ng-show="false">
                 <!-- IMAGE PULSANTE -->
                 <i class="glyphicon glyphicon-align-left"></i>
                 <!-- TITOLO PULSANTE -->
@@ -107,42 +106,42 @@
     <ul class="list-unstyled components">
         <!-- TITOLO ELENCO INSEGNANTI  -->
         <li>
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
+            <a ng-click="showMenuIns()">
                 <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-352-book-open.png" height="22" width="24"/></i>
                 Insegnanti
             </a>
             <!-- ELENCO INSEGNANTI  -->
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li><a href="#">Liliana Scaffidi</a></li>
-                <li><a href="#">Pamela Siclari</a></li>
-                <li><a href="#">Antonella Corigliano</a></li>
-                <li><a href="#">Elisa Musolino</a></li>
-                <li><a href="#">Genoffa Anastasia</a></li>
+            <ul ng-show="menuIns">
+                <li><a>Liliana Scaffidi</a></li>
+                <li><a>Pamela Siclari</a></li>
+                <li><a>Antonella Corigliano</a></li>
+                <li><a>Elisa Musolino</a></li>
+                <li><a>Genoffa Anastasia</a></li>
             </ul>
         </li>
         <!-- TITOLO ELENCO GENITORI  -->
         <li>
-            <a href="#genitoreSubmenu" data-toggle="collapse" aria-expanded="false">
+            <a ng-click="showMenuGen()">
                 <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-500-family.png" height="22" width="35"/>
                 </i>
                 Genitori
             </a>
             <!-- ELENCO GENITORI  -->
-            <ul class="collapse list-unstyled" id="genitoreSubmenu">
-                <li><a href="#">Contatta un genitore</a></li>
-                <li><a href="#">Accedi all'area comune</a></li>
+            <ul ng-show="menuGen">
+                <li><a href="#!/listaGenitoriView">Contatta un genitore</a></li>
+                <li><a>Accedi all'area comune</a></li>
             </ul>
         </li>
         <!-- LINK EVENTI  -->
         <li>
-            <a href="#">
+            <a>
                 <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/></i>
                 Eventi
             </a>
         </li>
         <!-- LINK SPAZIO SCUOLA  -->
         <li>
-            <a href="#">
+            <a>
                 <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-712-government.png" height="25" width="26"/></i>
                 Spazio Scuola
             </a>
