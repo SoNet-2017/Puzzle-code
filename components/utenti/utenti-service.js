@@ -20,12 +20,7 @@ angular.module('puzzle.utenti.utentiService', [])
                 auth.$signOut();
                 console.log("Utente disconnesso");
                 utenteLoggato = "";
-                localStorage.removeItem('userEmail');
-                //var ref = firebase.database().ref().child("utenti").child(email);
-                // LOGOUT
-                //ref.update({
-                //    logged: false
-                //});
+
             },
 
 
@@ -33,6 +28,8 @@ angular.module('puzzle.utenti.utentiService', [])
 
                 // AGGIUNTA UTENTE A ELENCO UTENTI
                 var ref = firebase.database().ref().child("utenti").child(userId);
+
+
 
                 ref.update({
                     email: email,
@@ -66,6 +63,7 @@ angular.module('puzzle.utenti.utentiService', [])
                 });
 
 
+
             },
 
             registerNewUserInfoINSEGNANTE: function (userId, nome, cognome, email, ruolo, citta,
@@ -86,6 +84,7 @@ angular.module('puzzle.utenti.utentiService', [])
                     sezione: sezioneFiglio,
                     materia: materia
                 });
+
 
             }
 

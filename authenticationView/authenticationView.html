@@ -116,6 +116,7 @@
     <!-- BOX DATI FIGLIO (solo Genitore)-->
     <input type="text" class="form-control" id="txtNameSon" name="nomeFiglio" placeholder="Nome Figlio"
            ng-model="user.nomeFiglio" ng-if="user.ruolo === 'GENITORE'" required="user.ruolo === 'GENITORE'"/>
+    <p ng-show="user.nomeFiglio == 'Ciccio'">PAMELA NON SCRIVERE CICCIO SEMPRE!</p>
     <input type="text" class="form-control" id="txtSurnameSon" name="cognomeFiglio" placeholder="Cognome Figlio"
            ng-model="user.cognomeFiglio" ng-if="user.ruolo === 'GENITORE'" required="user.ruolo === 'GENITORE'"/>
     <!-- FINE BOX -->
