@@ -50,13 +50,36 @@
                                 </label>
                                 <h6>{{singoloPost.timestamp}}</h6>
                             </div>
+
+<!--
+                            <div class="media-right divbutton">
+                                <button type="button">Hello</button>
+                            </div> -->
+
+
                         </div>
                     </div>
-                    <div class="row">
+
+                    <div class="row contenutoPost">
                         <div class="col-lg-12">
                             <p>{{singoloPost.contenuto}}</p>
+
+                            <div class="row bottoniPost" ng-if="singoloPost.IDutente === utenteRegistrato.user.ID">
+                                <div class="col-lg-6">
+                                    <button type="button" ng-click="editPost(singoloPost.$id)" data-toggle="modal" data-target="#modifica">
+                                        <i class="glyphicon glyphicon-edit"></i> &nbsp; Modifica
+                                    </button>
+                                </div>
+                                <div class="col-lg-6">
+                                    <button type="button" ng-click="deletePost(singoloPost)" data-toggle="modal" data-target="#elimina">
+                                        <i class="glyphicon glyphicon-trash"></i> &nbsp; Elimina
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!--
                     <div class="row" ng-if="singoloPost.IDutente === utenteRegistrato.user.ID">
                         <div class="bottoniPost">
                             <button type="button" ng-click="editPost(singoloPost.$id)" data-toggle="modal" data-target="#modifica">
@@ -66,10 +89,8 @@
                                 <i class="glyphicon glyphicon-trash"></i> &nbsp; Elimina
                             </button>
                         </div>
+                    </div>-->
 
-
-
-                    </div>
                 </div>
 
 
