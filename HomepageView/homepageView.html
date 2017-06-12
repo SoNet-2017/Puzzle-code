@@ -11,73 +11,73 @@
 <div class="container-fluid">
     <div class="row ">
 
-            <div class="box" id="box">
+        <div class="box" id="box">
 
-                <!-- -------   RIGA SUPERIORE CONTENENTE A SX BOTTONE PER NUOVO POST E A DX DATA GIORNALIERA   --------------- -->
+            <!-- -------   RIGA SUPERIORE CONTENENTE A SX BOTTONE PER NUOVO POST E A DX DATA GIORNALIERA   --------------- -->
 
-                <div class="row ">
+            <div class="row ">
 
-                    <!-- SCRIVI POST | SOLO INSEGNANTE |-->
-                    <div class="col-lg-8" >
-                        <div class="post" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-                            <button class="btn" type="button" data-toggle="modal" data-target="#creaPost">
-                                <i class="glyphicon glyphicon-pencil"></i>
-                                &nbsp; Condividi la tua giornata
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- DATA ODIERNA -->
-                    <div class="data"> {{ today | date : " d MMMM" }} </div>
-
-                </div>
-                <!---------------------------------------------------------------------------------------------------------------->
-
-
-
-                <!-- ---------------------------------------            POST             --------------------------------------- -->
-
-                <div class="post" ng-repeat="singoloPost in post.listaPost | orderBy:'-timestamp'">
-
-                    <div class="line"> </div>
-
-                    <div class="row">
-                        <div class="media" ng-repeat="utente in tuttiGliUtenti.elencoUtenti | filter: {'ID' : singoloPost.IDutente} : true">
-                            <div class="media-left">
-                                <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo" alt="INSEGNANTE">
-                            </div>
-                            <div class="media-body">
-                                <label>
-                                    <a href=""> {{utente.nome}} {{utente.cognome}} </a>
-                                </label>
-                                <h6>{{singoloPost.timestamp}}</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row contenutoPost">
-                        <div class="col-lg-12">
-                            <p>{{singoloPost.contenuto}}</p>
-
-                            <div class="row bottoniPost" ng-if="singoloPost.IDutente === utenteRegistrato.user.ID">
-                                <div class="col-lg-6">
-                                    <button type="button" ng-click="editPost(singoloPost.$id)" data-toggle="modal" data-target="#modifica">
-                                        <i class="glyphicon glyphicon-edit"></i> &nbsp; Modifica
-                                    </button>
-                                </div>
-                                <div class="col-lg-6">
-                                    <button type="button" ng-click="deletePost(singoloPost)" data-toggle="modal" data-target="#elimina">
-                                        <i class="glyphicon glyphicon-trash"></i> &nbsp; Elimina
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                <!-- SCRIVI POST | SOLO INSEGNANTE |-->
+                <div class="col-lg-8" >
+                    <div class="post" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
+                        <button class="btn" type="button" data-toggle="modal" data-target="#creaPost">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            &nbsp; Condividi la tua giornata
+                        </button>
                     </div>
                 </div>
-                
-                <!-- ---------------------------------------     FINE POST             --------------------------------------- -->
+
+                <!-- DATA ODIERNA -->
+                <div class="data"> {{ today | date : " d MMMM" }} </div>
 
             </div>
+            <!---------------------------------------------------------------------------------------------------------------->
+
+
+
+            <!-- ---------------------------------------            POST             --------------------------------------- -->
+
+            <div class="post" ng-repeat="singoloPost in post.listaPost | orderBy:'-timestamp'">
+
+                <div class="line"> </div>
+
+                <div class="row">
+                    <div class="media" ng-repeat="utente in tuttiGliUtenti.elencoUtenti | filter: {'ID' : singoloPost.IDutente} : true">
+                        <div class="media-left">
+                            <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo" alt="INSEGNANTE">
+                        </div>
+                        <div class="media-body">
+                            <label>
+                                <a href=""> {{utente.nome}} {{utente.cognome}} </a>
+                            </label>
+                            <h6>{{singoloPost.timestamp}}</h6>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row contenutoPost">
+                    <div class="col-lg-12">
+                        <p>{{singoloPost.contenuto}}</p>
+
+                        <div class="row bottoniPost" ng-if="singoloPost.IDutente === utenteRegistrato.user.ID">
+                            <div class="col-lg-6">
+                                <button type="button" ng-click="editPost(singoloPost.$id)" data-toggle="modal" data-target="#modifica">
+                                    <i class="glyphicon glyphicon-edit"></i> &nbsp; Modifica
+                                </button>
+                            </div>
+                            <div class="col-lg-6">
+                                <button type="button" ng-click="deletePost(singoloPost)" data-toggle="modal" data-target="#elimina">
+                                    <i class="glyphicon glyphicon-trash"></i> &nbsp; Elimina
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ---------------------------------------     FINE POST             --------------------------------------- -->
+
+        </div>
 
     </div>
 </div>
