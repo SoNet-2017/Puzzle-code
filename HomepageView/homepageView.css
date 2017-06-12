@@ -121,7 +121,6 @@ i, span {
 }
 
 
-
 .post button{
     padding: 5px 25px 5px 25px;
     /*min-width: 150px;*/
@@ -151,6 +150,24 @@ i, span {
 }
 
 
+/*--- bottoni di modifica post ---*/
+.modal-footer button:active,
+.modal-footer button:focus,
+.modal-footer button:active{
+    box-shadow: 0 0 0 2px rgb(48,142,137);
+    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    -ms-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    box-shadow: 0 0 2px rgb(48,142,137) inset;
+    background-color: rgb(48,142,137);
+    border: 1px solid rgb(48,142,137);
+    outline: none;
+}
+
+
+
+
+
 /*------------------------------------
 -------------------------- PROFILO------------------------------------ */
 .profilo {
@@ -158,7 +175,6 @@ i, span {
     background-size:cover;
     -moz-background-size:cover;
     position: relative;
-    padding-left: 0px;
 }
 .profilo-info{
     /*padding: 4em 0;*/
