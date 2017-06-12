@@ -67,8 +67,8 @@ i, span {
 }
 
 /* ---------------------------------------------------
-    post, profilo, lista genitori
------------------------------------------------------ */
+    POST
+-------------------------------------------------------------- */
 .post
 {
     padding-top: 15px;
@@ -103,26 +103,7 @@ i, span {
 }
 
 
-
-
-button {                         /* se non passo con il mouse sul contenuto del post, non si vedono i bottoni modifica e elimina */
-    display: none;
-}
-
-.contenutoPost:hover button {    /* quando passo con il mouse sul contenuto del post, spuntano i bottoni modifica e elimina */
-    display: block;
-}
-
-.post button{
-    padding: 5px 25px 5px 25px;
-    /*min-width: 150px;*/
-    background-color: #308E89;
-    color: white;
-    border: 1px solid transparent;
-    border-radius: 4px;
-    border-color: #ccc;
-}
-
+/*proprietà di tutti i bottoni della classe post */
 .post button:hover,
 .post button:focus,
 .post button:active    {
@@ -139,19 +120,39 @@ button {                         /* se non passo con il mouse sul contenuto del 
     outline: none;
 }
 
-.bottoniPost{                 /* bottoni per modifica ed elimina contenuti nella riga sottostante il post */
+
+
+.post button{
+    padding: 5px 25px 5px 25px;
+    /*min-width: 150px;*/
+    background-color: #308E89;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    border-color: #ccc;
+}
+
+/* bottoni per modifica ed elimina contenuti nella riga sottostante il post, posizione */
+.bottoniPost{
     margin-left: 590px;
     margin-right: 30px;
     font-size: 12px;
 }
 
-.bottoniPost button{          /* bottoni per modifica ed elimina */
+/* bottoni per modifica ed elimina, colore */
+.bottoniPost button{
     background-color: rgba(48, 142, 137, 0.5);
+    display: none; /* se non passo con il mouse sul contenuto del post, non si vedono i bottoni modifica e elimina */
+}
+
+/* quando passo con il mouse sul contenuto del post, spuntano i bottoni modifica e elimina */
+.contenutoPost:hover button {
+    display: block;
 }
 
 
 /*------------------------------------
--------------------------- PROFILO */
+-------------------------- PROFILO------------------------------------ */
 .profilo {
     -webkit-background-size:cover;
     background-size:cover;
