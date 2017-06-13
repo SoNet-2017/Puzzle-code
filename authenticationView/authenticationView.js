@@ -12,33 +12,32 @@ angular.module('puzzle.authView', ['ngRoute'])
     .controller('AuthCtrl', ['$scope', '$rootScope', 'Auth', 'utenti', '$location', function($scope, $rootScope, Auth, utenti, $location) {
 
         // ELENCO CITTA'
-        $scope.elencoCitta = ["Roma", "Milano", "Napoli", "Palermo", "Taranto", "Torino"];
+        $scope.elencoCitta = ["Roma", "Milano", "Messina", "Reggio Calabria", "Taranto", "Torino"];
 
         // ELENCO SCUOLE
         $scope.elencoScuole = [
-            {codice: "Roma", scuola: "Leonardo Da Vinci"},
-            {codice: "Roma", scuola: "Antonio Pacinotti"},
-            {codice: "Roma", scuola: "Galileo Galilei"},
-            {codice: "Taranto", scuola: "Eugenio Ferraris"},
-            {codice: "Taranto", scuola: "Scuola Taranto 2"},
-            {codice: "Torino", scuola: "Alessandro Volta"},
-            {codice: "Milano", scuola: "Scuola Milano 1"},
-            {codice: "Milano", scuola: "Scuola Milano 2"},
-            {codice: "Milano", scuola: "Scuola Milano 3"},
-            {codice: "Napoli", scuola: "Scuola Napoli 1"},
-            {codice: "Napoli", scuola: "Scuola Napoli 2"},
-            {codice: "Palermo", scuola: "Scuola Palermo 1"},
-            {codice: "Palermo", scuola: "Scuola Palermo 2"}
+            {codice: "Roma", scuola: "Vittorio Alfieri"},
+            {codice: "Roma", scuola: "Carlo Evangelisti"},
+            {codice: "Taranto", scuola: "Don Milani"},
+            {codice: "Taranto", scuola: "Europa Primaria"},
+            {codice: "Torino", scuola: "Italo Calvino"},
+            {codice: "Torino", scuola: "Angiolo Gambaro"},
+            {codice: "Milano", scuola: "Leonardo Da Vinci"},
+            {codice: "Milano", scuola: "Pietro Micca"},
+            {codice: "Messina", scuola: "Lombardo Radice"},
+            {codice: "Messina", scuola: "Pietro Donato"},
+            {codice: "Reggio Calabria", scuola: "Italo Falcomatà"},
+            {codice: "Reggio Calabria", scuola: "Maria Ausiliatrice"}
         ];
 
         // NUMERO CLASSE
         $scope.numeriClassi = ["I", "II", "III", "IV", "V"];
 
         // SEZIONE CLASSE
-        $scope.sezioniClassi = ["A", "B", "C", "D", "E", "F", "G", "H", "I"];
+        $scope.sezioniClassi = ["A", "B", "C", "D", "E", "F"];
 
         // MATERIE DISPONIBILI PER LA SCELTA
-        $scope.elencoMaterie = ["Italiano", "Storia", "Geografia", "Matematica", "Scienze", "Religione", "Educazione Motoria"];
+        $scope.elencoMaterie = ["Italiano", "Matematica", "Religione", "Educazione Motoria","Educazione Artistica", "Inglese" ];
 
 
         $scope.user = {};
