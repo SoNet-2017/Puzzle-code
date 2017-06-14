@@ -1,0 +1,216 @@
+<head>
+
+    <title>Puzzle Social Network</title>
+
+
+    <link rel="stylesheet" href="HomepageView/homepageView.css">
+    <!-- Angular Material style sheet  -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+
+    <style>
+        .md-datepicker-calendar-pane{
+            z-index: 1200}
+    </style>
+
+    <style type="text/css">
+        form.tab-form-demo .tab-pane {
+            margin: 20px 20px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<div class="box">
+    <div id="box" class="profilo">
+        <div class="profilo-info">
+            <div class="container">
+
+                <!-- CALENDARIO -->
+                <div class="col-md-4 header-left">
+                    <calendar selected="day"></calendar>
+                    <br>
+                    <!-- PULSANTE CREAZIONE NUOVO EVENTO -->
+                    <button class="btn" type="button" data-toggle="modal" data-target="#creaEvento">
+                        Crea Nuovo Evento
+                    </button>
+                </div>
+
+                <!-- LISTA EVENTI -->
+                <div class="col-md-8 header-right">
+                    <h1>{{day.format('DD/MM/YYYY')}}</h1>
+
+                    <uib-tabset active="activeJustified" justified="true">
+                        <!-- TAB CASA -->
+                        <uib-tab index="0" heading="CASA">
+                            <!-- LOOP EVENTI IN PROGRAMMA --->
+                            <ul class="informazioniPersonali" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                                <li>
+                                    <ul class="informazioniPersonali-text" ng-if="evento.tipo === 'CASA'">
+                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                            <li>
+                                                &thinsp; <b>{{evento.oraI}}</b> -
+                                            </li>
+                                            <li>
+                                                {{evento.titolo}} | {{evento.tipo}} |
+                                            </li>
+                                        </a>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FINE LOOP --->
+                        </uib-tab>
+
+                        <!-- TAB SCUOLA -->
+                        <uib-tab index="1" heading="SCUOLA">
+                            <!-- LOOP EVENTI IN PROGRAMMA --->
+                            <ul class="informazioniPersonali" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                                <li>
+                                    <ul class="informazioniPersonali-text" ng-if="evento.tipo === 'SCUOLA'">
+                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                            <li>
+                                                &thinsp; <b>{{evento.oraI}}</b> -
+                                            </li>
+                                            <li>
+                                                {{evento.titolo}} | {{evento.tipo}} |
+                                            </li>
+                                        </a>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FINE LOOP --->
+                        </uib-tab>
+
+                        <!-- TAB EXTRA -->
+                        <uib-tab index="2" heading="EXTRA">
+                            <!-- LOOP EVENTI IN PROGRAMMA --->
+                            <ul class="informazioniPersonali" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                                <li>
+                                    <ul class="informazioniPersonali-text" ng-if="evento.tipo === 'EXTRA'">
+                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                            <li>
+                                                &thinsp; <b>{{evento.oraI}}</b> -
+                                            </li>
+                                            <li>
+                                                {{evento.titolo}} | {{evento.tipo}} |
+                                            </li>
+                                        </a>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- FINE LOOP --->
+                        </uib-tab>
+                    </uib-tabset>
+
+                    <hr />
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL: CREA NUOVO EVENTO -->
+<div class="modal fade" id="creaEvento" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Inserisci un nuovo evento</h4>
+            </div>
+            <div class="modal-body">
+
+                <form role="form" name="eventForm" novalidate="" ng-submit="">
+
+                    <!-- RADIO BUTTON SCELTA TIPO EVENTO -->
+                    <div class="form-group" required>
+                        <input id="casa" type="radio" name="tipo" value="CASA" ng-model="event.tipo"/>
+                        <label for="casa"></label> <br>Casa<br><br>
+
+                        <input id="scuola" type="radio" name="tipo" value="SCUOLA" ng-model="event.tipo"/>
+                        <label for="scuola"></label> <br>Scuola<br><br>
+
+                        <input id="extra" type="radio" name="tipo" value="EXTRA" ng-model="event.tipo"/>
+                        <label for="extra"></label> <br>Extra<br>
+                    </div>
+                    <!-- FINE RADIO BUTTON -->
+
+                    <!-- INFORMAZIONI EVENTO -->
+                    <div class="form-group">
+                        <!-- TITOLO EVENTO -->
+                        <input type="text" class="form-control" id="titleEvent" name="title" placeholder="Titolo" ng-model="event.titolo" required/>
+                        <!-- DESCRIZIONE EVENTO -->
+                        <textarea name="descrizioneEvent" class="form-control" placeholder="Descrivi qui il tuo evento" ng-model="event.descrizione" ng-minlength="5" required="">
+                        </textarea>
+
+                        <!-- SELEZIONE DATA -->
+                        <!-- Includere <style> nel CSS presente nell'<head> -->
+                        <md-content layout-padding ng-cloak>
+                                <md-datepicker ng-model="myDate" md-placeholder="Inserisci una data"
+                                               md-min-date="minimoDate" md-max-date="maxDate" ng-required md-date-locale>
+                                </md-datepicker>
+                        </md-content>
+
+                        <p>ORA INIZIO:</p>
+                        <!-- SELEZIONE INIZIO -->
+                        <div uib-timepicker ng-model="oraInizio" hour-step="hstep" minute-step="mstep" show-meridian="false">
+                        </div>
+
+
+                        <p>ORA FINE:</p>
+                        <!-- SELEZIONE FINE -->
+                        <div uib-timepicker ng-model="oraFine" hour-step="hstep" minute-step="mstep" show-meridian="false" min="oraInizio">
+                        </div>
+
+
+                        <!-- LUOGO EVENTO -->
+                        <input type="text" class="form-control" id="placeEvent" name="place" placeholder="Luogo" ng-model="event.luogo" required/>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn" ng-disabled="eventForm.$invalid" data-dismiss="modal" ng-click="creaEvento()">Aggiungi Evento</button>
+                <button type="button" class="btn" data-dismiss="modal">Annulla</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL: VISUALIZZA EVENTO -->
+<div class="modal fade" id="visualizzaEvento" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"> {{eventoSelezionato.titolo}} </h4>
+            </div>
+            <div class="modal-body">
+                <p><b>| {{eventoSelezionato.titolo}} | {{eventoSelezionato.tipo}} |</b></p>
+                <p>{{eventoSelezionato.descrizione}}</p>
+                <p>GIORNO: {{eventoSelezionato.giorno}}</p>
+                <p>INIZIO: {{eventoSelezionato.oraI}} | FINE: {{eventoSelezionato.oraF}}</p>
+                <p>LUOGO: {{eventoSelezionato.luogo}}</p>
+                <p>CREATO DA: {{eventoSelezionato.IDcreatore}}</p>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn" data-dismiss="modal" ng-click="">Partecipa</button>
+                <button type="button" class="btn" data-dismiss="modal">Annulla</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
