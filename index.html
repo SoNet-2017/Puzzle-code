@@ -10,19 +10,27 @@
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.css">
 
-    <!-- css -->
+    <!-- Css -->
     <link rel="stylesheet" href="app.css">
 
-    <!-- JAVASCRIPT -->
-    <!-- angular -->
+
+
+
+    <!-- Angular -->
     <script src="lib/angular/angular.min.js"></script>
     <script src="lib/angular/angular-route.min.js"></script>
     <script src="lib/angular/angular-resource.min.js"></script>
-    <script src="lib/angular/angular-animate.js"></script>
+    <script src="lib/angular/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!--bootstrap -->
+
+    <!-- Angular Material Library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="lib/angular/angular-messages.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+
+    <!--Bootstrap -->
     <script src="lib/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"></script>
     <script src="https://rawgit.com/dwmkerr/angular-modal-service/master/dst/angular-modal-service.js"></script>
 
@@ -35,16 +43,17 @@
     <!-- IMPORTAZIONE APP.JS -->
     <script src="app.js"></script>                                              <!-- modulo principale -->
 
-    <!-- IMPORTAZIONE VISTE -->
+    <!-- IMPORTAZIONE .JS VISTE -->
     <script src="loginView/loginView.js"></script>                              <!-- loginView -->
     <script src="authenticationView/authenticationView.js"></script>            <!-- authView -->
-    <script src="homepageView/homepageView.js"></script>                        <!-- authView -->
+    <script src="HomepageView/homepageView.js"></script>                        <!-- authView -->
     <script src="ProfiloView/profiloView.js"></script>                          <!-- profiloView -->
     <script src="addPostView/addPostView.js"></script>                          <!-- addPostView -->
-    <script src="listaGenitoriView/listaGenitoriView.js"></script>              <!-- ListaPostView -->
+    <script src="listaGenitoriView/listagenitoriView.js"></script>              <!-- ListaPostView -->
     <script src="profiloExtView/profiloExtView.js"></script>                    <!--  -->
+    <script src="eventView/eventView.js"></script>                              <!--  -->
 
-    <!-- IMPORTAZIONE COMPONENTI -->
+    <!-- IMPORTAZIONE .JS COMPONENTI -->
     <script src="components/authentication/authentication.js"></script>         <!-- autenticazione -->
     <script src="components/authentication/authentication-service.js"></script> <!-- auth-servizio  -->
     <script src="components/utenti/utenti.js"></script>                         <!-- utenti -->
@@ -53,10 +62,26 @@
     <script src="components/utenti/utenti-profiloEsterno.js"></script>          <!--  -->
     <script src="components/post/post.js"></script>                             <!--  -->
     <script src="components/post/postList.js"></script>                         <!--  -->
+    <script src="components/eventi/eventi.js"></script>                         <!--  -->
+    <script src="components/eventi/eventi-service.js"></script>                 <!--  -->
+    <script src="components/eventi/eventiDirettiva.js"></script>                 <!--  -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
+    <!-- CALENDARIO -->
+    <!-- --------------------------------------------------------- -->
+    <!-- NB: utilizzo LESS CSS, Plugin di ottimizzazione CSS -->
+    <!-- Bisogna caricare prima il foglio di stile e poi il plugin -->
+    <!-- --------------------------------------------------------- -->
+    <link rel="stylesheet/less" type="text/css" href="eventView/eventView.less" />
+    <script src="lib/less/less.js" type="text/javascript"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css" />
+
+    <!-- MOMENT -->
+    <script type="text/javascript" src="lib/moment/moment.min.js"></script>
 
 </head>
 
@@ -95,7 +120,8 @@
 </header>
 
 <!-- SIDEBAR  -->
-<nav class="navbar navbar-fixed-top" id="sidebar" ng-if="!(pagina.pagCorrente === 'authView' || pagina.pagCorrente === 'loginView')">
+<div ng-if="controlloSidebar()">
+<nav class="navbar navbar-fixed-top" id="sidebar">
     <!-- INTESTAZIONE SIDEBAR  -->
     <div class="sidebar-header">
 
@@ -117,7 +143,7 @@
             <!-- ELENCO INSEGNANTI  -->
             <ul ng-show="menuIns">
                 <li ng-repeat="insegnante in elencoUtenti | filter: {'ruolo' : 'INSEGNANTE' } : true">
-                    <a href="#!/profiloExtView" ng-click="set(insegnante.ID)" ng-if="isUserLog(insegnante.ID)">{{insegnante.nome}} {{insegnante.cognome}}</a>
+                    <a href="#!/profiloExtView" ng-click="set(insegnante.ID)" >{{insegnante.nome}} {{insegnante.cognome}}</a>
                 </li>
             </ul>
         </li>
@@ -136,7 +162,7 @@
         </li>
         <!-- LINK EVENTI  -->
         <li>
-            <a>
+            <a href="#!/eventView">
                 <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/></i>
                 Eventi
             </a>

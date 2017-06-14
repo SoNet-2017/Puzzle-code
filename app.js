@@ -16,6 +16,7 @@ var config = {
 firebase.initializeApp(config);
 
 
+
 // ANGULAR
 
 
@@ -32,6 +33,8 @@ angular.module('puzzle', [
     'puzzle.post',
     'puzzle.listaGenitoriView',
     'puzzle.profiloExtView',
+    'puzzle.eventView',
+    'puzzle.eventi',
     "firebase"
 ])
 
@@ -52,11 +55,13 @@ angular.module('puzzle', [
         });
     }])
 
-    .controller('indexCtrl', ['$scope', '$rootScope', 'CommonProp', 'Auth', 'profiloEsterno',
-                    function($scope, $rootScope, CommonProp, Auth, profiloEsterno) {
+    .controller('indexCtrl', ['$scope', '$rootScope', 'Auth', 'profiloEsterno', 'CommonProp', 'utenti',
+                    function($scope, $rootScope, Auth, profiloEsterno, CommonProp, utenti) {
 
         $rootScope.pagina = {};
         $rootScope.pagina.pagCorrente = 'loginView';
+
+        moment.locale('it');
 
         $scope.menuIns = false;
         $scope.menuGen = false;
@@ -75,8 +80,38 @@ angular.module('puzzle', [
             profiloEsterno.setUser(id);
         };
 
-        $scope.isUserLog = function(id){
-            return true;
+
+        //$scope.user = {};
+
+        $scope.controlloSidebar = function(){
+            if($scope.pagina.pagCorrente !== "loginView" && $scope.pagina.pagCorrente !== "authView"){
+                return true;
+            } else {
+                return false;
+            }
         };
+
+        $scope.test = function(utente){
+
+            if($scope.pagina.pagCorrente !== "loginView" && $scope.pagina.pagCorrente !== "authView"){
+                //console.log(utente.citta + " | " + $scope.infoUser.citta);
+                //if(utente.citta === $scope.infoUser.citta) {
+                // return true;
+                //}
+
+            } else {
+                return false;
+            }
+        };
+
+        $scope.noUtente = function(){
+            return false;
+        };
+
+        $scope.outUser = function(){
+            $scope.flag = true;
+            utenti.logoutUser();
+        }
+
 
     }]);
