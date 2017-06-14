@@ -24,6 +24,7 @@ angular.module('puzzle.loginView', [
             $scope.error = null;
             $scope.auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function(firebaseUser) {
                 // login successful:
+
                 $location.path("/homepageView");
             }).catch(function(error) {
                 $scope.error = error;

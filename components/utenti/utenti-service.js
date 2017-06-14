@@ -20,6 +20,7 @@ angular.module('puzzle.utenti.utentiService', [])
                 auth.$signOut();
                 console.log("Utente disconnesso");
                 utenteLoggato = "";
+                $rootScope.flag = true;
 
             },
 

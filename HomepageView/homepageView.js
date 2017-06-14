@@ -31,6 +31,9 @@ angular.module('puzzle.homepageView', [
     .controller('HomeCtrl', ['$scope', '$rootScope', 'CommonProp', 'utenti', 'currentAuth', 'postList', '$firebaseObject', '$firebaseArray',
         function($scope, $rootScope, CommonProp, utenti, currentAuth, postList, $firebaseObject, $firebaseArray){
 
+
+
+
             $scope.today = new Date();
 
             $scope.pagina = {};
