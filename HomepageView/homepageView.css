@@ -561,4 +561,50 @@ md-content{
 }
 
 
+/*--------------------------------
+     Radio Buttons Eventi
+--------------------------------*/
 
+#casa, #scuola, #extra {
+    display:none;
+}
+
+.casa{background-image:url(../images/simboli_eventi/Evento_CASA.png);}
+.scuola{background-image:url(../images/simboli_eventi/Evento_SCUOLA.png);}
+.extra{background-image:url(../images/simboli_eventi/Evento_EXTRA.png);}
+
+#casa:active +.simboloEvento{opacity: .9;}  /*simbolo opaco finchè non viene selezionato*/
+
+#casa:checked +.simboloEvento{ /*il simbolo si accende quando viene selezionato*/
+    /*-webkit-filter: none;
+    -moz-filter: none;*/
+    filter: none;
+}
+#scuola:checked +.simboloEvento{ /*il simbolo si accende quando viene selezionato*/
+    /*-webkit-filter: none;
+    -moz-filter: none;*/
+    filter: none;
+}
+#extra:checked +.simboloEvento{ /*il simbolo si accende quando viene selezionato*/
+    /*-webkit-filter: none;
+    -moz-filter: none;*/
+    filter: none;
+}
+.simboloEvento{                                          /*identico a .simboloUtente*/
+    cursor:pointer;             /*manina*/
+    background-size:contain;
+    background-repeat:no-repeat;
+    /*display:inline-block;*/
+    width:70px; height:70px;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    -webkit-filter: brightness(1.8) grayscale(1) opacity(.7);
+    -moz-filter: brightness(1.8) grayscale(1) opacity(.7);
+    filter: brightness(1.8) grayscale(1) opacity(.7);
+}
+.simboloEvento:hover{                                   /*identico a .simboloUtente*/
+    -webkit-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
+    filter: brightness(1.2) grayscale(.5) opacity(.9);
+}

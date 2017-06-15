@@ -132,15 +132,19 @@
                 <form role="form" name="eventForm" novalidate="" ng-submit="">
 
                     <!-- RADIO BUTTON SCELTA TIPO EVENTO -->
-                    <div class="form-group" required>
-                        <input id="casa" type="radio" name="tipo" value="CASA" ng-model="event.tipo"/>
-                        <label for="casa"></label> <br>Casa<br><br>
-
-                        <input id="scuola" type="radio" name="tipo" value="SCUOLA" ng-model="event.tipo"/>
-                        <label for="scuola"></label> <br>Scuola<br><br>
-
-                        <input id="extra" type="radio" name="tipo" value="EXTRA" ng-model="event.tipo"/>
-                        <label for="extra"></label> <br>Extra<br>
+                    <div class = "row">
+                        <div class = "col-lg-4">
+                            <input id="casa" type="radio" name="tipo" value="CASA" ng-model="event.tipo"/>
+                            <label class="simboloEvento casa" for="casa"></label> <br>Casa<br><br>
+                        </div>
+                        <div class = "col-lg-4">
+                            <input id="scuola" type="radio" name="tipo" value="SCUOLA" ng-model="event.tipo"/>
+                            <label class="simboloEvento scuola" for="scuola"></label> <br>Scuola<br><br>
+                        </div>
+                        <div class = "col-lg-4">
+                            <input id="extra" type="radio" name="tipo" value="EXTRA" ng-model="event.tipo"/>
+                            <label class="simboloEvento extra" for="extra"></label> <br>Extra<br>
+                        </div>
                     </div>
                     <!-- FINE RADIO BUTTON -->
 
