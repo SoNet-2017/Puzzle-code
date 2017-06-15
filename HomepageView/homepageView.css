@@ -510,11 +510,16 @@ ul ul a {
 /* titolo */
 #titleEvent {
     margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 97%;
 }
 
 /*luogo */
 #placeEvent{
     margin-bottom:25px;
+    margin-left: 10px;
+    width: 97%;
 }
 
 
@@ -524,7 +529,6 @@ ul ul a {
     padding-top: 10px;
 }
 md-content{
-
     padding-left: 50px;
 }
 /*orario */
@@ -558,6 +562,8 @@ md-content{
 .form-group textarea {
     margin-bottom: 10px;
     margin-top: 12px;
+    margin-left: 10px;
+    width: 97%;
 }
 
 
@@ -571,14 +577,32 @@ md-content{
 
 .casa{
     background-image:url(../images/simboli_eventi/Evento_CASA.png);
+    margin-left: 50px;
+    margin-top: 10px;
+}
+#textCasa {
+    padding-left: 19px;
+
 }
 
 .scuola{
     background-image:url(../images/simboli_eventi/Evento_SCUOLA.png);
+    margin-top: 10px;
+}
+
+#textScuola{
+    padding-left: 2px;
 }
 .extra{
     background-image:url(../images/simboli_eventi/Evento_EXTRA.png);
+    margin-right: 50px;
+    margin-top: 10px;
 }
+
+#textExtra{
+    padding-right: 10px;
+}
+
 
 #casa:active +.simboloEvento{opacity: .9;}  /*simbolo opaco finchè non viene selezionato*/
 

@@ -135,15 +135,19 @@
                     <div class = "row">
                         <div class = "col-lg-4">
                             <input id="casa" type="radio" name="tipo" value="CASA" ng-model="event.tipo"/>
-                            <label class="simboloEvento casa img-thumbnail center-block" for="casa"></label> <br>Casa<br><br>
+                            <label class="simboloEvento casa img-thumbnail center-block" for="casa"></label>
+                            <div class="row text-center" id="textCasa"><h4> Casa <br><br> </h4> </div>
                         </div>
                         <div class = "col-lg-4">
                             <input id="scuola" type="radio" name="tipo" value="SCUOLA" ng-model="event.tipo"/>
-                            <label class="simboloEvento scuola img-thumbnail center-block" for="scuola"></label> <br>Scuola<br><br>
+                            <label class="simboloEvento scuola img-thumbnail center-block" for="scuola"></label>
+                            <div class="row text-center" id="textScuola"><h4> Scuola <br><br> </h4> </div>
+
                         </div>
                         <div class = "col-lg-4">
                             <input id="extra" type="radio" name="tipo" value="EXTRA" ng-model="event.tipo"/>
-                            <label class="simboloEvento extra img-thumbnail center-block" for="extra"></label> <br>Extra<br>
+                            <label class="simboloEvento extra img-thumbnail center-block" for="extra"></label>
+                            <div class="row text-center" id="textExtra"> <h4> Extra <br><br> </h4> </div>
                         </div>
                     </div>
                     <!-- FINE RADIO BUTTON -->
