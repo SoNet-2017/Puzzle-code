@@ -569,9 +569,16 @@ md-content{
     display:none;
 }
 
-.casa{background-image:url(../images/simboli_eventi/Evento_CASA.png);}
-.scuola{background-image:url(../images/simboli_eventi/Evento_SCUOLA.png);}
-.extra{background-image:url(../images/simboli_eventi/Evento_EXTRA.png);}
+.casa{
+    background-image:url(../images/simboli_eventi/Evento_CASA.png);
+}
+
+.scuola{
+    background-image:url(../images/simboli_eventi/Evento_SCUOLA.png);
+}
+.extra{
+    background-image:url(../images/simboli_eventi/Evento_EXTRA.png);
+}
 
 #casa:active +.simboloEvento{opacity: .9;}  /*simbolo opaco finchè non viene selezionato*/
 
@@ -595,7 +602,7 @@ md-content{
     background-size:contain;
     background-repeat:no-repeat;
     /*display:inline-block;*/
-    width:70px; height:70px;
+    width:85px; height:70px;
     -webkit-transition: all 100ms ease-in;
     -moz-transition: all 100ms ease-in;
     transition: all 100ms ease-in;
