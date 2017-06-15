@@ -253,6 +253,21 @@ ul.informazioniPersonali li ul.informazioniPersonali-text li {
     margin-bottom: 70px;
 }
 
+/* -------- materiale didattico ----------- */
+
+.materialeD {
+    margin-bottom: 20px;
+    margin-top: 50px;
+    margin-right: 70px;
+    margin-left: 330px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
+}
+
 /* ---------------------------------------------------
     Navigation bar
 ----------------------------------------------------- */
@@ -286,6 +301,8 @@ ul.informazioniPersonali li ul.informazioniPersonali-text li {
 .navbar .button {
     color: #308e89 ;
 }
+
+
 
 
 /* ---------------------------------------------------
@@ -486,17 +503,62 @@ ul ul a {
 }
 
 
-/* -------- materiale didattico ----------- */
+/*-----------EVENTI ----------- */
 
-.materialeD {
+/*---- MODAL ----- */
+
+/* titolo */
+#titleEvent {
     margin-bottom: 20px;
-    margin-top: 50px;
-    margin-right: 70px;
-    margin-left: 330px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-left: 50px;
-    padding-right: 50px;
-    background: #fff;
-    background: rgba(255, 255, 255, 0.9);
 }
+
+/*luogo */
+#placeEvent{
+    margin-bottom:25px;
+}
+
+
+/*data */
+
+#dataModal{
+    padding-top: 10px;
+}
+md-content{
+
+    padding-left: 50px;
+}
+/*orario */
+
+#orainizio{
+
+    width: 90px;
+    padding-top: 40px;
+    margin-top: 12px;
+}
+
+#orainizioL{
+    padding-left: 58px;
+    margin-top: 12px;
+}
+
+#orafine {
+
+    text-align: center;
+    width: 70px;
+    padding-top: 40px;
+    margin-top: 12px;
+}
+
+#orafineL {
+    margin-top: 12px;
+    padding-left: 50px;
+}
+
+/*descrizione */
+.form-group textarea {
+    margin-bottom: 10px;
+    margin-top: 12px;
+}
+
+
+

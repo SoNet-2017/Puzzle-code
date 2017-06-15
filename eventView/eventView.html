@@ -148,32 +148,74 @@
                     <div class="form-group">
                         <!-- TITOLO EVENTO -->
                         <input type="text" class="form-control" id="titleEvent" name="title" placeholder="Titolo" ng-model="event.titolo" required/>
-                        <!-- DESCRIZIONE EVENTO -->
-                        <textarea name="descrizioneEvent" class="form-control" placeholder="Descrivi qui il tuo evento" ng-model="event.descrizione" ng-minlength="5" required="">
-                        </textarea>
-
-                        <!-- SELEZIONE DATA -->
-                        <!-- Includere <style> nel CSS presente nell'<head> -->
-                        <md-content layout-padding ng-cloak>
-                                <md-datepicker ng-model="myDate" md-placeholder="Inserisci una data"
-                                               md-min-date="minimoDate" md-max-date="maxDate" ng-required md-date-locale>
-                                </md-datepicker>
-                        </md-content>
-
-                        <p>ORA INIZIO:</p>
-                        <!-- SELEZIONE INIZIO -->
-                        <div uib-timepicker ng-model="oraInizio" hour-step="hstep" minute-step="mstep" show-meridian="false">
-                        </div>
-
-
-                        <p>ORA FINE:</p>
-                        <!-- SELEZIONE FINE -->
-                        <div uib-timepicker ng-model="oraFine" hour-step="hstep" minute-step="mstep" show-meridian="false" min="oraInizio">
-                        </div>
-
 
                         <!-- LUOGO EVENTO -->
                         <input type="text" class="form-control" id="placeEvent" name="place" placeholder="Luogo" ng-model="event.luogo" required/>
+
+
+                        <!--data -->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <h4 id="dataModal">
+                                                Data:
+                                            </h4>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <!-- SELEZIONE DATA -->
+                                            <!-- Includere <style> nel CSS presente nell'<head> -->
+                                            <md-content layout-padding ng-cloak>
+                                                <md-datepicker ng-model="myDate" md-placeholder="Inserisci una data"
+                                                               md-min-date="minimoDate" md-max-date="maxDate" ng-required md-date-locale>
+                                                </md-datepicker>
+                                            </md-content>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ora -->
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <!-- SELEZIONE ORA INIZIO -->
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <h4 id="orainizio"> Ora inizio: </h4>
+                                                </div>
+                                                <div class="col-md-9" id="orainizioL">
+                                                    <div uib-timepicker ng-model="oraInizio" hour-step="hstep" minute-step="mstep" show-meridian="false">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- SELEZIONE ORA FINE -->
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <h4 id="orafine"> Ora fine: </h4>
+
+                                                </div>
+                                                <div class="col-md-9" id="orafineL">
+                                                    <div uib-timepicker ng-model="oraFine" hour-step="hstep" minute-step="mstep" show-meridian="false" min="oraInizio">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- fine orario -->
+
+                        <!-- DESCRIZIONE EVENTO -->
+                        <textarea name="descrizioneEvent" class="form-control" placeholder="Descrivi qui il tuo evento" ng-model="event.descrizione" ng-minlength="5" required="">
+                        </textarea>
                     </div>
 
                 </form>
