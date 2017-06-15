@@ -544,22 +544,28 @@ ul ul a {
 
 
 
-#casa:active +.simboloEvento{opacity: .9;}  /*simbolo opaco finchè non viene selezionato*/
+#casa:active +.simboloEvento{
+    opacity: .9;
+}  /*simbolo opaco finchè non viene selezionato*/
 
 #casa:checked +.simboloEvento{ /*il simbolo si accende quando viene selezionato*/
     /*-webkit-filter: none;
     -moz-filter: none;*/
     filter: none;
+    border: 1px solid #C17528;
 }
+
 #scuola:checked +.simboloEvento{ /*il simbolo si accende quando viene selezionato*/
     /*-webkit-filter: none;
     -moz-filter: none;*/
     filter: none;
+    border: 1px solid #8f2b27;
 }
 #extra:checked +.simboloEvento{ /*il simbolo si accende quando viene selezionato*/
     /*-webkit-filter: none;
     -moz-filter: none;*/
     filter: none;
+    border: 1px solid #8d775f;
 }
 .simboloEvento{
     cursor:pointer;             /*manina*/
@@ -621,7 +627,7 @@ ul ul a {
 #dataModal{
     padding-top: 10px;
 }
-md-content{
+.md-content{
     padding-left: 50px;
 }
 /*orario */
