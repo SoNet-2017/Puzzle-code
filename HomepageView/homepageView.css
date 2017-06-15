@@ -505,68 +505,6 @@ ul ul a {
 
 /*-----------EVENTI ----------- */
 
-/*---- MODAL ----- */
-
-/* titolo */
-#titleEvent {
-    margin-bottom: 20px;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 97%;
-}
-
-/*luogo */
-#placeEvent{
-    margin-bottom:25px;
-    margin-left: 10px;
-    width: 97%;
-}
-
-
-/*data */
-
-#dataModal{
-    padding-top: 10px;
-}
-md-content{
-    padding-left: 50px;
-}
-/*orario */
-
-#orainizio{
-
-    width: 90px;
-    padding-top: 40px;
-    margin-top: 12px;
-}
-
-#orainizioL{
-    padding-left: 58px;
-    margin-top: 12px;
-}
-
-#orafine {
-
-    text-align: center;
-    width: 70px;
-    padding-top: 40px;
-    margin-top: 12px;
-}
-
-#orafineL {
-    margin-top: 12px;
-    padding-left: 50px;
-}
-
-/*descrizione */
-.form-group textarea {
-    margin-bottom: 10px;
-    margin-top: 12px;
-    margin-left: 10px;
-    width: 97%;
-}
-
-
 /*--------------------------------
      Radio Buttons Eventi
 --------------------------------*/
@@ -604,6 +542,7 @@ md-content{
 }
 
 
+
 #casa:active +.simboloEvento{opacity: .9;}  /*simbolo opaco finchè non viene selezionato*/
 
 #casa:checked +.simboloEvento{ /*il simbolo si accende quando viene selezionato*/
@@ -639,3 +578,95 @@ md-content{
     -moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
     filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
+
+/*---- MODAL ----- */
+
+/* titolo */
+#titleEvent {
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 97%;
+
+}
+
+#titleEvent:focus{
+    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    box-shadow: 0 0 2px rgb(48,142,137) inset;
+    border: 1px solid rgb(48,142,137);
+    outline: none;
+
+}
+
+/*luogo */
+#placeEvent{
+    margin-bottom:25px;
+    margin-left: 10px;
+    width: 97%;
+}
+
+#placeEvent:focus{
+    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    box-shadow: 0 0 2px rgb(48,142,137) inset;
+    border: 1px solid rgb(48,142,137);
+    outline: none;
+}
+
+
+/*data */
+
+#dataModal{
+    padding-top: 10px;
+}
+md-content{
+    padding-left: 50px;
+}
+/*orario */
+
+#orainizio{
+
+    width: 90px;
+    padding-top: 40px;
+    margin-top: 12px;
+}
+
+
+#orainizioL{
+    padding-left: 58px;
+    margin-top: 12px;
+}
+
+#orafine {
+
+    text-align: center;
+    width: 70px;
+    padding-top: 40px;
+    margin-top: 12px;
+}
+
+
+
+#orafineL {
+    margin-top: 12px;
+    padding-left: 50px;
+}
+
+/*descrizione */
+.form-group textarea {
+    margin-bottom: 10px;
+    margin-top: 12px;
+    margin-left: 10px;
+    width: 97%;
+}
+
+.form-group textarea:focus{
+    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    box-shadow: 0 0 2px rgb(48,142,137) inset;
+    border: 1px solid rgb(48,142,137);
+    outline: none;
+}
+
+
