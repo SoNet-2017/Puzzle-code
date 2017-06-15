@@ -47,5 +47,32 @@ angular.module('puzzle.listaGenitoriView', [
                 $scope.contUtente = $firebaseObject(ref);
             }
 
+            $scope.controllo = function(gen){
+
+                var t = false;
+
+                if($scope.utenteRegistrato.user.ruolo === 'GENITORE'){
+                    if($scope.utenteRegistrato.user.citta === gen.citta) {
+                        if($scope.utenteRegistrato.user.figlio1.classeFiglio === gen.figlio1.classeFiglio &&
+                           $scope.utenteRegistrato.user.figlio1.sezioneFiglio === gen.figlio1.sezioneFiglio &&
+                           $scope.utenteRegistrato.user.figlio1.scuolaFiglio === gen.figlio1.scuolaFiglio){
+                           t = true;
+                        }
+                    }
+                }
+
+                if($scope.utenteRegistrato.user.ruolo === 'INSEGNANTE'){
+                    if($scope.utenteRegistrato.user.citta === gen.citta) {
+                        if($scope.utenteRegistrato.user.classe === gen.figlio1.classe &&
+                            $scope.utenteRegistrato.user.sezione === gen.figlio1.sezione &&
+                            $scope.utenteRegistrato.user.scuola === gen.figlio1.scuola){
+                            t = true;
+                        }
+                    }
+                }
+
+                return t;
+             }
+
         }]);
 

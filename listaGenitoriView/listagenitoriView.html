@@ -21,12 +21,15 @@
                     <!-- ------------------------------------------------- -->
                     <p ng-if="utenteRegistrato.user.ruolo === 'GENITORE'">
                         GENITORI ISCRITTI NELLA CLASSE {{utenteRegistrato.user.figlio1.classeFiglio}}°{{utenteRegistrato.user.figlio1.sezioneFiglio}}
+                        della scuola "{{utenteRegistrato.user.figlio1.scuolaFiglio}}" di {{utenteRegistrato.user.citta}}
                     </p>
                     <p ng-if="utenteRegistrato.user.ruolo === 'INSEGNANTE'">
                         GENITORI ISCRITTI NELLA CLASSE {{utenteRegistrato.user.classe}}°{{utenteRegistrato.user.sezione}}
+                        della scuola "{{utenteRegistrato.user.scuola}}" di {{utenteRegistrato.user.citta}}
                     </p>
                     <!-- ------------------------------------------------- -->
-                    <div class="post" ng-repeat="genitore in tuttiGliUtenti.elencoUtenti | filter: {'ruolo' : 'GENITORE' } : true">
+                    <div class="post" ng-repeat="genitore in tuttiGliUtenti.elencoUtenti | filter: {'ruolo' : 'GENITORE' } : true"
+                         ng-if="controllo(genitore)">
                         <div class="media">
                             <!-- AVATAR -->
                             <div class="media-left">
@@ -46,10 +49,11 @@
                                 <!-- &nbsp; lascia uno spazio, così non ho bisogno di definirglielo nel css -->
                             </div>
                             <!-- FINE CONTATTA -->
+                            <!-- LINEA DI SEPARAZIONE -->
+                            <div class="line">
+                            </div>
                         </div>
-                        <!-- LINEA DI SEPARAZIONE -->
-                        <div class="line">
-                        </div>
+
                     </div>
                     <!-- ------------------------------------------------- -->
                 </div>

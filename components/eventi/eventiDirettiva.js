@@ -42,6 +42,8 @@ angular.module('puzzle.eventi.eventiDirettiva', [])
             }
         };
 
+
+
         function _removeTime(date) {
             return date.day(0).hour(0).minute(0).second(0).millisecond(0);
         }
@@ -59,14 +61,20 @@ angular.module('puzzle.eventi.eventiDirettiva', [])
 
         function _buildWeek(date, month) {
             var days = [];
+
             for (var i = 0; i < 7; i++) {
+
                 days.push({
                     name: date.format("dd").substring(0, 1),
                     number: date.date(),
                     isCurrentMonth: date.month() === month.month(),
+                    isYesterday: date.date() < moment().format("DD") && date.month() < moment().format("MM"),
                     isToday: date.isSame(new Date(), "day"),
                     date: date
                 });
+
+                console.log(date.month());
+
                 date = date.clone();
                 date.add(1, "d");
             }
