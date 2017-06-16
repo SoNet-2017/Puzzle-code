@@ -223,15 +223,25 @@ i, span {
 
 }
 
-/*elenco informazioni peronsali */
+/*elenco informazioni personali */
 ul.informazioniPersonali{
     margin-top: 2em;
     border-top: 1px solid #AFAFAF;
     padding-top: 0.5em;
+    list-style-type: none;     /*non mi mette i puntini dell'elenco puntato*/
 }
+li.informazioniPersonali-text{
+    /*display: inline-block;*/
+    font-size: 1.1em;
+    color: #343434;
+    margin-top: 1em;
+    /*font-weight: 100;*/
+}
+/*
 ul.informazioniPersonali li {
     display: block;
 }
+
 ul.informazioniPersonali li ul.informazioniPersonali-text li {
     display: inline-block;
     font-size: 1.1em;
@@ -240,7 +250,7 @@ ul.informazioniPersonali li ul.informazioniPersonali-text li {
     font-weight: 100;
 }
 
-/*ul.informazioniPersonali li ul.informazioniPersonali-text li:nth-child(1){
+ul.informazioniPersonali li ul.informazioniPersonali-text li:nth-child(1){
      width: 20%;
  }*/
 
