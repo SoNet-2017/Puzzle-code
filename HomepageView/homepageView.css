@@ -55,7 +55,7 @@ i, span {
     margin-left: 150px;
 }
 
-/*data*/
+/*data Homepage*/
 .data{
     text-align: right;
     margin-left: 30px;
@@ -251,7 +251,7 @@ li.informazioniPersonali-text{
 }
 
 
-/*linea divisoria */
+/*linea divisoria Homepage*/
 .line {
     width: 100%;
     height: 1px;
@@ -512,9 +512,24 @@ ul ul a {
 
 /*------------------ EVENTI ------------------ */
 
-/*--------------------------------
-     Lista in cui sono elencati gli Eventi
---------------------------------*/
+/*data Eventi*/
+.dataEvento{
+    margin-left: 870px;
+    font-family: "Brush Script MT";
+    font-size: 30px;
+    color: black;
+}
+/*linea divisoria Eventi*/
+.lineEventi{
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+/*-----------------------------------------
+   Lista in cui sono elencati gli Eventi
+-------------------------------------------*/
 ul.listaEventi{
     margin-top: 2em;
     padding-top: 0.5em;
@@ -522,7 +537,7 @@ ul.listaEventi{
 }
 
 /*--------------------------------
-     Radio Buttons Eventi
+     Radio Buttons Modal Eventi
 --------------------------------*/
 
 #casa, #scuola, #extra {
