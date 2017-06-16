@@ -105,17 +105,19 @@ i, span {
 
 
 /*proprietà di tutti i bottoni della classe post */
+.post .btn:hover,
+.post .btn:focus,
+.post .btn:active,
+/* siccome ai bottoni modifica ed elimina sotto il post liliana non ha dato classi per questione di layout,
+    bisogna considerarli conisderarli come bottoni normali senza bootstrap, quindi aggiungo .post button */
 .post button:hover,
 .post button:focus,
-.post button:active    {
+.post button:active{
     color: #FFF;
-    border-color: #9d9d9d;
     /*contorni di tutti i bottoni */
     box-shadow: 0 0 0 2px rgb(48,142,137);
     -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
-    -ms-box-shadow: 0 0 2px rgb(48,142,137) inset;
     -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
-    box-shadow: 0 0 2px rgb(48,142,137) inset;
     background-color: rgb(48,142,137);
     border: 1px solid rgb(48,142,137);
     outline: none;
@@ -129,7 +131,6 @@ i, span {
     color: white;
     border: 1px solid transparent;
     border-radius: 4px;
-    border-color: #ccc;
 }
 
 /* bottoni per modifica ed elimina contenuti nella riga sottostante il post, posizione */
@@ -151,13 +152,26 @@ i, span {
 }
 
 
+/*-------- MODAL PER MODIFICA POST ------ */
+#modificaPost{ /*textarea */
+    height: 200px;
+    width: 93.5%;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
 /*--- bottoni di modifica post ---*/
-.modal-footer button:active,
+.modal-footer button{
+    background-color: rgba(48, 142, 137, 0.5);
+    color: white;
+}
+
 .modal-footer button:focus,
+.modal-footer button:hover,
 .modal-footer button:active{
-    box-shadow: 0 0 0 2px rgb(48,142,137);
     -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
-    -ms-box-shadow: 0 0 2px rgb(48,142,137) inset;
     -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
     box-shadow: 0 0 2px rgb(48,142,137) inset;
     background-color: rgb(48,142,137);
