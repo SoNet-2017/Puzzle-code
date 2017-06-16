@@ -20,9 +20,6 @@
         }
     </style>
 
-
-
-
 </head>
 <body>
 
@@ -49,38 +46,25 @@
                         <!-- TAB CASA -->
                         <uib-tab index="0" heading="CASA">
                             <!-- LOOP EVENTI IN PROGRAMMA --->
-                            <ul class="informazioniPersonali" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                            <ul class="listaEventi" ng-if="evento.tipo === 'CASA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
                                 <li>
-                                    <ul class="informazioniPersonali-text" ng-if="evento.tipo === 'CASA'">
-                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
-                                            <li>
-                                                &thinsp; <b>{{evento.oraI}}</b> -
-                                            </li>
-                                            <li>
-                                                {{evento.titolo}} | {{evento.tipo}} |
-                                            </li>
-                                        </a>
-                                    </ul>
+                                    <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                        &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                    </a>
                                 </li>
                             </ul>
                             <!-- FINE LOOP --->
+
                         </uib-tab>
 
                         <!-- TAB SCUOLA -->
                         <uib-tab index="1" heading="SCUOLA">
                             <!-- LOOP EVENTI IN PROGRAMMA --->
-                            <ul class="informazioniPersonali" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                            <ul class="listaEventi" ng-if="evento.tipo === 'SCUOLA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
                                 <li>
-                                    <ul class="informazioniPersonali-text" ng-if="evento.tipo === 'SCUOLA'">
-                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
-                                            <li>
-                                                &thinsp; <b>{{evento.oraI}}</b> -
-                                            </li>
-                                            <li>
-                                                {{evento.titolo}} | {{evento.tipo}} |
-                                            </li>
-                                        </a>
-                                    </ul>
+                                    <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                        &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                    </a>
                                 </li>
                             </ul>
                             <!-- FINE LOOP --->
@@ -89,22 +73,16 @@
                         <!-- TAB EXTRA -->
                         <uib-tab index="2" heading="EXTRA">
                             <!-- LOOP EVENTI IN PROGRAMMA --->
-                            <ul class="informazioniPersonali" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                            <ul class="listaEventi" ng-if="evento.tipo === 'EXTRA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
                                 <li>
-                                    <ul class="informazioniPersonali-text" ng-if="evento.tipo === 'EXTRA'">
-                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
-                                            <li>
-                                                &thinsp; <b>{{evento.oraI}}</b> -
-                                            </li>
-                                            <li>
-                                                {{evento.titolo}} | {{evento.tipo}} |
-                                            </li>
-                                        </a>
-                                    </ul>
+                                    <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                        &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                    </a>
                                 </li>
                             </ul>
                             <!-- FINE LOOP --->
                         </uib-tab>
+
                     </uib-tabset>
 
                     <hr />

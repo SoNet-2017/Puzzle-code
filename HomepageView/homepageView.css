@@ -231,28 +231,10 @@ ul.informazioniPersonali{
     list-style-type: none;     /*non mi mette i puntini dell'elenco puntato*/
 }
 li.informazioniPersonali-text{
-    /*display: inline-block;*/
     font-size: 1.1em;
     color: #343434;
     margin-top: 1em;
-    /*font-weight: 100;*/
 }
-/*
-ul.informazioniPersonali li {
-    display: block;
-}
-
-ul.informazioniPersonali li ul.informazioniPersonali-text li {
-    display: inline-block;
-    font-size: 1.1em;
-    color: #343434;
-    margin-top: 1em;
-    font-weight: 100;
-}
-
-ul.informazioniPersonali li ul.informazioniPersonali-text li:nth-child(1){
-     width: 20%;
- }*/
 
 
 /*linea divisoria */
@@ -514,7 +496,16 @@ ul ul a {
 }
 
 
-/*-----------EVENTI ----------- */
+/*------------------ EVENTI ------------------ */
+
+/*--------------------------------
+     Lista in cui sono elencati gli Eventi
+--------------------------------*/
+ul.listaEventi{
+    margin-top: 2em;
+    padding-top: 0.5em;
+    list-style-type: none;     /*non mi mette i puntini dell'elenco puntato*/
+}
 
 /*--------------------------------
      Radio Buttons Eventi
@@ -551,8 +542,6 @@ ul ul a {
 #textExtra{
     padding-right: 10px;
 }
-
-
 
 #casa:active +.simboloEvento{
     opacity: .9;
