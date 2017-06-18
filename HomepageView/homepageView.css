@@ -524,10 +524,14 @@ li.informazioniPersonali-text{
 
 
 /*------------------ EVENTI ------------------ */
+.tabset{
+    padding-right: 70px;
+}
+
 
 /*data Eventi*/
 .dataEvento{
-    margin-left: 870px;
+    margin-left: 800px;
     font-family: "Brush Script MT";
     font-size: 30px;
     color: black;
@@ -540,6 +544,33 @@ li.informazioniPersonali-text{
     margin-top: 30px;
     margin-bottom: 30px;
 }
+
+/*row del bottone crea evento */
+.creaEvento{
+ padding-left: 85px;
+}
+
+.creaEvento .btn{
+    background-color: #308E89;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+/*bottone crea evento */
+.creaEvento .btn:hover,
+.creaEvento .btn:focus,
+.creaEvento .btn:active{
+    color: #FFF;
+    /*contorni di tutti i bottoni */
+    box-shadow: 0 0 0 2px rgb(48,142,137);
+    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    background-color: rgb(48,142,137);
+    border: 1px solid rgb(48,142,137);
+    outline: none;
+}
+
 /*-----------------------------------------
    Lista in cui sono elencati gli Eventi
 -------------------------------------------*/
@@ -548,6 +579,9 @@ ul.listaEventi{
     padding-top: 0.5em;
     list-style-type: none;     /*non mi mette i puntini dell'elenco puntato*/
 }
+
+
+
 
 /*--------------------------------
      Radio Buttons Modal Eventi
