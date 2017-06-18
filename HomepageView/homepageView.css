@@ -357,17 +357,16 @@ ul ul a {
     outline: none;
 }
 
-
+/* proprietà di tutti i bottoni della homepage (sia condividi giornata, sia condividi ed elimina) */
 .post button{
     padding: 5px 25px 5px 25px;
-    /*min-width: 150px;*/
     background-color: #308E89;
     color: white;
     border: 1px solid transparent;
     border-radius: 4px;
 }
 
-/* bottoni per modifica ed elimina contenuti nella riga sottostante il post, posizione */
+/* bottoni post = proprietà SOLO dei bottoni condividi ed elimina, posizione*/
 .bottoniPost{
     margin-left: 570px;
     margin-right: 50px;
@@ -385,6 +384,52 @@ ul ul a {
     display: block;
 }
 
+/*------------MODAL CONTENT-------------------*/
+/*BOTTONI DI TUTTI I MODAL */
+.modal-content .btn {
+    background-color: rgba(48, 142, 137, 0.5);
+}
+
+.modal-content .btn:focus,
+.modal-content .btn:active,
+.modal-content .btn:hover{
+    color: #FFF;
+    /*contorni di tutti i bottoni */
+    box-shadow: 0 0 0 2px rgb(48,142,137);
+    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    background-color: rgb(48,142,137);
+    border: 1px solid rgb(48,142,137);
+    outline: none;
+}
+
+/* x per chiudere la finestra*/
+.modal-content .close:active,
+.modal-content .close:focus,
+.modal-content .close:hover{
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+/* textarea di tutti i MODAL */
+.form-group textarea:focus{
+    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    box-shadow: 0 0 2px rgb(48,142,137) inset;
+    border: 1px solid rgb(48,142,137);
+    outline: none;
+}
+
+
+
+
+/*-------MODAL PER CONDIVIDI LA TUA GIORNATA--------- */
+
+
+
 
 /*-------- MODAL PER MODIFICA POST ------ */
 #modificaPost{ /*textarea */
@@ -396,22 +441,6 @@ ul ul a {
 }
 
 
-/*--- bottoni di modifica post ---*/
-.modal-footer button{
-    background-color: rgba(48, 142, 137, 0.5);
-    color: white;
-}
-
-.modal-footer button:focus,
-.modal-footer button:hover,
-.modal-footer button:active{
-    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
-    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
-    box-shadow: 0 0 2px rgb(48,142,137) inset;
-    background-color: rgb(48,142,137);
-    border: 1px solid rgb(48,142,137);
-    outline: none;
-}
 
 
 
@@ -669,12 +698,5 @@ ul.listaEventi{
     width: 97%;
 }
 
-.form-group textarea:focus{
-    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
-    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
-    box-shadow: 0 0 2px rgb(48,142,137) inset;
-    border: 1px solid rgb(48,142,137);
-    outline: none;
-}
 
 
