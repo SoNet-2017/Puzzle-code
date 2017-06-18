@@ -461,8 +461,8 @@ ul ul a {
 
 .profilo .header-left img {
     width: 70%;
-    margin-left: 50px;
-    margin-top: 15px;
+    margin-left: 120px;
+    margin-top: 1px;
     border: 2px solid #343434;
 }
 
@@ -472,7 +472,7 @@ ul ul a {
     width: 450px;
     position:relative;
     float: left;
-    margin-right: 50px;
+    margin-left: 80px;
 }
 
 /*NOME E COGNOME*/
