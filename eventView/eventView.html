@@ -158,7 +158,7 @@
                                             <div class="col-md-10">
                                                 <!-- SELEZIONE DATA -->
                                                 <!-- Includere <style> nel CSS presente nell'<head> -->
-                                                <md-content layout-padding ng-cloak>
+                                                <md-content layout-padding >
                                                     <md-datepicker ng-model="myDate" md-placeholder="Inserisci una data"
                                                                    md-min-date="minimoDate" md-max-date="maxDate" ng-required md-date-locale>
                                                     </md-datepicker>
@@ -180,7 +180,7 @@
                                                     <div class="col-md-3">
                                                         <h4 id="orainizio"> Ora inizio: </h4>
                                                     </div>
-                                                    <div class="col-md-9" id="orainizioL">
+                                                    <div class="col-md-9 timepicker" id="orainizioL">
                                                         <div uib-timepicker ng-model="oraInizio" hour-step="hstep" minute-step="mstep" show-meridian="false">
                                                         </div>
                                                     </div>
@@ -193,7 +193,7 @@
                                                         <h4 id="orafine"> Ora fine: </h4>
 
                                                     </div>
-                                                    <div class="col-md-9" id="orafineL">
+                                                    <div class="col-md-9 timepicker" id="orafineL">
                                                         <div uib-timepicker ng-model="oraFine" hour-step="hstep" minute-step="mstep" show-meridian="false" min="oraInizio">
                                                         </div>
                                                     </div>
@@ -233,12 +233,13 @@
                     <h4 class="modal-title"> {{eventoSelezionato.titolo}} </h4>
                 </div>
                 <div class="modal-body">
+
                     <p><b>| {{eventoSelezionato.titolo}} | {{eventoSelezionato.tipo}} |</b></p>
-                    <p>{{eventoSelezionato.descrizione}}</p>
-                    <p>GIORNO: {{eventoSelezionato.giorno}}</p>
-                    <p>INIZIO: {{eventoSelezionato.oraI}} | FINE: {{eventoSelezionato.oraF}}</p>
-                    <p>LUOGO: {{eventoSelezionato.luogo}}</p>
-                    <p>CREATO DA: {{eventoSelezionato.IDcreatore}}</p>
+                    <p> <b> DESCRIZIONE: </b> {{eventoSelezionato.descrizione}}</p>
+                    <p> <b> GIORNO: </b> {{eventoSelezionato.giorno}}</p>
+                    <p> <b> ORA INIZIO: </b> {{eventoSelezionato.oraI}} | <b> ORA FINE:</b> {{eventoSelezionato.oraF}}</p>
+                    <p> <b> LUOGO:</b> {{eventoSelezionato.luogo}}</p>
+                    <p> <b> CREATO DA: </b> {{eventoSelezionato.IDcreatore}}</p>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn" data-dismiss="modal" ng-click="">Partecipa</button>

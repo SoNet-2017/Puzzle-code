@@ -556,6 +556,7 @@ li.informazioniPersonali-text{
  padding-left: 85px;
 }
 
+/*bottone crea evento */
 .creaEvento .btn{
     background-color: #308E89;
     color: white;
@@ -667,7 +668,7 @@ ul.listaEventi{
     filter: brightness(1.2) opacity(.9);
 }
 
-/*---- MODAL ----- */
+/*---- MODAL EVENTI ----- */
 
 /* titolo */
 #titleEvent {
@@ -711,7 +712,27 @@ ul.listaEventi{
 .md-content{
     padding-left: 50px;
 }
+
 /*orario */
+/* ho dovuto creare una classe timepicker perché altrimenti le frecce(che risultano bottoni) prendevano le stess
+impostazioni di tutti gli altri bottoni dei modal!!!  */
+.timepicker .btn{
+    background-color: white;
+    color: rgb(48,142,137);
+}
+
+.timepicker .btn:active,
+.timepicker .btn:focus,
+.timepicker .btn:hover{
+    background-color: white;
+    color: rgb(48,142,137);
+    -moz-box-shadow: none;
+    -o-box-shadow: none;
+    box-shadow: none;
+    outline: none;
+    border: 1px solid rgb(48,142,137);
+}
+
 
 #orainizio{
 
@@ -735,13 +756,10 @@ ul.listaEventi{
 }
 
 
-
 #orafineL {
     margin-top: 12px;
     padding-left: 50px;
 }
-
-
 
 
 
