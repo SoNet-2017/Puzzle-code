@@ -31,6 +31,27 @@ angular.module('puzzle.storage.storageService', [])
                 });
             },
 
+            addFileInsegnante: function (titolo, url, tipo, utente) {
+                var ref = firebase.database().ref().child("file");
+                var gen = $firebaseArray(ref);
+
+
+                gen.$add({
+                    titolo: titolo,
+                    url: url,
+                    creatore: utente.$id,
+                    citta: utente.citta,
+                    scuola: utente.scuola,
+                    classe: utente.classe,
+                    sezione: utente.sezione,
+                    tipo: tipo
+                }).then(function (ref) {
+                    console.log(ref);
+                }, function (error){
+                    console.log(error);
+                });
+            },
+
             getAllFile: function () {
 
                 var ref = firebase.database().ref().child("file");

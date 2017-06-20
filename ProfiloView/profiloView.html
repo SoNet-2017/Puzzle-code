@@ -152,11 +152,81 @@
     <!-- ------------------------------------------ -->
 
     <div class="materialeD" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-            <p> QUESTO SPAZIO E' PER IL MATERIALE DIDATTICO INSEGNANTE </p>
-    </div>
-    <!-- ---------------------------------------------------------------------------------------------------- -->
-    <div>
+            <p> MATERIALE DIDATTICO INSEGNANTE </p>
 
+        <div class="post">
+            <button class="btn" type="button" data-toggle="modal" data-target="#aggiungiFile">
+                <i class="glyphicon glyphicon-pencil"></i>
+                &nbsp; Carica un nuovo file...
+            </button>
+        </div>
+
+        <div class="post">
+
+            <ul ng-repeat="elemento in elencoFile | filter: {'creatore' : IDLoggato} : true">
+                <li>
+
+                    <!-- CONTROLLO IMMAGINE/FOTO -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-12-camera.png" ng-if="immagine(elemento.tipo) === 'img'"/>
+                    <!-- CONTROLLO PDF -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-30-notes-2.png" ng-if="immagine(elemento.tipo) === 'pdf'"/>
+                    <!-- CONTROLLO MUSICA -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-18-music.png" ng-if="immagine(elemento.tipo) === 'music'"/>
+                    <!-- CONTROLLO VIDEO -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-9-film.png" ng-if="immagine(elemento.tipo) === 'video'"/>
+                    <!-- CONTROLLO ZIP -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-326-wallet.png" ng-if="immagine(elemento.tipo) === 'zip'"/>
+                    <!-- FILE GENERICO -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-63-paperclip.png" ng-if="immagine(elemento.tipo) === 'other'"/>
+
+
+                    {{elemento.titolo}}
+                    <a href='{{elemento.url}}'>
+                        <button>DOWNLOAD</button>
+                    </a>
+
+                </li>
+            </ul>
+        </div>
     </div>
+
+
+<!-- MODAL: AGGIUNGI FILE -->
+<div class="modal fade" id="aggiungiFile" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Caricamento nuovo file</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <form id="uploadFile" role="form">
+
+                        <!-- TITOLO -->
+                        <input type="text" class="form-control" id="txtNome" placeholder="Inserisci Titolo" name="titolo"
+                               ng-model="dati.titolo" required/>
+
+                        <!-- ----------------------- -->
+                        <div ng-show="!isUploading">
+                            <input type="file" onchange="angular.element(this).scope().select(this)" required>
+                        </div>
+                        <!-- ----------------------- -->
+
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="submit" ng-click="upload()" data-dismiss="modal" >Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>

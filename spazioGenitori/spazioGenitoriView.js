@@ -34,7 +34,7 @@ angular.module('puzzle.spazioGenitoriView', [
 
             $scope.fileDirectory = {};
 
-            $scope.uid= currentAuth.uid;
+            $scope.uid = currentAuth.uid;
             $scope.utenteRegistrato = CommonProp.getUserInfo($scope.uid);
 
             $scope.elencoUtenti = CommonProp.getAllUser();

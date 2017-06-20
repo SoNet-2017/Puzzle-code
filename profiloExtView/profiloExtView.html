@@ -149,9 +149,38 @@
 <!-- SEZIONE MATERIALE DIDATTICO | INSEGNANTE | -->
 <!-- ------------------------------------------ -->
 
-<div class="materialeD" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
+<div class="materialeD" ng-if = "visitatore.ruolo === 'INSEGNANTE'">
     <div>
-        <p> QUESTO SPAZIO E' PER IL MATERIALE DIDATTICO INSEGNANTE </p>
+        <p> MATERIALE DIDATTICO</p>
+
+        <div class="post">
+
+            <ul ng-repeat="elemento in elencoFile | filter: {'creatore' : visitatore.$id} : true">
+                <li>
+
+                    <!-- CONTROLLO IMMAGINE/FOTO -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-12-camera.png" ng-if="immagine(elemento.tipo) === 'img'"/>
+                    <!-- CONTROLLO PDF -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-30-notes-2.png" ng-if="immagine(elemento.tipo) === 'pdf'"/>
+                    <!-- CONTROLLO MUSICA -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-18-music.png" ng-if="immagine(elemento.tipo) === 'music'"/>
+                    <!-- CONTROLLO VIDEO -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-9-film.png" ng-if="immagine(elemento.tipo) === 'video'"/>
+                    <!-- CONTROLLO ZIP -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-326-wallet.png" ng-if="immagine(elemento.tipo) === 'zip'"/>
+                    <!-- FILE GENERICO -->
+                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-63-paperclip.png" ng-if="immagine(elemento.tipo) === 'other'"/>
+
+
+                    {{elemento.titolo}}
+                    <a href='{{elemento.url}}'>
+                        <button>DOWNLOAD</button>
+                    </a>
+
+                </li>
+            </ul>
+        </div>
+
     </div>
 </div>
 
