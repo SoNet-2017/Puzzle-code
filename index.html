@@ -13,9 +13,6 @@
     <!-- Css -->
     <link rel="stylesheet" href="app.css">
 
-
-
-
     <!-- Angular -->
     <script src="lib/angular/angular.min.js"></script>
     <script src="lib/angular/angular-route.min.js"></script>
@@ -23,7 +20,6 @@
     <script src="lib/angular/angular-animate.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 
     <!-- Angular Material Library -->
     <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
@@ -52,6 +48,7 @@
     <script src="listaGenitoriView/listagenitoriView.js"></script>              <!-- ListaPostView -->
     <script src="profiloExtView/profiloExtView.js"></script>                    <!--  -->
     <script src="eventView/eventView.js"></script>                              <!--  -->
+    <script src="spazioGenitori/spazioGenitoriView.js"></script>
 
     <!-- IMPORTAZIONE .JS COMPONENTI -->
     <script src="components/authentication/authentication.js"></script>         <!-- autenticazione -->
@@ -64,7 +61,10 @@
     <script src="components/post/postList.js"></script>                         <!--  -->
     <script src="components/eventi/eventi.js"></script>                         <!--  -->
     <script src="components/eventi/eventi-service.js"></script>                 <!--  -->
-    <script src="components/eventi/eventiDirettiva.js"></script>                 <!--  -->
+    <script src="components/eventi/eventiDirettiva.js"></script>                <!--  -->
+    <script src="components/storage/storage.js"></script>                       <!--  -->
+    <script src="components/storage/storage-service.js"></script>               <!--  -->
+    <script src="components/storage/storage-upload.js"></script>                <!--  -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -119,8 +119,8 @@
     </nav>
 </header>
 
-<!-- SIDEBAR  -->
 <div ng-if="controlloSidebar()">
+<!-- SIDEBAR  -->
 <nav class="navbar navbar-fixed-top" id="sidebar">
     <!-- INTESTAZIONE SIDEBAR  -->
     <div class="sidebar-header">
@@ -157,7 +157,7 @@
             <!-- ELENCO GENITORI  -->
             <ul ng-show="menuGen">
                 <li><a href="#!/listaGenitoriView">Contatta un genitore</a></li>
-                <li><a>Accedi all'area comune</a></li>
+                <li><a href="#!/spazioGenitoriView">Accedi all'area comune</a></li>
             </ul>
         </li>
         <!-- LINK EVENTI  -->
@@ -170,13 +170,13 @@
         <!-- LINK SPAZIO SCUOLA  -->
         <li>
             <a>
-                <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-712-government.png" height="25" width="26"/></i>
+                <i><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-712-government.png" height="25" width="26"/></i>
                 Spazio Scuola
             </a>
         </li>
     </ul>
 </nav>
-
+</div>
 
 <!-- MENU TEST -->
 <!-- Da abilitare soltanto durante le prove -->

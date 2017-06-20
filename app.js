@@ -17,6 +17,7 @@ firebase.initializeApp(config);
 
 
 
+
 // ANGULAR
 
 
@@ -33,8 +34,10 @@ angular.module('puzzle', [
     'puzzle.post',
     'puzzle.listaGenitoriView',
     'puzzle.profiloExtView',
+    'puzzle.spazioGenitoriView',
     'puzzle.eventView',
     'puzzle.eventi',
+    'puzzle.storage',
     "firebase"
 ])
 
