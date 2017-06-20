@@ -37,9 +37,28 @@
 
                 <label class="upload-group"><b>SPAZIO GENITORI</b></label>
                 <ul ng-repeat="elemento in elencoFile">
-                    <li>
-                        {{elemento.tipo}} | {{elemento.titolo}} | {{elemento.creatore}}
-                    <a href="https://firebasestorage.googleapis.com/v0/b/puzzle-aa815.appspot.com/o/Genitori%2FReggio%20Calabria%2FItalo%20Falcomat%C3%A0%2FIVG%2FNCeJX6iCW7XzY4YvDQ3OXuxHaJn2%2F13147595_962055540568061_6383970511355486989_o.jpg?alt=media&token=856e2350-fb8c-49c7-ba12-e4589dbfb5fd">
+                    <li ng-repeat="utente in elencoUtenti | filter: {'ID' : elemento.creatore} : true">
+
+                        <!-- CONTROLLO IMMAGINE/FOTO -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-12-camera.png" ng-if="immagine(elemento.tipo) === 'img'"/>
+                        <!-- CONTROLLO PDF -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-30-notes-2.png" ng-if="immagine(elemento.tipo) === 'pdf'"/>
+                        <!-- CONTROLLO MUSICA -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-18-music.png" ng-if="immagine(elemento.tipo) === 'music'"/>
+                        <!-- CONTROLLO VIDEO -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-9-film.png" ng-if="immagine(elemento.tipo) === 'video'"/>
+                        <!-- CONTROLLO ZIP -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-326-wallet.png" ng-if="immagine(elemento.tipo) === 'zip'"/>
+                        <!-- FILE GENERICO -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-63-paperclip.png" ng-if="immagine(elemento.tipo) === 'other'"/>
+
+
+
+
+
+
+                        | {{elemento.titolo}} | {{utente.nome}} {{utente.cognome}}
+                    <a href='{{elemento.url}}'>
                         <button>DOWNLOAD</button>
                     </a>
                 </ul>

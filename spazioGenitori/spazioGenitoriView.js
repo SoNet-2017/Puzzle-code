@@ -37,6 +37,7 @@ angular.module('puzzle.spazioGenitoriView', [
             $scope.uid= currentAuth.uid;
             $scope.utenteRegistrato = CommonProp.getUserInfo($scope.uid);
 
+            $scope.elencoUtenti = CommonProp.getAllUser();
 
             var file = null;
 
@@ -54,7 +55,7 @@ angular.module('puzzle.spazioGenitoriView', [
                 var classeFiglio = $scope.utenteRegistrato.figlio1.classeFiglio;
                 var sezioneFiglio = $scope.utenteRegistrato.figlio1.sezioneFiglio;
 
-                $scope.fileDirectory = "Genitori/" + citta + "/" + scuolaFiglio + "/" + classeFiglio + sezioneFiglio + "/" +$scope.utenteRegistrato.$id;
+                $scope.fileDirectory = "Genitori/" + citta + "/" + scuolaFiglio + "/" + classeFiglio + sezioneFiglio + "/" + $scope.utenteRegistrato.$id;
 
                 console.log($scope.fileDirectory);
 
@@ -69,12 +70,59 @@ angular.module('puzzle.spazioGenitoriView', [
                     console.log(error);
                 });
 
+                task.$complete(function (snapshot) {
+                    $scope.imgPath = snapshot.downloadURL;
+                    console.log("pre-addFileGenitore");
+                    console.log($scope.imgPath);
+                    console.log("-------------------------");
+
+                    storeService.addFileGenitore($scope.dati.titolo, $scope.imgPath, file.type, $scope.utenteRegistrato);
+                    console.log("post-addFileGenitore");
+
+                });
+
+                console.log("post-addFileGenitore");
+                console.log($scope.imgPath);
+                console.log("-------------------------");
                 console.log(file);
                 //console.log($scope.imgPath);
+            };
 
-                storeService.addFileGenitore($scope.dati.titolo, $scope.fileDirectory, file.type, $scope.utenteRegistrato);
 
-            }
+            $scope.isOther = true;
+
+            $scope.immagine = function(tipo) {
+
+                if (tipo === 'image/jpeg' || tipo === 'image/jpg' || tipo === 'image/png') {
+                    $scope.isOther = false;
+                    return "img";
+                }
+
+                if (tipo === 'application/pdf' || tipo === 'text/rtf' || tipo === 'text/doc' || tipo === 'text/docx') {
+                    return "pdf";
+                }
+
+                if (tipo === 'application/zip') {
+                    return "zip";
+                }
+
+                if (tipo === 'audio/mp3' || tipo === 'audio/wav' || tipo === 'audio/wma' || tipo === 'audio/ogg' || tipo === 'audio/m4a') {
+                    return "music";
+                }
+
+                if (tipo === 'video/mp4' || tipo === 'video/mov' || tipo === 'video/wmv') {
+                    return "video";
+                }
+
+                return "other";
+
+            };
+
+
+
+
+
+
 
 
 
