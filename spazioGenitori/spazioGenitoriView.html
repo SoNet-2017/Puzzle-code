@@ -58,6 +58,11 @@
                                 <button>DOWNLOAD</button>
                             </a>
 
+                            <button type="button" ng-click="deleteFile(elemento)" data-toggle="modal" data-target="#elimina" ng-show="elemento.creatore === uid">
+                            <i class="glyphicon glyphicon-trash"></i> Elimina
+                            </button>
+
+
                     </li>
                 </ul>
 
@@ -104,6 +109,28 @@
     </div>
 </div>
 
+<!-- MODAL: ELIMINA -->
+<div class="modal fade" id="elimina" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header" >
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Elimina file</h4>
+            </div>
+            <div class="modal-body">
+                <p><em>Sei sicuro di voler eliminare questo file?</em></p>
+                <p><em>{{fileDaEliminare.titolo}}</em></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn" data-dismiss="modal" ng-click="confirmDeleteFile(fileDaEliminare)">Elimina</button>
+                <button type="button" class="btn" data-dismiss="modal">Annulla</button>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 
 </body>

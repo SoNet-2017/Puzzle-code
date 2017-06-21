@@ -63,27 +63,19 @@ angular.module('puzzle.spazioGenitoriView', [
                 var storageFire = $firebaseStorage(storageRef);
 
                 var task = storageFire.$put(file);
-                task.$complete(function (snapshot) {
-                    $scope.imgPath = snapshot.downloadURL;
-                });
+
                 task.$error(function (error) {
                     console.log(error);
                 });
 
                 task.$complete(function (snapshot) {
                     $scope.imgPath = snapshot.downloadURL;
-                    console.log("pre-addFileGenitore");
-                    console.log($scope.imgPath);
                     console.log("-------------------------");
-
-                    storeService.addFileGenitore($scope.dati.titolo, $scope.imgPath, file.type, $scope.utenteRegistrato);
+                    storeService.addFileGenitore($scope.dati.titolo, $scope.imgPath, file.type, $scope.utenteRegistrato, file.name);
                     console.log("post-addFileGenitore");
 
                 });
 
-                console.log("post-addFileGenitore");
-                console.log($scope.imgPath);
-                console.log("-------------------------");
                 console.log(file);
                 //console.log($scope.imgPath);
             };
@@ -118,6 +110,39 @@ angular.module('puzzle.spazioGenitoriView', [
 
             };
 
+
+            $scope.deleteFile = function(articolo){
+
+                $scope.fileDaEliminare = articolo;
+
+            };
+
+            $scope.confirmDeleteFile = function(deleteFile){
+
+
+                var citta = $scope.utenteRegistrato.citta;
+                var scuolaFiglio = $scope.utenteRegistrato.figlio1.scuolaFiglio;
+                var classeFiglio = $scope.utenteRegistrato.figlio1.classeFiglio;
+                var sezioneFiglio = $scope.utenteRegistrato.figlio1.sezioneFiglio;
+
+                $scope.fileDirectory = "Genitori/" + citta + "/" + scuolaFiglio + "/" + classeFiglio + sezioneFiglio + "/" + $scope.utenteRegistrato.$id;
+
+                // Create a reference to the file to delete
+                var storageRef = firebase.storage().ref($scope.fileDirectory + "/" + deleteFile.nomeOriginale);
+                var storageFire = $firebaseStorage(storageRef);
+
+                // Delete the file
+                storageFire.$delete().then(function() {
+                    // File deleted successfully
+                    console.log("File Cancellato dallo Storage con Successo!");
+                    $scope.elencoFile.$remove(deleteFile);
+                }).catch(function(error) {
+                    // Uh-oh, an error occurred!
+                    console.log(error + " ERRORE! File non cancellato!");
+                    console.log(deleteFile);
+                });
+
+            };
 
 
 

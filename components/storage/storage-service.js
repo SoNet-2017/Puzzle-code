@@ -10,12 +10,13 @@ angular.module('puzzle.storage.storageService', [])
 
         return {
 
-            addFileGenitore: function (titolo, url, tipo, utente) {
+            addFileGenitore: function (titolo, url, tipo, utente, originale) {
                 var ref = firebase.database().ref().child("file");
                 var gen = $firebaseArray(ref);
 
 
                 gen.$add({
+                    nomeOriginale: originale,
                     titolo: titolo,
                     url: url,
                     creatore: utente.$id,
@@ -31,12 +32,13 @@ angular.module('puzzle.storage.storageService', [])
                 });
             },
 
-            addFileInsegnante: function (titolo, url, tipo, utente) {
+            addFileInsegnante: function (titolo, url, tipo, utente, originale) {
                 var ref = firebase.database().ref().child("file");
                 var gen = $firebaseArray(ref);
 
 
                 gen.$add({
+                    nomeOriginale: originale,
                     titolo: titolo,
                     url: url,
                     creatore: utente.$id,
