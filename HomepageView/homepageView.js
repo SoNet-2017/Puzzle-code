@@ -28,8 +28,8 @@ angular.module('puzzle.homepageView', [
     }])
 
 
-    .controller('HomeCtrl', ['$scope', '$rootScope', 'CommonProp', 'utenti', 'currentAuth', 'postList', '$firebaseObject', '$firebaseArray',
-        function($scope, $rootScope, CommonProp, utenti, currentAuth, postList, $firebaseObject, $firebaseArray){
+    .controller('HomeCtrl', ['$scope', '$rootScope', 'CommonProp', 'utenti', 'currentAuth', 'postList', '$firebaseObject', '$firebaseArray', 'profiloEsterno',
+        function($scope, $rootScope, CommonProp, utenti, currentAuth, postList, $firebaseObject, $firebaseArray, profiloEsterno){
 
 
 
@@ -108,6 +108,10 @@ angular.module('puzzle.homepageView', [
 
                 $scope.post.listaPost.$remove(deleteArticle);
 
+            };
+
+            $scope.set = function(id){
+                profiloEsterno.setUser(id);
             };
 
 

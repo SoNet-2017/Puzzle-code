@@ -1,0 +1,49 @@
+
+<head>
+
+    <title>PUZZLE - Elenco Insegnanti</title>
+
+    <link rel="stylesheet" href="HomepageView/homepageView.css">
+
+</head>
+
+<body>
+
+<!-- Box  -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="box">
+            <!-- ------------------------------------------------- -->
+            <div class="post" ng-repeat="insegnante in tuttiGliUtenti.elencoUtenti | filter: {'ruolo' : 'INSEGNANTE'} : true"
+                 ng-if="controllo(insegnante)">
+                <div class="media">
+                    <!-- AVATAR -->
+                    <div class="media-left">
+                        <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-circle" alt="INSEGNANTE">
+                    </div>
+                    <!-- FINE AVATAR -->
+
+                    <!-- DATI UTENTE -->
+                    <div class="media-body">
+                        <a href="#!/profiloExtView" ng-click="set(insegnante.$id)" >
+                            {{insegnante.nome}} {{insegnante.cognome}}
+                        </a>
+                        <h4> Docente di {{insegnante.materia}}</h4>
+                    </div>
+                    <!-- FINE DATI UTENTE -->
+
+                    <!-- LINEA DI SEPARAZIONE -->
+                    <div class="line">
+                    </div>
+                </div>
+            </div>
+            <!-- ------------------------------------------------- -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</body>

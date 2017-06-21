@@ -44,7 +44,9 @@
                             <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo" alt="INSEGNANTE">
                         </div>
                         <div class="media-body">
-                                <a href=""> {{utente.nome}} {{utente.cognome}} </a>
+                            <a href="#!/profiloExtView" ng-click="set(utente.$id)" >
+                                {{utente.nome}} {{utente.cognome}}
+                            </a>
                             <h6>{{singoloPost.timestamp}}</h6>
                         </div>
                     </div>

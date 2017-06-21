@@ -33,6 +33,7 @@ angular.module('puzzle', [
     'puzzle.addPostView',
     'puzzle.post',
     'puzzle.listaGenitoriView',
+    'puzzle.listaInsegnantiView',
     'puzzle.profiloExtView',
     'puzzle.spazioGenitoriView',
     'puzzle.eventView',
