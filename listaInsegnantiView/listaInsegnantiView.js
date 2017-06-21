@@ -48,15 +48,22 @@ angular.module('puzzle.listaInsegnantiView', [
                 profiloEsterno.setUser(id);
             };
 
-            $scope.controllo = function(ins){
+            $scope.control = function(ins){
 
                 var t = false;
 
+
+
+                // EVITO CHE L'UTENTE LOGGATO SIA PRESENTE NELL'ELENCO INSEGNANTI
+                if(ins.$id === $scope.utenteRegistrato.uid){
+                    return false;
+                }
+
                 if($scope.utenteRegistrato.user.ruolo === 'GENITORE'){
-                    if($scope.utenteRegistrato.user.citta === gen.citta) {
-                        if($scope.utenteRegistrato.user.figlio1.classeFiglio === ins.classeFiglio &&
-                            $scope.utenteRegistrato.user.figlio1.sezioneFiglio === ins.sezioneFiglio &&
-                            $scope.utenteRegistrato.user.figlio1.scuolaFiglio === ins.scuolaFiglio){
+                    if($scope.utenteRegistrato.user.citta === ins.citta) {
+                        if($scope.utenteRegistrato.user.figlio1.classeFiglio === ins.classe &&
+                            $scope.utenteRegistrato.user.figlio1.sezioneFiglio === ins.sezione &&
+                            $scope.utenteRegistrato.user.figlio1.scuolaFiglio === ins.scuola){
                             t = true;
                         }
                     }
