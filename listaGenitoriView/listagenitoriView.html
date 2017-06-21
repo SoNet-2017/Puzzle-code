@@ -17,7 +17,7 @@
                     <!-- ------------------------------------------------- -->
                     <!-- da rimuovere dopo aver implementato il filtraggio -->
                     <!-- ------------------------------------------------- -->
-                    <p ng-if="utenteRegistrato.user.ruolo === 'GENITORE'">
+                    <!--<p ng-if="utenteRegistrato.user.ruolo === 'GENITORE'">
                         GENITORI ISCRITTI NELLA CLASSE {{utenteRegistrato.user.figlio1.classeFiglio}}°{{utenteRegistrato.user.figlio1.sezioneFiglio}}
                         della scuola "{{utenteRegistrato.user.figlio1.scuolaFiglio}}" di {{utenteRegistrato.user.citta}}
                     </p>
@@ -26,9 +26,10 @@
                         della scuola "{{utenteRegistrato.user.scuola}}" di {{utenteRegistrato.user.citta}}
                     </p>
                     <!-- ------------------------------------------------- -->
+
                     <div class="post" ng-repeat="genitore in tuttiGliUtenti.elencoUtenti | filter: {'ruolo' : 'GENITORE' } : true"
                          ng-if="controllo(genitore)">
-                        <div class="media">
+                        <div class="media listagenitori">
                             <!-- AVATAR -->
                             <div class="media-left">
                                 <img src="../Puzzle-code/images/avatars/AvatarGenitore.png" class="media-object img-circle" alt="GENITORE">
@@ -42,7 +43,7 @@
                                 <!-- FINE DATI UTENTE -->
                                 <!-- CONTATTA -->
                             <div class="media-left">
-                                <button class="btn btn-default" ng-click="contattaUtente(genitore.$id)" data-toggle="modal" data-target="#contatta">
+                                <button class="btn" ng-click="contattaUtente(genitore.$id)" data-toggle="modal" data-target="#contatta">
                                     <i class="glyphicon glyphicon-envelope"></i> &nbsp; Contatta </button>
                                 <!-- &nbsp; lascia uno spazio, così non ho bisogno di definirglielo nel css -->
                             </div>

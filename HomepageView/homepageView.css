@@ -529,6 +529,29 @@ li.informazioniPersonali-text{
 }
 
 
+/*----------------- LISTA GENITORI ---------------- */
+
+/*è stata creata una una nuova classe lista genitori perché bisognava dare delle caretteristiche di padding
+e margin diverse rispetto a quelle date alla classe post e perché le line erano diverse
+ */
+
+.listagenitori{
+   margin-right: 45px;
+}
+
+
+
+.listagenitori .line {
+    margin-top: 0px;
+    margin-bottom: 0px;
+
+}
+
+.listagenitori .btn {
+    margin-right: 120px;
+    margin-top: 20px;
+}
+
 /*------------------ EVENTI ------------------ */
 .tabset{
     padding-right: 70px;
@@ -560,7 +583,6 @@ li.informazioniPersonali-text{
 .creaEvento .btn{
     background-color: #308E89;
     color: white;
-    border: 1px solid transparent;
     border-radius: 4px;
 }
 
@@ -760,6 +782,8 @@ impostazioni di tutti gli altri bottoni dei modal!!!  */
     margin-top: 12px;
     padding-left: 50px;
 }
+
+
 
 
 
