@@ -15,12 +15,8 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
-
-
+//
 // ANGULAR
-
-
 
 angular.module('puzzle', [
     'ngRoute',
