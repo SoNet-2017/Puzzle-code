@@ -14,15 +14,14 @@
         <div class="row">
             <div class="box">
 
+
                     <!-- ------------------------------------------------- -->
-                    <!-- da rimuovere dopo aver implementato il filtraggio -->
-                    <!-- ------------------------------------------------- -->
-                    <!--<p ng-if="utenteRegistrato.user.ruolo === 'GENITORE'">
-                        GENITORI ISCRITTI NELLA CLASSE {{utenteRegistrato.user.figlio1.classeFiglio}}°{{utenteRegistrato.user.figlio1.sezioneFiglio}}
+                    <p ng-if="utenteRegistrato.user.ruolo === 'GENITORE' && flag">
+                        Non ci sono genitori iscritti nella {{utenteRegistrato.user.figlio1.classeFiglio}}°{{utenteRegistrato.user.figlio1.sezioneFiglio}}
                         della scuola "{{utenteRegistrato.user.figlio1.scuolaFiglio}}" di {{utenteRegistrato.user.citta}}
                     </p>
-                    <p ng-if="utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-                        GENITORI ISCRITTI NELLA CLASSE {{utenteRegistrato.user.classe}}°{{utenteRegistrato.user.sezione}}
+                    <p ng-if="utenteRegistrato.user.ruolo === 'INSEGNANTE' && flag">
+                        Non ci sono genitori iscritti nella {{utenteRegistrato.user.classe}}°{{utenteRegistrato.user.sezione}}
                         della scuola "{{utenteRegistrato.user.scuola}}" di {{utenteRegistrato.user.citta}}
                     </p>
                     <!-- ------------------------------------------------- -->
@@ -52,8 +51,8 @@
                             <div class="line">
                             </div>
                         </div>
-
                     </div>
+
                     <!-- ------------------------------------------------- -->
                 </div>
     </div>

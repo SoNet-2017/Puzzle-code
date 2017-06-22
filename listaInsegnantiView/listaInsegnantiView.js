@@ -48,6 +48,8 @@ angular.module('puzzle.listaInsegnantiView', [
                 profiloEsterno.setUser(id);
             };
 
+            $scope.flag = true;
+
             $scope.control = function(ins){
 
                 var t = false;
@@ -65,6 +67,7 @@ angular.module('puzzle.listaInsegnantiView', [
                             $scope.utenteRegistrato.user.figlio1.sezioneFiglio === ins.sezione &&
                             $scope.utenteRegistrato.user.figlio1.scuolaFiglio === ins.scuola){
                             t = true;
+                            $scope.flag = false;
                         }
                     }
                 }
@@ -75,6 +78,7 @@ angular.module('puzzle.listaInsegnantiView', [
                             $scope.utenteRegistrato.user.sezione === ins.sezione &&
                             $scope.utenteRegistrato.user.scuola === ins.scuola){
                             t = true;
+                            $scope.flag = false;
                         }
                     }
                 }

@@ -51,6 +51,8 @@ angular.module('puzzle.listaGenitoriView', [
                 profiloEsterno.setUser(id);
             };
 
+            $scope.flag = true;
+
             $scope.controllo = function(gen){
 
                 var t = false;
@@ -61,6 +63,7 @@ angular.module('puzzle.listaGenitoriView', [
                            $scope.utenteRegistrato.user.figlio1.sezioneFiglio === gen.figlio1.sezioneFiglio &&
                            $scope.utenteRegistrato.user.figlio1.scuolaFiglio === gen.figlio1.scuolaFiglio){
                            t = true;
+                           $scope.flag = false;
                         }
                     }
                 }
@@ -71,6 +74,7 @@ angular.module('puzzle.listaGenitoriView', [
                             $scope.utenteRegistrato.user.sezione === gen.figlio1.sezioneFiglio &&
                             $scope.utenteRegistrato.user.scuola === gen.figlio1.scuolaFiglio){
                             t = true;
+                            $scope.flag = false;
                         }
                     }
                 }
