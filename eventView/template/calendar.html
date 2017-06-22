@@ -17,5 +17,5 @@
     <span class="day" ng-class="{todayCASA: day.isToday && t === 'CASA', 'different-month': !day.isCurrentMonth || day.isYesterday, selectedCASA: day.date.isSame(selected) && t === 'CASA',
                                  todayEXTRA: day.isToday && t === 'EXTRA', selectedEXTRA: day.date.isSame(selected) && t === 'EXTRA',
                                  todaySCUOLA: day.isToday && t === 'SCUOLA', selectedSCUOLA: day.date.isSame(selected) && t === 'SCUOLA'}"
-          ng-click="select(day)" ng-repeat="day in week.days">{{day.number}}</span>
+          ng-click="select(day)" ng-repeat="day in week.days" disabled>{{day.number}}</span>
 </div>

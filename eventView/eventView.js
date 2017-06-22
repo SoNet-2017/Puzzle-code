@@ -83,6 +83,8 @@ angular.module('puzzle.eventView', [
 
             $scope.day = moment();
 
+
+
             $scope.tuttiGliEventi = {};
             $scope.tuttiGliEventi.elencoutenti = CommonProp.getAllUser();
             $scope.tuttiGliEventi.elencoEventi = eventiService.getAllEvent();
@@ -96,12 +98,14 @@ angular.module('puzzle.eventView', [
                 eventiService.creaNuovoEvento($scope.event, $filter('date')($scope.myDate, 'dd/MM/yyyy', 'CET'), currentAuth.uid);
                 //console.log($scope.event);
 
+
             };
 
             $scope.eventoSelezionato = {};
 
             $scope.viewEvento = function(id) {
                 $scope.eventoSelezionato = eventiService.getEventInfo(id);
+                console.log($scope.day);
             };
 
 
