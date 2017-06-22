@@ -37,7 +37,7 @@
 
             <!-- CALENDARIO -->
                 <div class="col-md-6 ">
-                    <calendar selected="day"> </calendar>
+                    <calendar selected="day" t="sezione"> </calendar>
                 </div>
 
                 <!-- LISTA EVENTI -->
@@ -45,12 +45,15 @@
 
                     <uib-tabset active="activeJustified" justified="true">
                         <!-- TAB CASA -->
-                        <uib-tab index="0" heading="CASA">
+                        <uib-tab index="0" heading="CASA" ng-click="selezioneTab('CASA')">
                             <!-- LOOP EVENTI IN PROGRAMMA --->
-                            <ul class="listaEventi" ng-if="evento.tipo === 'CASA'"ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                            <ul class="listaEventi" ng-if="evento.tipo === 'CASA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
                                 <li>
-                                    <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+
                                         &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+
+                                    <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                        <button>Visualizza</button>
                                     </a>
                                 </li>
                             </ul>
@@ -59,25 +62,27 @@
                         </uib-tab>
 
                         <!-- TAB SCUOLA -->
-                        <uib-tab index="1" heading="SCUOLA">
+                        <uib-tab index="1" heading="SCUOLA" ng-click="selezioneTab('SCUOLA')">
                             <!-- LOOP EVENTI IN PROGRAMMA --->
                             <ul class="listaEventi" ng-if="evento.tipo === 'SCUOLA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
                                 <li>
-                                    <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
                                         &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
-                                    </a>
+                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                            <button>Visualizza</button>
+                                        </a>
                                 </li>
                             </ul>
                             <!-- FINE LOOP --->
                         </uib-tab>
 
                         <!-- TAB EXTRA -->
-                        <uib-tab index="2" heading="EXTRA">
+                        <uib-tab index="2" heading="EXTRA" ng-click="selezioneTab('EXTRA')">
                             <!-- LOOP EVENTI IN PROGRAMMA --->
                             <ul class="listaEventi" ng-if="evento.tipo === 'EXTRA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
                                 <li>
-                                    <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
                                         &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                    <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                        <button>Visualizza</button>
                                     </a>
                                 </li>
                             </ul>

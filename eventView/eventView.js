@@ -6,7 +6,6 @@
 angular.module('puzzle.eventView', [
     'ngRoute',
     'ngMaterial',
-
     'ui.bootstrap',
     'angularModalService'
 ])
@@ -95,7 +94,7 @@ angular.module('puzzle.eventView', [
                 $scope.event.oraI = $filter('date')($scope.oraInizio, 'H:mm', 'CET');
                 $scope.event.oraF = $filter('date')($scope.oraFine, 'H:mm', 'CET');
                 eventiService.creaNuovoEvento($scope.event, $filter('date')($scope.myDate, 'dd/MM/yyyy', 'CET'), currentAuth.uid);
-                console.log($scope.event);
+                //console.log($scope.event);
 
             };
 
@@ -104,6 +103,16 @@ angular.module('puzzle.eventView', [
             $scope.viewEvento = function(id) {
                 $scope.eventoSelezionato = eventiService.getEventInfo(id);
             };
+
+
+            $scope.sezione = 'CASA';
+
+            $scope.selezioneTab = function(stringa) {
+                console.log(stringa);
+                $scope.sezione = stringa;
+            };
+
+
 
 
 

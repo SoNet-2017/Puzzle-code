@@ -21,98 +21,392 @@ calendar {
     border:solid 1px @border-colour;
     margin-bottom:10px;
 
-@secondary-colour:#2875C7;
+    @secondary-colour: red;
+    @terzy-colour: lightcoral;
+
+
+
 @spacing:10px;
 @icon-width:40px;
 @header-height:40px;
 
 >div.header {
-     float:left;
-     width:100%;
-     background:@secondary-colour;
-     height:@header-height;
-     color:white;
+  float: left;
+  width: 100%;
+  background: @secondary-colour;
+  height: @header-height;
+  color: white;
 
->* {
- .vertical-centre(@header-height);
- }
 
->i {
-     float:left;
-     width:@icon-width;
-     font-size:1.125em;
-     font-weight:bold;
-     position:relative;
- .border-box;
-     padding:0 @spacing;
-     cursor:pointer;
- }
+    > * {
+      .vertical-centre(@header-height);
+    }
 
->i.fa-angle-left {
-     text-align:left;
- }
+    > i {
+      float: left;
+      width: @icon-width;
+      font-size: 1.125em;
+      font-weight: bold;
+      position: relative;
+      .border-box;
+      padding: 0 @spacing;
+      cursor: pointer;
+    }
 
->i.fa-angle-right {
-     text-align:right;
-     margin-left:@icon-width*-1;
- }
+    > i.fa-angle-left {
+      text-align: left;
+    }
 
->span {
-     float:left;
-     width:100%;
-     font-weight:bold;
-     text-transform:uppercase;
- .border-box;
-     padding-left:@icon-width+@spacing;
-     margin-left:@icon-width*-1;
-     text-align:center;
-     padding-right:@icon-width;
-     color:inherit;
- }
-}
->div.week {
-     float:left;
-     width:100%;
-     border-top:solid 1px @border-colour;
+    > i.fa-angle-right {
+      text-align: right;
+      margin-left: @icon-width*-1;
+    }
 
-&:first-child {
-     border-top:none;
- }
+    > span {
+      float: left;
+      width: 100%;
+      font-weight: bold;
+      text-transform: uppercase;
+      .border-box;
+      padding-left: @icon-width+@spacing;
+      margin-left: @icon-width*-1;
+      text-align: center;
+      padding-right: @icon-width;
+      color: inherit;
+    }
+  }
 
->span.day {
-     float:left;
-     width:100%/7;
- .border-box;
-     border-left:solid 1px @border-colour;
-     font-size:0.75em;
-     text-align:center;
- .vertical-centre(30px);
-     background:white;
-     cursor:pointer;
-     color:black;
+  > div.week {
+    float: left;
+    width: 100%;
+    border-top: solid 1px @border-colour;
 
-&:first-child {
-     border-left:none;
- }
+    &:first-child {
+      border-top: none;
+    }
 
-&.today {
-     background:#E3F2FF;
- }
+    > span.day {
+      float: left;
+      width: 100%/7;
+      .border-box;
+      border-left: solid 1px @border-colour;
+      font-size: 0.75em;
+      text-align: center;
+      .vertical-centre(30px);
+      background: white;
+      cursor: pointer;
+      color: black;
 
-&.different-month {
-     color:#C0C0C0;
- }
 
-&.selected {
-     background:@secondary-colour;
-     color:white;
- }
-}
+      &:first-child {
+        border-left: none;
+      }
 
-&.names>span {
-     color:@secondary-colour;
-     font-weight:bold;
- }
-}
-}
+      &.todayCASA {
+        background: #ffe9d8;
+      }
+
+      &.todaySCUOLA {
+        background: #d5a4a3;
+      }
+
+      &.todayEXTRA {
+        background: #dac9c9;
+      }
+
+      &.different-month {
+        color: #C0C0C0;
+      }
+
+      &.selectedCASA {
+        background: #C17528;
+        color: white;
+      }
+
+      &.selectedEXTRA {
+        background: #8D775F;
+        color: white;
+      }
+
+      &.selectedSCUOLA {
+        background: #8F2B27;
+        color: white;
+      }
+    }
+
+    &.names > span {
+      color: @secondary-colour;
+      font-weight: bold;
+    }
+
+    }
+
+    > div.headerCASA {
+      float: left;
+      width: 100%;
+      background: #C17528;
+      height: @header-height;
+      color: white;
+
+      > * {
+        .vertical-centre(@header-height);
+      }
+
+      > i {
+        float: left;
+        width: @icon-width;
+        font-size: 1.125em;
+        font-weight: bold;
+        position: relative;
+        .border-box;
+        padding: 0 @spacing;
+        cursor: pointer;
+      }
+
+      > i.fa-angle-left {
+        text-align: left;
+      }
+
+      > i.fa-angle-right {
+        text-align: right;
+        margin-left: @icon-width*-1;
+      }
+
+      > span {
+        float: left;
+        width: 100%;
+        font-weight: bold;
+        text-transform: uppercase;
+        .border-box;
+        padding-left: @icon-width+@spacing;
+        margin-left: @icon-width*-1;
+        text-align: center;
+        padding-right: @icon-width;
+        color: inherit;
+      }
+    }
+    > div.weekCASA {
+      float: left;
+      width: 100%;
+      border-top: solid 1px @border-colour;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      > span.dayCASA {
+        float: left;
+        width: 100%/7;
+        .border-box;
+        border-left: solid 1px @border-colour;
+        font-size: 0.75em;
+        text-align: center;
+        .vertical-centre(30px);
+        background: white;
+        cursor: pointer;
+        color: black;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &.todayCASA {
+          background: #c1926e;
+        }
+
+        &.different-month {
+          color: #C0C0C0;
+        }
+
+        &.selected {
+          background: #C17528;
+          color: white;
+        }
+      }
+
+      &.names > span {
+        color: #C17528;
+        font-weight: bold;
+      }
+    }
+
+    > div.headerEXTRA {
+      float: left;
+      width: 100%;
+      background: #8D775F;
+      height: @header-height;
+      color: white;
+
+      > * {
+        .vertical-centre(@header-height);
+      }
+
+      > i {
+        float: left;
+        width: @icon-width;
+        font-size: 1.125em;
+        font-weight: bold;
+        position: relative;
+        .border-box;
+        padding: 0 @spacing;
+        cursor: pointer;
+      }
+
+      > i.fa-angle-left {
+        text-align: left;
+      }
+
+      > i.fa-angle-right {
+        text-align: right;
+        margin-left: @icon-width*-1;
+      }
+
+      > span {
+        float: left;
+        width: 100%;
+        font-weight: bold;
+        text-transform: uppercase;
+        .border-box;
+        padding-left: @icon-width+@spacing;
+        margin-left: @icon-width*-1;
+        text-align: center;
+        padding-right: @icon-width;
+        color: inherit;
+      }
+    }
+    > div.weekEXTRA {
+      float: left;
+      width: 100%;
+      border-top: solid 1px @border-colour;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      > span.dayEXTRA {
+        float: left;
+        width: 100%/7;
+        .border-box;
+        border-left: solid 1px @border-colour;
+        font-size: 0.75em;
+        text-align: center;
+        .vertical-centre(30px);
+        background: white;
+        cursor: pointer;
+        color: black;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &.today {
+          background: @terzy-colour;
+        }
+
+        &.different-month {
+          color: #C0C0C0;
+        }
+
+        &.selected {
+          background: @secondary-colour;
+          color: white;
+        }
+      }
+
+      &.names > span {
+        color: #8D775F;
+        font-weight: bold;
+      }
+    }
+
+    > div.headerSCUOLA {
+      float: left;
+      width: 100%;
+      background: #8F2B27;
+      height: @header-height;
+      color: white;
+
+      > * {
+        .vertical-centre(@header-height);
+      }
+
+      > i {
+        float: left;
+        width: @icon-width;
+        font-size: 1.125em;
+        font-weight: bold;
+        position: relative;
+        .border-box;
+        padding: 0 @spacing;
+        cursor: pointer;
+      }
+
+      > i.fa-angle-left {
+        text-align: left;
+      }
+
+      > i.fa-angle-right {
+        text-align: right;
+        margin-left: @icon-width*-1;
+      }
+
+      > span {
+        float: left;
+        width: 100%;
+        font-weight: bold;
+        text-transform: uppercase;
+        .border-box;
+        padding-left: @icon-width+@spacing;
+        margin-left: @icon-width*-1;
+        text-align: center;
+        padding-right: @icon-width;
+        color: inherit;
+      }
+    }
+    > div.weekSCUOLA {
+      float: left;
+      width: 100%;
+      border-top: solid 1px @border-colour;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      > span.daySCUOLA {
+        float: left;
+        width: 100%/7;
+        .border-box;
+        border-left: solid 1px @border-colour;
+        font-size: 0.75em;
+        text-align: center;
+        .vertical-centre(30px);
+        background: white;
+        cursor: pointer;
+        color: black;
+
+        &:first-child {
+          border-left: none;
+        }
+
+        &.today {
+          background: #8F2B27;
+        }
+
+        &.different-month {
+          color: #C0C0C0;
+        }
+
+        &.selected {
+          background: #8F2B27;
+          color: white;
+        }
+      }
+
+      &.names > span {
+        color: #8F2B27;
+        font-weight: bold;
+      }
+    }
+
+  }
 

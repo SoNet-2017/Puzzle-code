@@ -8,7 +8,8 @@ angular.module('puzzle.eventi.eventiDirettiva', [])
             restrict: "E",
             templateUrl: "../Puzzle-code/eventView/template/calendar.html",
             scope: {
-                selected: "="
+                selected: "=",
+                t: "="
             },
 
             link: function(scope) {
@@ -24,24 +25,33 @@ angular.module('puzzle.eventi.eventiDirettiva', [])
 
                 scope.select = function(day) {
                     scope.selected = day.date;
-                }
+                };
 
                 scope.next = function() {
                     var next = scope.month.clone();
                     _removeTime(next.month(next.month()+1)).date(1);
                     scope.month.month(scope.month.month()+1);
                     _buildMonth(scope, next, scope.month);
-                }
+                };
 
                 scope.previous = function() {
                     var previous = scope.month.clone();
                     _removeTime(previous.month(previous.month()-1).date(1));
                     scope.month.month(scope.month.month()-1);
                     _buildMonth(scope, previous, scope.month);
+                };
+
+                scope.isPast = function() {
+
+                    if (scope.month.month() < moment().format("MM")){
+                        return false;
+                    } else {
+                        return true;
+                    }
+
                 }
             }
         };
-
 
 
         function _removeTime(date) {
@@ -73,7 +83,10 @@ angular.module('puzzle.eventi.eventiDirettiva', [])
                     date: date
                 });
 
-                console.log(date.month());
+                //console.log(date.month());
+
+
+                console.log();
 
                 date = date.clone();
                 date.add(1, "d");

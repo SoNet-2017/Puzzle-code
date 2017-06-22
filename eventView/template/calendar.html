@@ -1,18 +1,21 @@
-<div class="header">
-    <i class="fa fa-angle-left" ng-click="previous()"></i>
+<div class="header" ng-class="{headerEXTRA: t === 'EXTRA', headerCASA: t === 'CASA', headerSCUOLA: t === 'SCUOLA'}">
+    <i class="fa fa-angle-left" ng-click="previous()" ng-show="isPast()"></i>
+    <i class="fa" ng-show="!isPast()"></i>
     <span>{{month.format("MMMM, YYYY")}}</span>
     <i class="fa fa-angle-right" ng-click="next()"></i>
 </div>
-<div class="week names">
-    <span class="day">Dom</span>
-    <span class="day">Lun</span>
-    <span class="day">Mar</span>
-    <span class="day">Mer</span>
-    <span class="day">Gio</span>
-    <span class="day">Ven</span>
-    <span class="day">Sab</span>
+<div class="week names" ng-class="{weekEXTRA: t === 'EXTRA', weekCASA: t === 'CASA', weekSCUOLA: t === 'SCUOLA'}">
+    <span class="day" ng-class="{dayEXTRA: t === 'EXTRA', dayCASA: t === 'CASA', daySCUOLA: t === 'SCUOLA'}">Dom</span>
+    <span class="day" ng-class="{dayEXTRA: t === 'EXTRA', dayCASA: t === 'CASA', daySCUOLA: t === 'SCUOLA'}">Lun</span>
+    <span class="day" ng-class="{dayEXTRA: t === 'EXTRA', dayCASA: t === 'CASA', daySCUOLA: t === 'SCUOLA'}">Mar</span>
+    <span class="day" ng-class="{dayEXTRA: t === 'EXTRA', dayCASA: t === 'CASA', daySCUOLA: t === 'SCUOLA'}">Mer</span>
+    <span class="day" ng-class="{dayEXTRA: t === 'EXTRA', dayCASA: t === 'CASA', daySCUOLA: t === 'SCUOLA'}">Gio</span>
+    <span class="day" ng-class="{dayEXTRA: t === 'EXTRA', dayCASA: t === 'CASA', daySCUOLA: t === 'SCUOLA'}">Ven</span>
+    <span class="day" ng-class="{dayEXTRA: t === 'EXTRA', dayCASA: t === 'CASA', daySCUOLA: t === 'SCUOLA'}">Sab</span>
 </div>
 <div class="week" ng-repeat="week in weeks">
-    <span class="day" ng-class="{ today: day.isToday, 'different-month': !day.isCurrentMonth || day.isYesterday, selected: day.date.isSame(selected) }"
+    <span class="day" ng-class="{todayCASA: day.isToday && t === 'CASA', 'different-month': !day.isCurrentMonth || day.isYesterday, selectedCASA: day.date.isSame(selected) && t === 'CASA',
+                                 todayEXTRA: day.isToday && t === 'EXTRA', selectedEXTRA: day.date.isSame(selected) && t === 'EXTRA',
+                                 todaySCUOLA: day.isToday && t === 'SCUOLA', selectedSCUOLA: day.date.isSame(selected) && t === 'SCUOLA'}"
           ng-click="select(day)" ng-repeat="day in week.days">{{day.number}}</span>
 </div>
