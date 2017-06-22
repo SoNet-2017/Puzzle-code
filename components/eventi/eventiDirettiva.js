@@ -14,43 +14,50 @@ angular.module('puzzle.eventi.eventiDirettiva', [])
 
             link: function(scope) {
 
-                scope.selected = _removeTime(scope.selected || moment());
-                scope.month = scope.selected.clone();
+                    scope.selected = _removeTime(scope.selected || moment());
+                    scope.month = scope.selected.clone();
 
-                var start = scope.selected.clone();
-                start.date(1);
-                _removeTime(start.day(0));
+                    var start = scope.selected.clone();
+                    start.date(1);
+                    _removeTime(start.day(0));
 
-                _buildMonth(scope, start, scope.month);
+                    _buildMonth(scope, start, scope.month);
 
-                scope.select = function(day) {
-                    scope.selected = day.date;
-                };
+                    scope.select = function (day) {
+                        console.log("DAY.DATE " + day.date.format('DD'));
+                        console.log("MOMENT: " +  moment().format("DD"));
 
-                scope.next = function() {
-                    var next = scope.month.clone();
-                    _removeTime(next.month(next.month()+1)).date(1);
-                    scope.month.month(scope.month.month()+1);
-                    _buildMonth(scope, next, scope.month);
-                };
+                        if(day.date.format('MM-DD') >=  moment().format("MM-DD")) {
 
-                scope.previous = function() {
-                    var previous = scope.month.clone();
-                    _removeTime(previous.month(previous.month()-1).date(1));
-                    scope.month.month(scope.month.month()-1);
-                    _buildMonth(scope, previous, scope.month);
-                };
+                                scope.selected = day.date;
+                        }
 
-                scope.isPast = function() {
+                    };
 
-                    if (scope.month.month() < moment().format("MM")){
-                        return false;
-                    } else {
-                        return true;
+                    scope.next = function () {
+                        var next = scope.month.clone();
+                        _removeTime(next.month(next.month() + 1)).date(1);
+                        scope.month.month(scope.month.month() + 1);
+                        _buildMonth(scope, next, scope.month);
+                    };
+
+                    scope.previous = function () {
+                        var previous = scope.month.clone();
+                        _removeTime(previous.month(previous.month() - 1).date(1));
+                        scope.month.month(scope.month.month() - 1);
+                        _buildMonth(scope, previous, scope.month);
+                    };
+
+                    scope.isPast = function () {
+
+                        if (scope.month.month() < moment().format("MM")) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+
                     }
-
                 }
-            }
         };
 
 
@@ -75,13 +82,15 @@ angular.module('puzzle.eventi.eventiDirettiva', [])
             for (var i = 0; i < 7; i++) {
 
                 days.push({
-                    name: date.format("dd").substring(0, 1),
-                    number: date.date(),
-                    isCurrentMonth: date.month() === month.month(),
-                    isYesterday: date.date() < moment().format("DD") && date.month() < moment().format("MM"),
-                    isToday: date.isSame(new Date(), "day"),
-                    date: date
-                });
+                        name: date.format("dd").substring(0, 1),
+                        number: date.date(),
+                        isCurrentMonth: date.month() === month.month(),
+                        isYesterday: date.date() < moment().format("DD") && date.month() < moment().format("MM"),
+                        isToday: date.isSame(new Date(), "day"),
+                        date: date
+                    });
+
+
 
                 //console.log(date.month());
 
