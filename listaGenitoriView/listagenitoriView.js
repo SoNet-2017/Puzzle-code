@@ -27,8 +27,8 @@ angular.module('puzzle.listaGenitoriView', [
         });
     }])
 
-    .controller('listaGenitoriCTRL', ['$scope', '$rootScope', 'CommonProp', 'currentAuth', '$firebaseObject',
-                            function($scope, $rootScope, CommonProp, currentAuth, $firebaseObject){
+    .controller('listaGenitoriCTRL', ['$scope', '$rootScope', 'CommonProp', 'currentAuth', '$firebaseObject', 'profiloEsterno',
+                            function($scope, $rootScope, CommonProp, currentAuth, $firebaseObject, profiloEsterno){
 
             $scope.pagina = {};
             $rootScope.pagina.pagCorrente = "listaGenitoriView";
@@ -47,6 +47,10 @@ angular.module('puzzle.listaGenitoriView', [
                 $scope.contUtente = $firebaseObject(ref);
             }
 
+            $scope.set = function(id){
+                profiloEsterno.setUser(id);
+            };
+
             $scope.controllo = function(gen){
 
                 var t = false;
@@ -63,9 +67,9 @@ angular.module('puzzle.listaGenitoriView', [
 
                 if($scope.utenteRegistrato.user.ruolo === 'INSEGNANTE'){
                     if($scope.utenteRegistrato.user.citta === gen.citta) {
-                        if($scope.utenteRegistrato.user.classe === gen.figlio1.classe &&
-                            $scope.utenteRegistrato.user.sezione === gen.figlio1.sezione &&
-                            $scope.utenteRegistrato.user.scuola === gen.figlio1.scuola){
+                        if($scope.utenteRegistrato.user.classe === gen.figlio1.classeFiglio &&
+                            $scope.utenteRegistrato.user.sezione === gen.figlio1.sezioneFiglio &&
+                            $scope.utenteRegistrato.user.scuola === gen.figlio1.scuolaFiglio){
                             t = true;
                         }
                     }

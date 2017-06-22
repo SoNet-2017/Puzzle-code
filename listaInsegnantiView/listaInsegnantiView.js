@@ -55,9 +55,9 @@ angular.module('puzzle.listaInsegnantiView', [
 
 
                 // EVITO CHE L'UTENTE LOGGATO SIA PRESENTE NELL'ELENCO INSEGNANTI
-                if(ins.$id === $scope.utenteRegistrato.uid){
-                    return false;
-                }
+                // if(ins.$id === $scope.utenteRegistrato.uid){
+                //     return false;
+                // }
 
                 if($scope.utenteRegistrato.user.ruolo === 'GENITORE'){
                     if($scope.utenteRegistrato.user.citta === ins.citta) {
