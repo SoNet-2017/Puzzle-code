@@ -552,9 +552,32 @@ e margin diverse rispetto a quelle date alla classe post e perché le line erano
     margin-top: 20px;
 }
 
+/*modal contatta */
+.messaggi .form-group textarea{
+    height: 90px;
+    margin-bottom: 15px;
+    margin-top: 12px;
+    margin-left: 20px;
+    width: 94%;
+
+
+}
 
 /*----------------- LISTA INSEGNANTI ---------------- */
 
+
+.listainsegnanti{
+    margin-right: 45px;
+    /*padding-right: 150px;
+    padding-left: 150px; eliminiamo i commenti se non lo vogliamo centrare!*/
+}
+
+
+
+.listainsegnanti .line {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
 
 
 /*------------------ EVENTI ------------------ */
