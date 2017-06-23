@@ -23,108 +23,108 @@
 </head>
 <body>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="box">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="box">
 
-            <div class="row">
-                <div class="dataEvento">{{day.format('DD/MM/YYYY')}}</div>
-            </div>
-
-            <div class="lineEventi"> </div>
-
-            <div class="row">
-
-            <!-- CALENDARIO -->
-                <div class="col-md-6 ">
-                    <calendar selected="day" t="sezione" elenco-eventi="tuttiGliEventi.elencoEventi"> </calendar>
+                <div class="row">
+                    <div class="dataEvento">{{day.format('DD/MM/YYYY')}}</div>
                 </div>
 
-                <!-- LISTA EVENTI -->
-                <div class="col-md-6 tabset">
+                <div class="lineEventi"> </div>
 
-                    <uib-tabset active="activeJustified" justified="true">
-                        <!-- TAB CASA -->
-                        <uib-tab index="0" heading="CASA" ng-click="selezioneTab('CASA')">
-                            <!-- LOOP EVENTI IN PROGRAMMA --->
+                <div class="row">
+
+                <!-- CALENDARIO -->
+                    <div class="col-md-6 ">
+                        <calendar selected="day" t="sezione" elenco-eventi="tuttiGliEventi.elencoEventi"> </calendar>
+                    </div>
+
+                    <!-- LISTA EVENTI -->
+                    <div class="col-md-6 tabset">
+
+                        <uib-tabset active="activeJustified" justified="true">
+                            <!-- TAB CASA -->
+                            <uib-tab index="0" heading="CASA" ng-click="selezioneTab('CASA')">
+                                <!-- LOOP EVENTI IN PROGRAMMA --->
+                                <div class="row">
+                                    <ul class="listaEventi" ng-if="evento.tipo === 'CASA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                                        <li>
+                                            <div class="col-lg-8">
+                                                &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                            </div>
+                                            <div class="col-lg-4">
+                                            <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                                <button class="visualizzaEvento">Visualizza</button>
+                                            </a>
+                                            </div>
+                                            <div class="lineEventiInterna"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- FINE LOOP --->
+
+                            </uib-tab>
+
+                            <!-- TAB SCUOLA -->
+                            <uib-tab index="1" heading="SCUOLA" ng-click="selezioneTab('SCUOLA')">
+                                <!-- LOOP EVENTI IN PROGRAMMA --->
+                                <div class="row">
+                                    <ul class="listaEventi" ng-if="evento.tipo === 'SCUOLA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                                        <li>
+                                            <div class="col-lg-8">
+                                                &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                            </div>
+                                            <div class="col-lg-4">
+                                                <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                                    <button class="visualizzaEvento"> Visualizza </button>
+                                                </a>
+                                            </div>
+                                            <div class="lineEventiInterna"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- FINE LOOP --->
+                            </uib-tab>
+
+                            <!-- TAB EXTRA -->
+                            <uib-tab index="2" heading="EXTRA" ng-click="selezioneTab('EXTRA')">
+                                <!-- LOOP EVENTI IN PROGRAMMA --->
                             <div class="row">
-                                <ul class="listaEventi" ng-if="evento.tipo === 'CASA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                                <ul class="listaEventi" ng-if="evento.tipo === 'EXTRA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+
                                     <li>
                                         <div class="col-lg-8">
-                                            &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
-                                        </div>
-                                        <div class="col-lg-4">
-                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
-                                            <button class="visualizzaEvento">Visualizza</button>
-                                        </a>
-                                        </div>
-                                        <div class="lineEventiInterna"></div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <!-- FINE LOOP --->
-
-                        </uib-tab>
-
-                        <!-- TAB SCUOLA -->
-                        <uib-tab index="1" heading="SCUOLA" ng-click="selezioneTab('SCUOLA')">
-                            <!-- LOOP EVENTI IN PROGRAMMA --->
-                            <div class="row">
-                                <ul class="listaEventi" ng-if="evento.tipo === 'SCUOLA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
-                                    <li>
-                                        <div class="col-lg-8">
-                                            &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                            <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
                                         </div>
                                         <div class="col-lg-4">
                                             <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
-                                                <button class="visualizzaEvento"> Visualizza </button>
-                                            </a>
+                                            <button class="visualizzaEvento">Visualizza</button> </a>
                                         </div>
                                         <div class="lineEventiInterna"></div>
                                     </li>
                                 </ul>
                             </div>
-                            <!-- FINE LOOP --->
-                        </uib-tab>
+                                <!-- FINE LOOP --->
+                            </uib-tab>
 
-                        <!-- TAB EXTRA -->
-                        <uib-tab index="2" heading="EXTRA" ng-click="selezioneTab('EXTRA')">
-                            <!-- LOOP EVENTI IN PROGRAMMA --->
-                        <div class="row">
-                            <ul class="listaEventi" ng-if="evento.tipo === 'EXTRA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                        </uib-tabset>
 
-                                <li>
-                                    <div class="col-lg-8">
-                                        <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
-                                        <button class="visualizzaEvento">Visualizza</button> </a>
-                                    </div>
-                                    <div class="lineEventiInterna"></div>
-                                </li>
-                            </ul>
-                        </div>
-                            <!-- FINE LOOP --->
-                        </uib-tab>
-
-                    </uib-tabset>
-
+                    </div>
                 </div>
-            </div>
 
-            <div class="lineEventi"> </div>
+                <div class="lineEventi"> </div>
 
-            <div class="row creaEvento" >
-                <!-- PULSANTE CREAZIONE NUOVO EVENTO -->
-                <button  class="btn" type="button" data-toggle="modal" data-target="#creaEvento">
-                    Crea Nuovo Evento
-                </button>
+                <div class="row creaEvento" >
+                    <!-- PULSANTE CREAZIONE NUOVO EVENTO -->
+                    <button  class="btn" type="button" data-toggle="modal" data-target="#creaEvento">
+                        Crea Nuovo Evento
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <!-- MODAL: CREA NUOVO EVENTO -->
     <div class="modal fade" id="creaEvento" role="dialog">
@@ -255,16 +255,44 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title"> {{eventoSelezionato.titolo}} </h4>
+                    <h4 class="modal-title"> <b>{{eventoSelezionato.titolo}}</b> </h4>
                 </div>
                 <div class="modal-body">
+                    <div class="container-fluid">
 
-                    <p><b>| {{eventoSelezionato.titolo}} | {{eventoSelezionato.tipo}} |</b></p>
-                    <p> <b> DESCRIZIONE: </b> {{eventoSelezionato.descrizione}}</p>
-                    <p> <b> GIORNO: </b> {{eventoSelezionato.giorno}}</p>
-                    <p> <b> ORA INIZIO: </b> {{eventoSelezionato.oraI}} | <b> ORA FINE:</b> {{eventoSelezionato.oraF}}</p>
-                    <p> <b> LUOGO:</b> {{eventoSelezionato.luogo}}</p>
-                    <p> <b> CREATO DA: </b> {{eventoSelezionato.IDcreatore}}</p>
+                        <!-- Descrizione dell'evento -->
+                        <div class="row spazioSup">
+                            <p> {{eventoSelezionato.descrizione}} </p>
+                        </div>
+                        <!-- Linea separatrice -->
+                        <div class="lineEventiModal"></div>
+                        <!-- Utente che ha creato l'evento -->
+                        <div class="row" id="creatoreEvento">
+                            <p> Evento creato da {{eventoSelezionato.IDcreatore}} </p>
+                        </div>
+                        <!-- Quando -->
+                        <div class="row spazioSup">
+                            <div class="col-lg-2">
+                                <p> <b> <i> Quando? </i> </b> </p>
+                            </div>
+                            <div class="col-lg-10">
+                                <p> Giorno {{eventoSelezionato.giorno}}, dalle ore {{eventoSelezionato.oraI}} alle ore {{eventoSelezionato.oraF}}</p>
+                            </div>
+                        </div>
+                        <!-- Dove -->
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <p> <b> <i> Dove? </i> </b> </p>
+                            </div>
+                            <div class="col-lg-10">
+                                <p> {{eventoSelezionato.luogo}} </p>
+                            </div>
+                        </div>
+                        <!-- Call to action -->
+                        <div class="row spazioSup">
+                            <p> <i> Non mancare! </i> </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn" data-dismiss="modal" ng-click="">Partecipa</button>
