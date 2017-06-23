@@ -14,8 +14,11 @@
     <span class="day" ng-class="{dayEXTRA: t === 'EXTRA', dayCASA: t === 'CASA', daySCUOLA: t === 'SCUOLA'}">Sab</span>
 </div>
 <div class="week" ng-repeat="week in weeks">
-    <span class="day" ng-class="{todayCASA: day.isToday && t === 'CASA', 'different-month': !day.isCurrentMonth || day.isYesterday, selectedCASA: day.date.isSame(selected) && t === 'CASA',
-                                 todayEXTRA: day.isToday && t === 'EXTRA', selectedEXTRA: day.date.isSame(selected) && t === 'EXTRA',
-                                 todaySCUOLA: day.isToday && t === 'SCUOLA', selectedSCUOLA: day.date.isSame(selected) && t === 'SCUOLA'}"
+    <span class="day" ng-class="{'different-month': !day.isCurrentMonth || day.isYesterday, selectedCASA: day.date.isSame(selected) && t === 'CASA',
+                                 selectedEXTRA: day.date.isSame(selected) && t === 'EXTRA',
+                                 selectedSCUOLA: day.date.isSame(selected) && t === 'SCUOLA',
+                                 eventoPresenteCASA: controlloEventoCASA(day) && !day.isYesterday && t === 'CASA',
+                                 eventoPresenteSCUOLA: controlloEventoSCUOLA(day) && !day.isYesterday && t === 'SCUOLA',
+                                 eventoPresenteEXTRA: controlloEventoEXTRA(day) && !day.isYesterday && t === 'EXTRA'}"
           ng-click="select(day)" ng-repeat="day in week.days" disabled>{{day.number}}</span>
 </div>

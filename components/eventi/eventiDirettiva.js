@@ -3,13 +3,14 @@
  */
 
 angular.module('puzzle.eventi.eventiDirettiva', [])
-    .directive("calendar", function() {
+    .directive("calendar", function(eventiService, $filter) {
         return {
             restrict: "E",
             templateUrl: "../Puzzle-code/eventView/template/calendar.html",
             scope: {
                 selected: "=",
-                t: "="
+                t: "=",
+                elencoEventi: "="
             },
 
             link: function(scope) {
@@ -55,9 +56,45 @@ angular.module('puzzle.eventi.eventiDirettiva', [])
                         } else {
                             return true;
                         }
+                    };
 
+
+
+                    var tuttiGliEventi = eventiService.getAllEvent();
+
+                    scope.controlloEventoCASA = function (evento) {
+
+                        var found = $filter('filter')(tuttiGliEventi, {giorno: evento.date.format('DD/MM/YYYY'), tipo: 'CASA'});
+
+                        if (found.length) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    };
+
+                scope.controlloEventoSCUOLA = function (evento) {
+
+                    var found = $filter('filter')(tuttiGliEventi, {giorno: evento.date.format('DD/MM/YYYY'), tipo: 'SCUOLA'});
+
+                    if (found.length) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                };
+
+                scope.controlloEventoEXTRA = function (evento) {
+
+                    var found = $filter('filter')(tuttiGliEventi, {giorno: evento.date.format('DD/MM/YYYY'), tipo: 'EXTRA'});
+
+                    if (found.length) {
+                        return true;
+                    } else {
+                        return false;
                     }
                 }
+            }
         };
 
 

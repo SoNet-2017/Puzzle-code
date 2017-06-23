@@ -101,6 +101,8 @@ angular.module('puzzle.eventView', [
 
             };
 
+            $scope.servizio = eventiService;
+
             $scope.eventoSelezionato = {};
 
             $scope.viewEvento = function(id) {
