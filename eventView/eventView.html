@@ -47,16 +47,22 @@
                         <!-- TAB CASA -->
                         <uib-tab index="0" heading="CASA" ng-click="selezioneTab('CASA')">
                             <!-- LOOP EVENTI IN PROGRAMMA --->
-                            <ul class="listaEventi" ng-if="evento.tipo === 'CASA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
-                                <li>
+                            <div class="row">
+                                <ul class="listaEventi" ng-if="evento.tipo === 'CASA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                                    <li>
+                                        <div class="col-lg-8">
+                                            &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                        </div>
+                                        <div class="col-lg-4">
+                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                            <button class="visualizzaEvento">Visualizza</button>
+                                        </a>
+                                        </div>
+                                        <div class="lineEventiInterna"></div>
+                                    </li>
+                                </ul>
+                            </div>
 
-                                        &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
-
-                                    <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
-                                        <button>Visualizza</button>
-                                    </a>
-                                </li>
-                            </ul>
                             <!-- FINE LOOP --->
 
                         </uib-tab>
@@ -64,28 +70,42 @@
                         <!-- TAB SCUOLA -->
                         <uib-tab index="1" heading="SCUOLA" ng-click="selezioneTab('SCUOLA')">
                             <!-- LOOP EVENTI IN PROGRAMMA --->
-                            <ul class="listaEventi" ng-if="evento.tipo === 'SCUOLA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
-                                <li>
-                                        &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
-                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
-                                            <button>Visualizza</button>
-                                        </a>
-                                </li>
-                            </ul>
+                            <div class="row">
+                                <ul class="listaEventi" ng-if="evento.tipo === 'SCUOLA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                                    <li>
+                                        <div class="col-lg-8">
+                                            &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                                <button class="visualizzaEvento"> Visualizza </button>
+                                            </a>
+                                        </div>
+                                        <div class="lineEventiInterna"></div>
+                                    </li>
+                                </ul>
+                            </div>
                             <!-- FINE LOOP --->
                         </uib-tab>
 
                         <!-- TAB EXTRA -->
                         <uib-tab index="2" heading="EXTRA" ng-click="selezioneTab('EXTRA')">
                             <!-- LOOP EVENTI IN PROGRAMMA --->
+                        <div class="row">
                             <ul class="listaEventi" ng-if="evento.tipo === 'EXTRA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+
                                 <li>
-                                        &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
-                                    <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
-                                        <button>Visualizza</button>
-                                    </a>
+                                    <div class="col-lg-8">
+                                        <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
+                                        <button class="visualizzaEvento">Visualizza</button> </a>
+                                    </div>
+                                    <div class="lineEventiInterna"></div>
                                 </li>
                             </ul>
+                        </div>
                             <!-- FINE LOOP --->
                         </uib-tab>
 

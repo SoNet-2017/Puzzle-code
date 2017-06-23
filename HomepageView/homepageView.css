@@ -552,6 +552,11 @@ e margin diverse rispetto a quelle date alla classe post e perché le line erano
     margin-top: 20px;
 }
 
+
+/*----------------- LISTA INSEGNANTI ---------------- */
+
+
+
 /*------------------ EVENTI ------------------ */
 .tabset{
     padding-right: 70px;
@@ -565,12 +570,12 @@ e margin diverse rispetto a quelle date alla classe post e perché le line erano
     font-size: 30px;
     color: black;
 }
-/*linea divisoria Eventi*/
+/*linea divisoria Eventi esterna*/
 .lineEventi{
     width: 100%;
     height: 1px;
     border-bottom: 1px dashed #ddd;
-    margin-top: 30px;
+    margin-top: 40px;
     margin-bottom: 30px;
 }
 
@@ -603,13 +608,38 @@ e margin diverse rispetto a quelle date alla classe post e perché le line erano
 /*-----------------------------------------
    Lista in cui sono elencati gli Eventi
 -------------------------------------------*/
+
+
+/* linea divisioria eventi interna all'elenco*/
+.lineEventiInterna{
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin-top: 27px; /* serve per distanziare meglio le linee*/
+
+}
+
 ul.listaEventi{
-    margin-top: 2em;
-    padding-top: 0.5em;
+    padding-top: 10px;
+    padding-left: 0px;
     list-style-type: none;     /*non mi mette i puntini dell'elenco puntato*/
 }
 
+/* solo le classi contenti i li degli ul (l'elenco degli eventi)*/
+.listaEventi .col-lg-8{
+    margin-top: 17px;
 
+}
+/*bottoni visualizza evento */
+.listaEventi .col-lg-4{
+    margin-top: 12px;
+}
+
+
+/* Bottone visualizza evento*/
+.visualizzaEvento {
+    margin-left: 20px;
+}
 
 
 /*--------------------------------
