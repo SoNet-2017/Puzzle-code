@@ -19,11 +19,11 @@
 
 <div class="container-fluid">
     <div class="row ">
-        <div class="box" id="box">
-            <div class="post" ng-show="utenteRegistrato.ruolo === 'GENITORE'">
+        <div class="box">
+            <div class="post" ng-show="utenteRegistrato.ruolo === 'GENITORE'"> <!-- assegnata la classe post per dare lo stesso stile al pulsante -->
                 <button class="btn" type="button" data-toggle="modal" data-target="#aggiungiFile">
                     <i class="glyphicon glyphicon-pencil"></i>
-                    &nbsp; Carica un nuovo file...
+                    &nbsp; Carica un nuovo file
                 </button>
             </div>
 
@@ -33,9 +33,11 @@
             </div>
             <!-- ------------------------ -->
 
-            <div class="post">
+            <div class="line"> </div>
 
-                <label class="upload-group"><b>SPAZIO GENITORI</b></label>
+            <div>
+
+                <!-- <label class="upload-group"><b>SPAZIO GENITORI</b></label> -->
                 <ul ng-repeat="elemento in elencoFile">
                     <li ng-repeat="utente in elencoUtenti | filter: {'ID' : elemento.creatore} : true" ng-if="utente.ruolo === 'GENITORE'">
 
@@ -92,7 +94,7 @@
 
                         <!-- ----------------------- -->
                         <div ng-show="!isUploading">
-                            <input type="file" onchange="angular.element(this).scope().select(this)" required>
+                            <input id="sceglifile" type="file" onchange="angular.element(this).scope().select(this)" required>
                         </div>
                         <!-- ----------------------- -->
 
@@ -102,8 +104,8 @@
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-primary" id="submit" ng-click="upload()" data-dismiss="modal" >Submit</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+                <button class="btn" id="submit" ng-click="upload()" data-dismiss="modal" >Carica</button>
+                <button type="button" class="btn" data-dismiss="modal">Annulla</button>
             </div>
         </div>
     </div>

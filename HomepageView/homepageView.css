@@ -837,6 +837,33 @@ impostazioni di tutti gli altri bottoni dei modal!!!  */
 }
 
 
+/*------ STORAGE - GENITORI-----*/
+
+
+
+/*-- modal: si è dovuto creare perchè rispetto agli atri modal, qui non abbiamo textarea -- */
+.modal-content input{
+    margin-bottom: 10px;
+    margin-top: 12px;
+    margin-left: 10px;
+    width: 94%;
+}
+
+.modal-content input:focus{
+    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    box-shadow: 0 0 2px rgb(48,142,137) inset;
+    border: 1px solid rgb(48,142,137);
+    outline: none;
+}
+
+
+/* bottone scegli file*/
+#sceglifile{
+    margin-top: 25px;
+    padding-left: 5px;
+}
+
 
 
 
