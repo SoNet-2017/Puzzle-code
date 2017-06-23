@@ -637,7 +637,7 @@ e margin diverse rispetto a quelle date alla classe post e perché le line erano
 .lineEventiInterna{
     width: 100%;
     height: 1px;
-    border-bottom: 1px dashed #ddd;
+    border-bottom: 1px solid #ddd;
     margin-top: 27px; /* serve per distanziare meglio le linee*/
 
 }
