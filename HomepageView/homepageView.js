@@ -115,4 +115,33 @@ angular.module('puzzle.homepageView', [
             };
 
 
+
+
+            $scope.controllo = function(gen){
+
+                var t = false;
+
+                if($scope.utenteRegistrato.user.ruolo === 'GENITORE'){
+                    if($scope.utenteRegistrato.user.citta === gen.citta) {
+                        if($scope.utenteRegistrato.user.figlio1.classeFiglio === gen.classe &&
+                            $scope.utenteRegistrato.user.figlio1.sezioneFiglio === gen.sezione &&
+                            $scope.utenteRegistrato.user.figlio1.scuolaFiglio === gen.scuola){
+                            t = true;
+                        }
+                    }
+                }
+
+                if($scope.utenteRegistrato.user.ruolo === 'INSEGNANTE'){
+                    if($scope.utenteRegistrato.user.citta === gen.citta) {
+                        if($scope.utenteRegistrato.user.classe === gen.classe &&
+                            $scope.utenteRegistrato.user.sezione === gen.sezione &&
+                            $scope.utenteRegistrato.user.scuola === gen.scuola){
+                            t = true;
+                        }
+                    }
+                }
+
+                return t;
+            }
+
         }]);

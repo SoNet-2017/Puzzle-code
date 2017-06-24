@@ -34,12 +34,12 @@
 
             <!-- ---------------------------------------            POST             --------------------------------------- -->
 
-            <div class="post" ng-repeat="singoloPost in post.listaPost | orderBy:'-timestamp'">
+            <div  ng-repeat="singoloPost in post.listaPost | orderBy:'-timestamp'">
+                <div class="post" ng-repeat="utente in tuttiGliUtenti.elencoUtenti | filter: {'ID' : singoloPost.IDutente} : true" ng-if="controllo(utente)">
+                    <div class="line"> </div>
 
-                <div class="line"> </div>
-
-                <div class="row">
-                    <div class="media" ng-repeat="utente in tuttiGliUtenti.elencoUtenti | filter: {'ID' : singoloPost.IDutente} : true">
+                    <div class="row">
+                    <div class="media" >
                         <div class="media-left">
                             <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo" alt="INSEGNANTE">
                         </div>
@@ -52,7 +52,7 @@
                     </div>
                 </div>
 
-                <div class="row contenutoPost">
+                    <div class="row contenutoPost" ng-repeat="utente in tuttiGliUtenti.elencoUtenti | filter: {'ID' : singoloPost.IDutente} : true" ng-if="controllo(utente)">
                     <div class="col-lg-12">
                         <p>{{singoloPost.contenuto}}</p>
 
@@ -70,8 +70,8 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
-
             <!-- ---------------------------------------     FINE POST             --------------------------------------- -->
 
         </div>
