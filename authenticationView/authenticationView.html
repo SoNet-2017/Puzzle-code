@@ -95,6 +95,14 @@
       <option ng-repeat="citta in elencoCitta" value="{{citta}}">{{citta}}</option>
     </select>
 
+    <!-- BOX SCELTA SESSO -->
+    <input type="radio" name="sesso" value="M" ng-model="user.sesso"/>
+    <label class="radio" for="genitore"></label> <br>Uomo<br><br>
+
+    <input type="radio" name="ruolo" value="F" ng-model="user.sesso"/>
+    <label class="radio" for="insegnante"></label> <br>Donna<br>
+    <!-- FINE BOX -->
+
     <!-- FINE MENU A TENDINA -->
     <!-- FINE BOX -->
     <br>

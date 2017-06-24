@@ -43,13 +43,33 @@
                     <div class="row">
                     <div class="media" >
                         <div class="media-left">
-                            <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo" alt="INSEGNANTE">
+
+                            <!-- IMMAGINE PROFILO -->
+                            <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo"
+                                 alt="INSEGNANTE" ng-if="utente.sesso === 'F' && utente.urlFoto === 'no'">
+                            <img src="../Puzzle-code/images/avatars/AvatarInsegnante_uomo.png" class="media-object img-thumbnail img-profilo"
+                                 alt="INSEGNANTE" ng-if="utente.sesso === 'M' && utente.urlFoto === 'no'">
+
+                            <img src="{{utente.urlFoto}}" class="media-object img-thumbnail img-profilo"
+                                 alt="INSEGNANTE" ng-if="utente.urlFoto != 'no'">
+                            <!-- FINE MMAGINE -->
+
                         </div>
+
                         <div class="media-body">
-                            <a href="#!/profiloExtView" ng-click="set(utente.$id)" >
+
+                            <!-- CONTROLLO SE IL POST L'HA CARICATO L'UTENTE LOGGATO -->
+                            <a href="#!/profiloView"  ng-if="utente.$id === utenteRegistrato.uid">
                                 {{utente.nome}} {{utente.cognome}}
                             </a>
+                            <!-- --------------------------------------------------- -->
+                            <a href="#!/profiloExtView" ng-click="set(utente.$id)" ng-if="utente.$id != utenteRegistrato.uid">
+                                {{utente.nome}} {{utente.cognome}}
+                            </a>
+                            <!-- FINE CONTROLLO -->
+
                             <h6>{{singoloPost.timestamp}}</h6>
+
                         </div>
                     </div>
                 </div>

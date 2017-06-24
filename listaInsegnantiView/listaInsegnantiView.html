@@ -28,15 +28,30 @@
                 <div class="media listainsegnanti"> <!-- stesse caratteristiche del css degli insegnanti -->
                     <!-- AVATAR -->
                     <div class="media-left">
-                        <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-circle" alt="INSEGNANTE">
+
+                        <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo"
+                             alt="INSEGNANTE DONNA" ng-if="insegnante.ruolo === 'INSEGNANTE' &&  insegnante.sesso === 'F' && insegnante.urlFoto === 'no'">
+                        <img src="../Puzzle-code/images/avatars/AvatarInsegnante_uomo.png" class="media-object img-thumbnail img-profilo"
+                             alt="INSEGNANTE UOMO" ng-if="insegnante.ruolo === 'INSEGNANTE' &&  insegnante.sesso === 'M' && insegnante.urlFoto === 'no'">
+
+                        <img src="{{insegnante.urlFoto}}" class="media-object img-thumbnail img-profilo"
+                             alt="INSEGNANTE" ng-if="insegnante.urlFoto != 'no'">
                     </div>
                     <!-- FINE AVATAR -->
 
                     <!-- DATI UTENTE -->
                     <div class="media-body">
-                        <a href="#!/profiloExtView" ng-click="set(insegnante.$id)" >
+
+
+                        <!-- CONTROLLO COLLEGAMENTO  UTENTE LOGGATO  -->
+                        <a href="#!/profiloView" ng-if="insegnante.$id === utenteRegistrato.uid">
                             {{insegnante.nome}} {{insegnante.cognome}}
                         </a>
+                        <!-- --------------------------------------- -->
+                        <a href="#!/profiloExtView" ng-click="set(insegnante.$id)" ng-if="insegnante.$id != utenteRegistrato.uid">
+                            {{insegnante.nome}} {{insegnante.cognome}}
+                        </a>
+                        <!-- FINE CONTROLLO  -->
                         <h4> Docente di {{insegnante.materia}}</h4>
                     </div>
                     <!-- FINE DATI UTENTE -->

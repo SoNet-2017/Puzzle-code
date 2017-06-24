@@ -31,14 +31,32 @@
                         <div class="media listagenitori">
                             <!-- AVATAR -->
                             <div class="media-left">
-                                <img src="../Puzzle-code/images/avatars/AvatarGenitore.png" class="media-object img-circle" alt="GENITORE">
+
+                                <img src="../Puzzle-code/images/avatars/AvatarGenitore.png" class="media-object img-thumbnail img-profilo"
+                                     alt="GENITORE DONNA" ng-if="genitore.sesso === 'F' && genitore.urlFoto === 'no'">
+                                <img src="../Puzzle-code/images/avatars/AvatarGenitore_uomo.png" class="media-object img-thumbnail img-profilo"
+                                     alt="GENITORE UOMO" ng-if="genitore.sesso === 'M' && genitore.urlFoto === 'no'">
+
+                                <img src="{{genitore.urlFoto}}" class="media-object img-thumbnail img-profilo"
+                                     alt="GENITORE" ng-if="genitore.urlFoto != 'no'">
+
                             </div>
                             <!-- FINE AVATAR -->
                             <!-- DATI UTENTE -->
                             <div class="media-body">
-                                <a href="#!/profiloExtView" ng-click="set(genitore.$id)" >
+
+                                <!-- CONTROLLO LINK SE E' UGUALE A UTENTE LOGGATO -->
+
+                                <a href="#!/profiloView" ng-if="genitore.$id === utenteRegistrato.uid">
+                                    {{genitore.nome}} {{genitore.cognome}}
+                                </a>
+                                <!-- -------------------------------------------- -->
+                                <a href="#!/profiloExtView" ng-click="set(genitore.$id)" ng-if="genitore.$id != utenteRegistrato.uid">
                                     {{genitore.nome}} {{genitore.cognome}}</a>
-                                <h4> {{genitore.figlio1.nomeFiglio}} {{genitore.figlio1.cognomeFiglio}} </h4>
+                                <!-- FINE CONTROLLO-->
+                                <h4> Genitore di {{genitore.figlio1.nomeFiglio}} {{genitore.figlio1.cognomeFiglio}} </h4>
+
+
                             </div>
                                 <!-- FINE DATI UTENTE -->
                                 <!-- CONTATTA -->

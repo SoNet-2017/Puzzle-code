@@ -142,5 +142,48 @@ angular.module('puzzle.profiloView', [
                 };
 
 
+                $scope.flagFoto = false;
+
+                $scope.uploadFoto = function() {
+
+                    $scope.fileDirectory = "FotoProfilo/" ;
+
+
+                    console.log($scope.fileDirectory);
+                    console.log("formato: " + file.name.split('.').pop());
+
+                    if(file.name.split('.').pop() === 'jpeg' || file.name.split('.').pop() === 'jpg') {
+
+                        $scope.flagFoto = false;
+
+                        var storageRef = firebase.storage().ref($scope.fileDirectory + "/" + $scope.utenteRegistrato.user.$id + "." + file.name.split('.').pop());
+                        var storageFire = $firebaseStorage(storageRef);
+
+                        var task = storageFire.$put(file);
+
+                        task.$error(function (error) {
+                            console.log(error);
+                        });
+
+                        task.$complete(function (snapshot) {
+                            console.log(file);
+                            $scope.imgPath = snapshot.downloadURL;
+                            console.log($scope.utenteRegistrato.user.urlFoto);
+                            if($scope.utenteRegistrato.user.urlFoto === "no") {
+                                console.log("entrato");
+                                CommonProp.setFotoProfilo($scope.IDLoggato, $scope.imgPath);
+                            }
+                            console.log("FILE CARICATO CON SUCCESSO:");
+                            location.reload();
+
+                        });
+
+                    } else {
+                        $scope.flagFoto = true;
+                    }
+                    //console.log($scope.imgPath);
+                };
+
+
             }]);
 

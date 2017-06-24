@@ -55,13 +55,13 @@ angular.module('puzzle.authView', ['ngRoute'])
                             if ($scope.user.ruolo === 'GENITORE') {
                                 utenti.registerNewUserInfoGENITORE(userId, $scope.user.nome, $scope.user.cognome, $scope.user.email, $scope.user.ruolo,
                                     $scope.user.citta, $scope.user.nomeFiglio, $scope.user.cognomeFiglio,
-                                    $scope.user.scuola, $scope.user.fasciaClasse, $scope.user.sezioneClasse);
+                                    $scope.user.scuola, $scope.user.fasciaClasse, $scope.user.sezioneClasse, $scope.user.sesso);
                             }
 
                             // Registazione INSEGNANTE
                             if ($scope.user.ruolo === 'INSEGNANTE') {
                                 utenti.registerNewUserInfoINSEGNANTE(userId, $scope.user.nome, $scope.user.cognome, $scope.user.email, $scope.user.ruolo,
-                                    $scope.user.citta, $scope.user.scuola, $scope.user.fasciaClasse, $scope.user.sezioneClasse, $scope.user.materia);
+                                    $scope.user.citta, $scope.user.scuola, $scope.user.fasciaClasse, $scope.user.sezioneClasse, $scope.user.materia, $scope.user.sesso);
                             }
 
                             // LOGIN

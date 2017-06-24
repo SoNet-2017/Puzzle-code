@@ -22,10 +22,19 @@
                     <!-- IMMAGINE DEL PROFILO -->
                     <div class="col-md-4 header-left">
 
+                        <img src="../Puzzle-code/images/avatars/AvatarGenitore_uomo.png" class="media-object img-thumbnail img-profilo"
+                             alt="GENITORE MASCHIO" ng-if="utenteRegistrato.user.ruolo === 'GENITORE' &&  utenteRegistrato.user.sesso === 'M' && utenteRegistrato.user.urlFoto === 'no'">
                         <img src="../Puzzle-code/images/avatars/AvatarGenitore.png" class="media-object img-thumbnail img-profilo"
-                             alt="GENITORE" ng-if="utenteRegistrato.user.ruolo === 'GENITORE'">
+                             alt="GENITORE MASCHIO" ng-if="utenteRegistrato.user.ruolo === 'GENITORE' &&  utenteRegistrato.user.sesso === 'F' && utenteRegistrato.user.urlFoto === 'no'">
                         <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo"
-                             alt="INSEGNANTE" ng-if="utenteRegistrato.user.ruolo === 'INSEGNANTE'">
+                             alt="INSEGNANTE" ng-if="utenteRegistrato.user.ruolo === 'INSEGNANTE' &&  utenteRegistrato.user.sesso === 'F' && utenteRegistrato.user.urlFoto === 'no'">
+                        <img src="../Puzzle-code/images/avatars/AvatarInsegnante_uomo.png" class="media-object img-thumbnail img-profilo"
+                             alt="INSEGNANTE" ng-if="utenteRegistrato.user.ruolo === 'INSEGNANTE' &&  utenteRegistrato.user.sesso === 'M' && utenteRegistrato.user.urlFoto === 'no'">
+
+                        <img src="{{utenteRegistrato.user.urlFoto}}" class="media-object img-thumbnail img-profilo"
+                             alt="INSEGNANTE" ng-if="utenteRegistrato.user.urlFoto != 'no'">
+
+                        <button ng-click="" data-toggle="modal" data-target="#aggiungiFoto">Modifica Foto Profilo</button>
                     </div>
                     <!-- FINE IMMAGINE DEL PROFILO -->
 
@@ -226,7 +235,7 @@
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-primary" id="submit" ng-click="upload()" data-dismiss="modal" >Submit</button>
+                <button class="btn btn-primary" id="submit" ng-click="upload()" data-dismiss="modal" >Carica</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
             </div>
         </div>
@@ -256,4 +265,40 @@
 
     </div>
 </div>
+
+<!-- MODAL: AGGIUNGI FOTO PROFILO -->
+<div class="modal fade" id="aggiungiFoto" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modifica Foto Profilo</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <form id="uploadFile" role="form">
+
+                        <!-- ----------------------- -->
+                        <div ng-show="!isUploading">
+                            <input type="file" onchange="angular.element(this).scope().select(this)" required>
+                        </div>
+                        <!-- ----------------------- -->
+
+                        <p ng-show="flagFoto">File non supportato.</p>
+
+                    </form>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="submit" ng-click="uploadFoto()">Carica</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>

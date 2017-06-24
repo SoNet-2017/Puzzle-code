@@ -8,10 +8,6 @@
 
 <body>
 
-<!-- NB: Devo ottimizzare il sistema NG-IF con una funzione già realizzata 1 volta -->
-<!--     anzichè richiamarla N volte, in modo tale da ottimizzare il sistema       -->
-<!--                                                               [ Peppe ]       -->
-
 <!-- BOX -->
 <div class="container-fluid">
     <div class="row">
@@ -22,10 +18,19 @@
                 <!-- IMMAGINE DEL PROFILO -->
                 <div class="col-md-4 header-left">
 
+
+                    <img src="../Puzzle-code/images/avatars/AvatarGenitore_uomo.png" class="media-object img-thumbnail img-profilo"
+                         alt="GENITORE MASCHIO" ng-if="visitatore.ruolo === 'GENITORE' &&  visitatore.sesso === 'M' && visitatore.urlFoto === 'no'">
                     <img src="../Puzzle-code/images/avatars/AvatarGenitore.png" class="media-object img-thumbnail img-profilo"
-                         alt="GENITORE" ng-if="visitatore.ruolo === 'GENITORE'">
+                         alt="GENITORE MASCHIO" ng-if="visitatore.ruolo === 'GENITORE' &&  visitatore.sesso === 'F' && visitatore.urlFoto === 'no'">
                     <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo"
-                         alt="INSEGNANTE" ng-if="visitatore.ruolo === 'INSEGNANTE'">
+                         alt="INSEGNANTE" ng-if="visitatore.ruolo === 'INSEGNANTE' &&  visitatore.sesso === 'F' && visitatore.urlFoto === 'no'">
+                    <img src="../Puzzle-code/images/avatars/AvatarInsegnante_uomo.png" class="media-object img-thumbnail img-profilo"
+                         alt="INSEGNANTE" ng-if="visitatore.ruolo === 'INSEGNANTE' &&  visitatore.sesso === 'M' && visitatore.urlFoto === 'no'">
+
+                    <img src="{{visitatore.urlFoto}}" class="media-object img-thumbnail img-profilo"
+                         alt="INSEGNANTE" ng-if="visitatore.urlFoto != 'no'">
+
                 </div>
                 <!-- FINE IMMAGINE DEL PROFILO -->
 
@@ -154,6 +159,8 @@
         <p> MATERIALE DIDATTICO</p>
 
         <div class="post">
+
+            <p ng-if="flag"> Non sono presenti file</p>
 
             <ul ng-repeat="elemento in elencoFile | filter: {'creatore' : visitatore.$id} : true">
                 <li>

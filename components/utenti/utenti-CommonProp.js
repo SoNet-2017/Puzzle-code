@@ -22,6 +22,19 @@ angular.module('puzzle.utenti.CommonProp', [])
                 // ARRAY DI TUTTI GLI UTENTI REGISTRATI NEL DATABASE
                 var ref = firebase.database().ref().child("utenti");
                 return $firebaseArray(ref);
+            },
+
+            setFotoProfilo: function(userId, url){
+
+                var ref = firebase.database().ref().child("utenti").child(userId);
+                //var obj = $firebaseObject(ref).update(url);
+
+                ref.update({
+                   urlFoto: url
+                });
+
+
+
             }
 
         };

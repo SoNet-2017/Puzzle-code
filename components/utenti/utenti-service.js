@@ -40,7 +40,7 @@ angular.module('puzzle.utenti.utentiService', [])
 
 
             registerNewUserInfoGENITORE: function (userId, nome, cognome, email, ruolo, citta, nomeFiglio,
-                                                   cognomeFiglio, scuolaFiglio, classeFiglio, sezioneFiglio) {
+                                                   cognomeFiglio, scuolaFiglio, classeFiglio, sezioneFiglio, sesso) {
 
                 // AGGIUNTA NUOVO UTENTE AL DATABASE
                 var ref = firebase.database().ref().child("utenti").child(userId);
@@ -52,7 +52,9 @@ angular.module('puzzle.utenti.utentiService', [])
                     cognome: cognome,
                     email: email,
                     citta: citta,
-                    ruolo: ruolo
+                    ruolo: ruolo,
+                    sesso: sesso,
+                    urlFoto: 'no'
                 });
 
                 refFiglio1.set({
@@ -68,7 +70,7 @@ angular.module('puzzle.utenti.utentiService', [])
             },
 
             registerNewUserInfoINSEGNANTE: function (userId, nome, cognome, email, ruolo, citta,
-                                                     scuolaFiglio, classeFiglio, sezioneFiglio, materia) {
+                                                     scuolaFiglio, classeFiglio, sezioneFiglio, materia, sesso) {
 
                 // AGGIUNTA NUOVO UTENTE AL DATABASE
                 var ref = firebase.database().ref().child("utenti").child(userId);
@@ -83,7 +85,9 @@ angular.module('puzzle.utenti.utentiService', [])
                     scuola: scuolaFiglio,
                     classe: classeFiglio,
                     sezione: sezioneFiglio,
-                    materia: materia
+                    materia: materia,
+                    sesso: sesso,
+                    urlFoto: 'no'
                 });
 
 
