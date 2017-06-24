@@ -144,6 +144,35 @@ angular.module('puzzle.spazioGenitoriView', [
 
             };
 
+            $scope.controllo = function(gen){
+
+                var t = false;
+
+                if($scope.utenteRegistrato.ruolo === 'GENITORE'){
+                    if($scope.utenteRegistrato.citta === gen.citta) {
+                        if($scope.utenteRegistrato.figlio1.classeFiglio === gen.figlio1.classeFiglio &&
+                            $scope.utenteRegistrato.figlio1.sezioneFiglio === gen.figlio1.sezioneFiglio &&
+                            $scope.utenteRegistrato.figlio1.scuolaFiglio === gen.figlio1.scuolaFiglio){
+                            t = true;
+                            $scope.flag = false;
+                        }
+                    }
+                }
+
+                if($scope.utenteRegistrato.ruolo === 'INSEGNANTE'){
+                    if($scope.utenteRegistrato.citta === gen.citta) {
+                        if($scope.utenteRegistrato.classe === gen.figlio1.classeFiglio &&
+                            $scope.utenteRegistrato.sezione === gen.figlio1.sezioneFiglio &&
+                            $scope.utenteRegistrato.scuola === gen.figlio1.scuolaFiglio){
+                            t = true;
+                            $scope.flag = false;
+                        }
+                    }
+                }
+
+                return t;
+            }
+
 
 
 

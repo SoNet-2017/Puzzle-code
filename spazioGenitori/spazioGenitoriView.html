@@ -2,7 +2,7 @@
 
     <title>PUZZLE - Spazio Scuola</title>
     <link rel="stylesheet" href="HomepageView/homepageView.css">
-    <link rel="stylesheet" href="spazioGenitori/spazioGenitori.css">
+
 
     <style media="screen">
        #uploader {
@@ -20,16 +20,25 @@
 <div class="container-fluid">
     <div class="row ">
         <div class="box">
-            <div class="post" ng-show="utenteRegistrato.ruolo === 'GENITORE'"> <!-- assegnata la classe post per dare lo stesso stile al pulsante -->
+            <div class="post" ng-show="utenteRegistrato.ruolo === 'GENITORE'">
+                <!-- assegnata la classe post per dare lo stesso stile al pulsante -->
                 <button class="btn" type="button" data-toggle="modal" data-target="#aggiungiFile">
                     <i class="glyphicon glyphicon-pencil"></i>
                     &nbsp; Carica un nuovo file
                 </button>
             </div>
 
-            <!-- DA RIMUOVERE DOPO I TEST -->
-            <div class="post" ng-show="utenteRegistrato.ruolo === 'INSEGNANTE'">
-                <p>QUI PUOI <b>SOLO</b> VEDERE! NON PUOI PUBBLICARE! SEI UN {{utenteRegistrato.ruolo}}</p>
+            <!-- TITOLO SE INSEGNANTE -->
+            <div class="post" ng-if="utenteRegistrato.ruolo === 'INSEGNANTE'">
+                <p>AREA COMUNE DELLA CLASSE <b>{{utenteRegistrato.classe}}{{utenteRegistrato.sezione}}</b>
+                    DELLA SCUOLA <b>{{utenteRegistrato.scuola | uppercase}}</b> DI <b>{{utenteRegistrato.citta | uppercase}}</b></p>
+            </div>
+            <!-- ------------------------ -->
+
+            <!-- TITOLO SE GENITORE -->
+            <div class="post" ng-if="utenteRegistrato.ruolo === 'GENITORE'">
+                <p>AREA COMUNE DELLA CLASSE <b>{{utenteRegistrato.figlio1.classeFiglio}}{{utenteRegistrato.figlio1.sezioneFiglio}}</b>
+                    DELLA SCUOLA <b>{{utenteRegistrato.figlio1.scuolaFiglio | uppercase}}</b> DI <b>{{utenteRegistrato.citta | uppercase}}</b></p>
             </div>
             <!-- ------------------------ -->
 
@@ -39,7 +48,7 @@
 
                 <!-- <label class="upload-group"><b>SPAZIO GENITORI</b></label> -->
                 <ul ng-repeat="elemento in elencoFile">
-                    <li ng-repeat="utente in elencoUtenti | filter: {'ID' : elemento.creatore} : true" ng-if="utente.ruolo === 'GENITORE'">
+                    <li ng-repeat="utente in elencoUtenti | filter: {'ID' : elemento.creatore} : true" ng-if="utente.ruolo === 'GENITORE' && controllo(utente)">
 
                             <!-- CONTROLLO IMMAGINE/FOTO -->
                             <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-12-camera.png" ng-if="immagine(elemento.tipo) === 'img'"/>

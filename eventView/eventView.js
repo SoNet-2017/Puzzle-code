@@ -118,6 +118,12 @@ angular.module('puzzle.eventView', [
                 $scope.sezione = stringa;
             };
 
+            $scope.t = {};
+
+            $scope.getUtente = function (utente) {
+                return true;
+            }
+
 
 
 

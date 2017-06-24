@@ -268,7 +268,9 @@
                         <div class="lineEventiModal"></div>
                         <!-- Utente che ha creato l'evento -->
                         <div class="row" id="creatoreEvento">
-                            <p> Evento creato da {{eventoSelezionato.IDcreatore}} </p>
+                            <p ng-repeat="utente in tuttiGliEventi.elencoutenti | filter: {'ID' : eventoSelezionato.IDcreatore} : true">
+                                Evento creato da: {{utente.nome}} {{utente.cognome}}
+                            </p>
                         </div>
                         <!-- Quando -->
                         <div class="row spazioSup">
