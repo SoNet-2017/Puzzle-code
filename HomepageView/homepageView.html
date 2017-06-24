@@ -13,7 +13,6 @@
             <!-- -------   RIGA SUPERIORE CONTENENTE A SX BOTTONE PER NUOVO POST E A DX DATA GIORNALIERA   --------------- -->
 
             <div class="row ">
-
                 <!-- SCRIVI POST | SOLO INSEGNANTE |-->
                 <div class="col-lg-8" >
                     <div class="post" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
@@ -34,6 +33,9 @@
 
             <!-- ---------------------------------------            POST             --------------------------------------- -->
 
+            <div class="post" ng-if="flag">
+                <p>Non sono presenti post...</p>
+            </div>
             <div  ng-repeat="singoloPost in post.listaPost | orderBy:'-timestamp'">
                 <div class="post" ng-repeat="utente in tuttiGliUtenti.elencoUtenti | filter: {'ID' : singoloPost.IDutente} : true" ng-if="controllo(utente)">
                     <div class="line"> </div>

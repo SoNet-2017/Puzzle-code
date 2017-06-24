@@ -45,7 +45,7 @@
             <div class="line"> </div>
 
             <div>
-
+                <p ng-if="flag">Non sono presenti file...</p>
                 <!-- <label class="upload-group"><b>SPAZIO GENITORI</b></label> -->
                 <ul ng-repeat="elemento in elencoFile">
                     <li ng-repeat="utente in elencoUtenti | filter: {'ID' : elemento.creatore} : true" ng-if="utente.ruolo === 'GENITORE' && controllo(utente)">

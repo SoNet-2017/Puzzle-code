@@ -22,7 +22,6 @@ angular.module('puzzle.utenti.CommonProp', [])
                 // ARRAY DI TUTTI GLI UTENTI REGISTRATI NEL DATABASE
                 var ref = firebase.database().ref().child("utenti");
                 return $firebaseArray(ref);
-
             }
 
         };

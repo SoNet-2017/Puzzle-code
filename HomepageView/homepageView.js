@@ -115,7 +115,7 @@ angular.module('puzzle.homepageView', [
             };
 
 
-
+            $scope.flag = true;
 
             $scope.controllo = function(gen){
 
@@ -127,6 +127,7 @@ angular.module('puzzle.homepageView', [
                             $scope.utenteRegistrato.user.figlio1.sezioneFiglio === gen.sezione &&
                             $scope.utenteRegistrato.user.figlio1.scuolaFiglio === gen.scuola){
                             t = true;
+                            $scope.flag = false;
                         }
                     }
                 }
@@ -137,6 +138,7 @@ angular.module('puzzle.homepageView', [
                             $scope.utenteRegistrato.user.sezione === gen.sezione &&
                             $scope.utenteRegistrato.user.scuola === gen.scuola){
                             t = true;
+                            $scope.flag = false;
                         }
                     }
                 }

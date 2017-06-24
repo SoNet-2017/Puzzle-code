@@ -144,6 +144,8 @@ angular.module('puzzle.spazioGenitoriView', [
 
             };
 
+            $scope.flag = true;
+
             $scope.controllo = function(gen){
 
                 var t = false;

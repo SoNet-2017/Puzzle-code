@@ -91,19 +91,6 @@ angular.module('puzzle', [
             }
         };
 
-        $scope.test = function(utente){
-
-            if($scope.pagina.pagCorrente !== "loginView" && $scope.pagina.pagCorrente !== "authView"){
-                //console.log(utente.citta + " | " + $scope.infoUser.citta);
-                //if(utente.citta === $scope.infoUser.citta) {
-                // return true;
-                //}
-
-            } else {
-                return false;
-            }
-        };
-
         $scope.noUtente = function(){
             return false;
         };
