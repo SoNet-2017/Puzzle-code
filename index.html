@@ -111,7 +111,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#!/homepageView">Diario di classe</a></li>
                 <li><a href="#!/profiloView">Profilo</a></li>
-                <li><a href="#!/homepageView">Posta</a></li>
+                <!-- <li><a href="#!/homepageView">Posta</a></li> -->
                 <li><a href="#!/loginView" ng-click="logoutUser()">Logout</a></li>
                 <!-- <li><a href="#!/loginView" ng-click="logOut()">Esci</a></li> -->
             </ul>
@@ -138,39 +138,39 @@
         <!-- TITOLO ELENCO INSEGNANTI  -->
         <li>
             <a href="#!/listaInsegnantiView">
-                <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-352-book-open.png" height="22" width="24"/></i>
+                <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-352-book-open.png" width="28" height="23"/></i>
                 Insegnanti
             </a>
         </li>
         <!-- TITOLO ELENCO GENITORI  -->
         <li>
             <a ng-click="showMenuGen()">
-                <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-500-family.png" height="22" width="35"/></i>
+                <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-500-family.png" width="27" height="21"/></i>
                 Genitori
             </a>
             <!-- ELENCO GENITORI  -->
-            <ul ng-show="menuGen">
-                <li><a href="#!/listaGenitoriView">Contatta un genitore</a></li>
+            <ul ng-show="menuGen" class="list-unstyled components">
+                <li> <a href="#!/listaGenitoriView"> &emsp; &emsp; &emsp; Contatta un genitore</a></li>
 
                 <!-- AGGIUNGERE BLOCCO SE INSEGNANTE -->
-                <li><a href="#!/spazioGenitoriView">Accedi all'area comune</a></li>
+                <li><a href="#!/spazioGenitoriView"> &emsp; &emsp; &emsp; Accedi all'area comune</a></li>
                 <!-- ------------------------------- -->
             </ul>
         </li>
         <!-- LINK EVENTI  -->
         <li>
             <a href="#!/eventView">
-                <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="25" width="25"/></i>
+                <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="26" width="28"/></i>
                 Eventi
             </a>
         </li>
         <!-- LINK SPAZIO SCUOLA  -->
-        <li>
+        <!-- <li>
             <a>
                 <i><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-712-government.png" height="25" width="26"/></i>
                 Spazio Scuola
             </a>
-        </li>
+        </li> -->
     </ul>
 </nav>
 </div>
