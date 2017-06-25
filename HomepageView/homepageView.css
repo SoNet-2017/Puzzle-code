@@ -535,9 +535,36 @@ li.informazioniPersonali-text{
     padding-right: 50px;
     background: #fff;
     background: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
 }
-
-
+.materialeD p{
+    font-family: "Brush Script MT";
+    font-size: 30px;
+    text-decoration: underline;
+}
+.materialeD button{
+    margin-top: 20px;
+    margin-bottom: 50px;
+    background-color: #308E89;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.materialeD .btn:hover,
+.materialeD .btn:focus,
+.materialeD .btn:active{
+    color: #FFF;
+    /*contorni di tutti i bottoni */
+    box-shadow: 0 0 0 2px rgb(48,142,137);
+    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    background-color: rgb(48,142,137);
+    border: 1px solid rgb(48,142,137);
+    outline: none;
+}
+.materialeD img{
+    margin-left: 100px;
+}
 /*----------------- LISTA GENITORI ---------------- */
 
 /*è stata creata una una nuova classe lista genitori perché bisognava dare delle caretteristiche di padding

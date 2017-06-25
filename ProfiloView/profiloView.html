@@ -161,20 +161,19 @@
     <!-- ------------------------------------------ -->
 
     <div class="materialeD" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-            <p> MATERIALE DIDATTICO INSEGNANTE </p>
+        <p> Materiale Didattico </p>
 
-        <div class="post">
-            <button class="btn" type="button" data-toggle="modal" data-target="#aggiungiFile">
-                <i class="glyphicon glyphicon-pencil"></i>
-                &nbsp; Carica un nuovo file...
-            </button>
-        </div>
+        <button class="btn" data-toggle="modal" data-target="#aggiungiFile">
+            <i class="glyphicon glyphicon-plus-sign"></i>
+                &nbsp; Carica un nuovo file
+        </button>
 
-        <div class="post">
+        <div class="container-fluid" ng-repeat="elemento in elencoFile | filter: {'creatore' : IDLoggato} : true">
 
-            <ul ng-repeat="elemento in elencoFile | filter: {'creatore' : IDLoggato} : true">
-                <li>
+            <div class="row">
 
+            <div class="col-lg-6 media-list">
+                <div class="media-left">
                     <!-- CONTROLLO IMMAGINE/FOTO -->
                     <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-12-camera.png" ng-if="immagine(elemento.tipo) === 'img'"/>
                     <!-- CONTROLLO PDF -->
@@ -187,19 +186,23 @@
                     <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-326-wallet.png" ng-if="immagine(elemento.tipo) === 'zip'"/>
                     <!-- FILE GENERICO -->
                     <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-63-paperclip.png" ng-if="immagine(elemento.tipo) === 'other'"/>
+                </div>
+                <div class="media-body">
+                    &nbsp; {{elemento.titolo}}
+                </div>
+            </div>
 
+            <div class="col-lg-6">
+                <a href='{{elemento.url}}' target=”_blank”>
+                    <button type="button">Scarica</button>
+                </a>
 
-                    {{elemento.titolo}}
-                    <a href='{{elemento.url}}' target=”_blank”>
-                        <button type="button">Scarica</button>
-                    </a>
+                <button type="button" ng-click="deleteFile(elemento)" data-toggle="modal" data-target="#elimina">
+                    <i class="glyphicon glyphicon-trash"></i> Elimina
+                </button>
+            </div>
+            </div>
 
-                    <button type="button" ng-click="deleteFile(elemento)" data-toggle="modal" data-target="#elimina">
-                        <i class="glyphicon glyphicon-trash"></i> Elimina
-                    </button>
-
-                </li>
-            </ul>
         </div>
     </div>
 
