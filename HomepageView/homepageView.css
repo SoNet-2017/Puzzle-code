@@ -522,7 +522,7 @@ li.informazioniPersonali-text{
 
 
 
-/* -------- materiale didattico ----------- */
+/* -------- Materiale Didattico ----------- */
 
 .materialeD {
     margin-bottom: 20px;
@@ -537,14 +537,14 @@ li.informazioniPersonali-text{
     background: rgba(255, 255, 255, 0.9);
     font-size: 15px;
 }
-.materialeD p{
+.materialeD p{  /*Titolo sezione "Materiale Didattico"*/
     font-family: "Brush Script MT";
     font-size: 30px;
     text-decoration: underline;
 }
-.materialeD button{
-    margin-top: 20px;
-    margin-bottom: 50px;
+.materialeD button{ /*bottone per caricare nuovo file*/
+    margin-bottom: 20px;
+    margin-right: 50px;
     background-color: #308E89;
     color: white;
     border: 1px solid transparent;
@@ -554,7 +554,6 @@ li.informazioniPersonali-text{
 .materialeD .btn:focus,
 .materialeD .btn:active{
     color: #FFF;
-    /*contorni di tutti i bottoni */
     box-shadow: 0 0 0 2px rgb(48,142,137);
     -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
     -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
@@ -565,6 +564,10 @@ li.informazioniPersonali-text{
 .materialeD img{
     margin-left: 100px;
 }
+.materialeD .line{
+    margin-bottom: 40px;
+}
+
 /*----------------- LISTA GENITORI ---------------- */
 
 /*è stata creata una una nuova classe lista genitori perché bisognava dare delle caretteristiche di padding
@@ -728,6 +731,9 @@ ul.listaEventi{
 }
 .spazioSup p{
     padding-top: 30px;
+}
+#elimina p{
+    color: #3c3c3c;
 }
 /*--------------------------------
      Radio Buttons Modal Eventi

@@ -161,149 +161,143 @@
     <!-- ------------------------------------------ -->
 
     <div class="materialeD" ng-if = "utenteRegistrato.user.ruolo === 'INSEGNANTE'">
-        <p> Materiale Didattico </p>
+        <p> Materiale Didattico </p> <br>
 
         <button class="btn" data-toggle="modal" data-target="#aggiungiFile">
-            <i class="glyphicon glyphicon-plus-sign"></i>
-                &nbsp; Carica un nuovo file
+            <i class="glyphicon glyphicon-plus-sign"></i> &nbsp; Carica un nuovo file
         </button>
 
         <div class="container-fluid" ng-repeat="elemento in elencoFile | filter: {'creatore' : IDLoggato} : true">
 
             <div class="row">
+                <div class="line"> </div>
 
-            <div class="col-lg-6 media-list">
-                <div class="media-left">
-                    <!-- CONTROLLO IMMAGINE/FOTO -->
-                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-12-camera.png" ng-if="immagine(elemento.tipo) === 'img'"/>
-                    <!-- CONTROLLO PDF -->
-                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-30-notes-2.png" ng-if="immagine(elemento.tipo) === 'pdf'"/>
-                    <!-- CONTROLLO MUSICA -->
-                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-18-music.png" ng-if="immagine(elemento.tipo) === 'music'"/>
-                    <!-- CONTROLLO VIDEO -->
-                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-9-film.png" ng-if="immagine(elemento.tipo) === 'video'"/>
-                    <!-- CONTROLLO ZIP -->
-                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-326-wallet.png" ng-if="immagine(elemento.tipo) === 'zip'"/>
-                    <!-- FILE GENERICO -->
-                    <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-63-paperclip.png" ng-if="immagine(elemento.tipo) === 'other'"/>
+                <div class="col-lg-8 media-list">
+                    <div class="media-left">
+                        <!-- CONTROLLO IMMAGINE/FOTO -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-12-camera.png" ng-if="immagine(elemento.tipo) === 'img'"/>
+                        <!-- CONTROLLO PDF -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-30-notes-2.png" ng-if="immagine(elemento.tipo) === 'pdf'"/>
+                        <!-- CONTROLLO MUSICA -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-18-music.png" ng-if="immagine(elemento.tipo) === 'music'"/>
+                        <!-- CONTROLLO VIDEO -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-9-film.png" ng-if="immagine(elemento.tipo) === 'video'"/>
+                        <!-- CONTROLLO ZIP -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-326-wallet.png" ng-if="immagine(elemento.tipo) === 'zip'"/>
+                        <!-- FILE GENERICO -->
+                        <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-63-paperclip.png" ng-if="immagine(elemento.tipo) === 'other'"/>
+                    </div>
+                    <div class="media-body">
+                        &nbsp; {{elemento.titolo}}
+                    </div>
                 </div>
-                <div class="media-body">
-                    &nbsp; {{elemento.titolo}}
+
+                <div class="col-lg-4">
+                    <a href='{{elemento.url}}' target=”_blank”>
+                        <button type="button">
+                            <i class="glyphicon glyphicon-download"></i> Scarica
+                        </button>
+                    </a>
+                    <button type="button" ng-click="deleteFile(elemento)" data-toggle="modal" data-target="#elimina">
+                        <i class="glyphicon glyphicon-trash"></i> Elimina
+                    </button>
                 </div>
-            </div>
 
-            <div class="col-lg-6">
-                <a href='{{elemento.url}}' target=”_blank”>
-                    <button type="button">Scarica</button>
-                </a>
-
-                <button type="button" ng-click="deleteFile(elemento)" data-toggle="modal" data-target="#elimina">
-                    <i class="glyphicon glyphicon-trash"></i> Elimina
-                </button>
             </div>
-            </div>
-
         </div>
     </div>
 
 
-<!-- MODAL: AGGIUNGI FILE -->
-<div class="modal fade" id="aggiungiFile" role="dialog">
-    <div class="modal-dialog modal-sm">
+    <!-- MODAL: AGGIUNGI FILE -->
+    <div class="modal fade" id="aggiungiFile" role="dialog">
+        <div class="modal-dialog modal-sm">
 
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Caricamento nuovo file</h4>
-            </div>
+            <div class="modal-content">
 
-            <div class="modal-body">
-                <div class="form-group">
-                    <form id="uploadFile" role="form">
-
-                        <!-- TITOLO -->
-                        <input type="text" class="form-control" id="txtNome" placeholder="Inserisci Titolo" name="titolo"
-                               ng-model="dati.titolo" required/>
-
-                        <!-- ----------------------- -->
-                        <div ng-show="!isUploading">
-                            <input type="file" onchange="angular.element(this).scope().select(this)" required>
-                        </div>
-                        <!-- ----------------------- -->
-
-
-                    </form>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Caricamento nuovo file</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <form role="form"> <!-- ho cancellato  id="uploadFile" perchè era inutile e dava errore perchè messo in più parti!-->
+                            <!-- TITOLO -->
+                            <input type="text" class="form-control" id="txtNome" placeholder="Inserisci Titolo" name="titolo"
+                                   ng-model="dati.titolo" required/>
+                            <!-- ----------------------- -->
+                            <div ng-show="!isUploading">
+                                <input type="file" onchange="angular.element(this).scope().select(this)" required>
+                            </div>
+                            <!-- ----------------------- -->
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn" ng-click="upload()" data-dismiss="modal" >Carica</button> <!--ho cancellato id="submit" nel bottone Carica perchè non serviva a nulla e dava errore perchè messo in più parti!!!-->
+                    <button type="button" class="btn" data-dismiss="modal">Annulla</button>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="modal-footer">
-                <button class="btn btn-primary" id="submit" ng-click="upload()" data-dismiss="modal" >Carica</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+
+    <!-- MODAL: ELIMINA -->
+    <div class="modal fade" id="elimina" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="modal-content">
+
+                <div class="modal-header" >
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Elimina file</h4>
+                </div>
+                <div class="modal-body">
+                    <p><em>Sei sicuro di voler rimuovere definitivamente "<b>{{fileDaEliminare.titolo}}</b>"?</em></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn" data-dismiss="modal" ng-click="confirmDeleteFile(fileDaEliminare)">Elimina</button>
+                    <button type="button" class="btn" data-dismiss="modal">Annulla</button>
+                </div>
+
             </div>
         </div>
     </div>
-</div>
 
+    <!-- MODAL: AGGIUNGI FOTO PROFILO -->
+    <div class="modal fade" id="aggiungiFoto" role="dialog">
+        <div class="modal-dialog modal-sm">
 
-<!-- MODAL: ELIMINA -->
-<div class="modal fade" id="elimina" role="dialog">
-    <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"> Modifica Foto Profilo</h4>
+                </div>
 
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header" >
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Elimina file</h4>
-            </div>
-            <div class="modal-body">
-                <p><em>Sei sicuro di voler eliminare questo file?</em></p>
-                <p><em>{{fileDaEliminare.titolo}}</em></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn" data-dismiss="modal" ng-click="confirmDeleteFile(fileDaEliminare)">Elimina</button>
-                <button type="button" class="btn" data-dismiss="modal">Annulla</button>
-            </div>
-        </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <form id="uploadFile" role="form"> <!-- ho cancellato  id="uploadFile" perchè era inutile e dava errore perchè messo in più parti!-->
 
-    </div>
-</div>
+                            <!-- ----------------------- -->
+                            <div ng-show="!isUploading">
+                                <input type="file" onchange="angular.element(this).scope().select(this)" required>
+                            </div>
+                            <!-- ----------------------- -->
 
-<!-- MODAL: AGGIUNGI FOTO PROFILO -->
-<div class="modal fade" id="aggiungiFoto" role="dialog">
-    <div class="modal-dialog modal-sm">
+                            <p ng-show="flagFoto">File non supportato</p>
 
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title"> Modifica Foto Profilo</h4>
-            </div>
+                        </form>
+                    </div>
+                </div>
 
-            <div class="modal-body">
-                <div class="form-group">
-                    <form id="uploadFile" role="form">
-
-                        <!-- ----------------------- -->
-                        <div ng-show="!isUploading">
-                            <input type="file" onchange="angular.element(this).scope().select(this)" required>
-                        </div>
-                        <!-- ----------------------- -->
-
-                        <p ng-show="flagFoto">File non supportato</p>
-
-                    </form>
+                <div class="modal-footer">
+                    <button class="btn" id="submit" ng-click="uploadFoto()">Carica</button>
+                    <button type="button" class="btn" data-dismiss="modal">Annulla</button>
                 </div>
             </div>
-
-            <div class="modal-footer">
-                <button class="btn" id="submit" ng-click="uploadFoto()">Carica</button>
-                <button type="button" class="btn" data-dismiss="modal">Annulla</button>
-            </div>
         </div>
     </div>
-</div>
 
-<sidebar user="utenteRegistrato.user.ruolo"></sidebar>
+    <sidebar user="utenteRegistrato.user.ruolo"></sidebar>
 
 </body>
