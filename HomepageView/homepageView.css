@@ -466,6 +466,13 @@ ul ul a {
     border: 2px solid #343434;
 }
 
+/* carica foro profilo */
+.profilo .header-left button{
+    margin-top: 20px;
+    margin-left: 145px;
+    width: 150px;
+}
+
 /*INFORMAZIONI PERONALI */
 .profilo .header-right {
     padding-left: 1em;
@@ -494,6 +501,8 @@ ul ul a {
     /*margin-left: 40px;*/
 
 }
+
+
 
 /*elenco informazioni personali */
 ul.informazioniPersonali{

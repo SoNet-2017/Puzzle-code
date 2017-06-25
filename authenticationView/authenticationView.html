@@ -40,6 +40,7 @@
     <br>
 
     <!-- BOX SCELTA INSEGNANTE/GENITORE -->
+
     <input id="genitore" type="radio" name="ruolo" value="GENITORE" ng-model="user.ruolo"/>
     <label class="simboloUtente genitore" for="genitore"></label> <br>Genitore<br><br>
 
@@ -85,25 +86,26 @@
     <br>
     <h2 class="fs-title">Dati Anagrafici</h2>
     <br>
-    <!-- BOX NOME - COGNOME - CITTA -->
+    <!-- BOX NOME - COGNOME - SESSO - CITTA -->
     <input type="text" class="form-control" id="txtName" name="nome" placeholder="Nome" ng-model="user.nome" required/>
     <input type="text" class="form-control" id="txtSurname" name="cognome" placeholder="Cognome" ng-model="user.cognome" required/>
+
+    <!-- BOX SCELTA SESSO -->
+    <input type="radio" name="sesso" value="M" ng-model="user.sesso"/>
+    <label for="genitore"></label> <br>Uomo<br><br>
+
+    <input type="radio" name="ruolo" value="F" ng-model="user.sesso"/>
+    <label for="insegnante"></label> <br>Donna<br>
+
+
     <!-- MENU A TENDINA ELENCO CITTA -->
 
     <select id="tendine" class="form-control" ng-model="user.citta" required>
       <option value="noValue"> --- SELEZIONA UNA CITTA --- </option>
       <option ng-repeat="citta in elencoCitta" value="{{citta}}">{{citta}}</option>
     </select>
-
-    <!-- BOX SCELTA SESSO -->
-    <input type="radio" name="sesso" value="M" ng-model="user.sesso"/>
-    <label class="radio" for="genitore"></label> <br>Uomo<br><br>
-
-    <input type="radio" name="ruolo" value="F" ng-model="user.sesso"/>
-    <label class="radio" for="insegnante"></label> <br>Donna<br>
-    <!-- FINE BOX -->
-
     <!-- FINE MENU A TENDINA -->
+
     <!-- FINE BOX -->
     <br>
     <br>

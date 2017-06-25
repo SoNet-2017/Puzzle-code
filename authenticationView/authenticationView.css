@@ -165,7 +165,7 @@ body {
 	position: absolute;
 	left: -50%;
 	top: 9px;
-	z-index: -1; /*put it behind the numbers*/
+	z-index: -1; /*per metterlo dietro i numeri*/
 }
 #progressbar li:first-child:after {
 	/*connector not needed before the first step*/
@@ -236,3 +236,7 @@ body {
 	-moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
 	filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
+
+
+
+/* UOMO E DONNA*/
