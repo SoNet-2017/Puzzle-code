@@ -222,13 +222,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <form role="form"> <!-- ho cancellato  id="uploadFile" perchè era inutile e dava errore perchè messo in più parti!-->
+                        <form class="inputCaricamentoFile" role="form"> <!-- ho cancellato  id="uploadFile" perchè era inutile e dava errore perchè messo in più parti!-->
                             <!-- TITOLO -->
-                            <input type="text" class="form-control" id="txtNome" placeholder="Inserisci Titolo" name="titolo"
+                            <input  type="text" class="form-control" id="txtNome" placeholder="Inserisci Titolo" name="titolo"
                                    ng-model="dati.titolo" required/>
                             <!-- ----------------------- -->
-                            <div ng-show="!isUploading">
-                                <input type="file" onchange="angular.element(this).scope().select(this)" required>
+                            <div class="inputCaricamentoFile" ng-show="!isUploading">
+                                <input id="sceglifile" type="file" onchange="angular.element(this).scope().select(this)" required>
                             </div>
                             <!-- ----------------------- -->
                         </form>

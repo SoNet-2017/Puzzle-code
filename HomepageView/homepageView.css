@@ -960,14 +960,14 @@ impostazioni di tutti gli altri bottoni dei modal!!!  */
 /*------------------------------------------------*/
 
 /*-- modal: si è dovuto creare perchè rispetto agli atri modal, qui non abbiamo textarea -- */
-.modal-content input{
+.inputCaricamentoFile input{
     margin-bottom: 10px;
     margin-top: 12px;
     margin-left: 10px;
     width: 94%;
 }
 
-.modal-content input:focus{
+.inputCaricamentoFile input:focus{
     -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
     -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
     box-shadow: 0 0 2px rgb(48,142,137) inset;
