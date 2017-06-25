@@ -957,7 +957,7 @@ impostazioni di tutti gli altri bottoni dei modal!!!  */
 
 
 
-/*---------------------------------------------------*/
+/*------------------------------------------------*/
 
 /*-- modal: si è dovuto creare perchè rispetto agli atri modal, qui non abbiamo textarea -- */
 .modal-content input{
@@ -976,7 +976,7 @@ impostazioni di tutti gli altri bottoni dei modal!!!  */
 }
 
 
-/* bottone scegli file*/
+/* bottone scegli  file*/
 #sceglifile{
     margin-top: 25px;
     padding-left: 5px;
