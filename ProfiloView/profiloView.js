@@ -81,7 +81,11 @@ angular.module('puzzle.profiloView', [
 
                 $scope.isOther = true;
 
+                $scope.flag = true;
+
                 $scope.immagine = function(tipo) {
+
+                    $scope.flag = false;
 
                     if (tipo === 'image/jpeg' || tipo === 'image/jpg' || tipo === 'image/png') {
                         $scope.isOther = false;
