@@ -24,12 +24,17 @@ angular.module('puzzle.profiloExtView', [
     }])
 
     .controller('ProfiloExtCtrl',
-        ['$scope', '$rootScope', 'CommonProp', 'utenti', 'profiloEsterno', 'storeService',
-            function($scope, $rootScope, CommonProp, utenti, profiloEsterno, storeService) {
+        ['$scope', '$rootScope', 'CommonProp', 'utenti', 'profiloEsterno', 'storeService', 'currentAuth',
+            function($scope, $rootScope, CommonProp, utenti, profiloEsterno, storeService, currentAuth) {
 
                 $rootScope.pagina = {};
                 $rootScope.pagina.pagCorrente = 'profiloExtUtente';
 
+
+
+                $scope.utenteRegistrato = {};
+                $scope.utenteRegistrato.uid = currentAuth.uid;
+                $scope.utenteRegistrato.user = CommonProp.getUserInfo($scope.utenteRegistrato.uid);
 
                 $scope.visitatore = CommonProp.getUserInfo(profiloEsterno.getUser());
 

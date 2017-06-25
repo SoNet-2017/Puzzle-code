@@ -35,6 +35,7 @@ angular.module('puzzle', [
     'puzzle.eventView',
     'puzzle.eventi',
     'puzzle.storage',
+    'puzzle.sidebarDirettiva',
     "firebase"
 ])
 

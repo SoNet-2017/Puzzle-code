@@ -1,0 +1,50 @@
+<nav class="navbar navbar-fixed-top" id="sidebar">
+    <!-- INTESTAZIONE SIDEBAR  -->
+    <div class="sidebar-header">
+
+        <a href="#!/homepageView">
+            <img src="../Puzzle-code/images/logo/PuzzleLogo_per_sfondo_scuro.png" width="150" class="img-responsive center-block"/>  <!-- height="22" width="24" -->
+            <!-- <strong>PLZ</strong> -->     <!-- se vogliamo l'animazione della sidebar -->
+        </a>
+    </div>
+
+
+    <!-- INIZIO MENU  -->
+    <ul class="list-unstyled components">
+        <!-- TITOLO ELENCO INSEGNANTI  -->
+        <li>
+            <a href="#!/listaInsegnantiView">
+                <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-352-book-open.png" width="28" height="23"/></i>
+                Lista Insegnanti
+            </a>
+        </li>
+        <!-- TITOLO ELENCO GENITORI  -->
+        <li>
+            <a ng-click="showMenuGen()">
+                <i> <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-500-family.png" width="27" height="21"/></i>
+                Genitori
+            </a>
+            <!-- ELENCO GENITORI  -->
+            <ul ng-show="menuGen" class="list-unstyled components">
+                <li> <a href="#!/listaGenitoriView"> &emsp; &emsp; &emsp;  Contatta un genitore </a></li>
+                <!-- AGGIUNGERE BLOCCO SE INSEGNANTE -->
+                <li ng-if="controllo()"><a href="#!/spazioGenitoriView"> &emsp; &emsp; &emsp;  Accedi all'area comune  </a></li>
+                <!-- ------------------------------- -->
+            </ul>
+        </li>
+        <!-- LINK EVENTI  -->
+        <li>
+            <a href="#!/eventView">
+                <i ><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-731-puzzle.png" height="26" width="28"/></i>
+                Eventi
+            </a>
+        </li>
+        <!-- LINK SPAZIO SCUOLA  -->
+        <!-- <li>
+            <a>
+                <i><img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-712-government.png" height="25" width="26"/></i>
+                Spazio Scuola
+            </a>
+        </li> -->
+    </ul>
+</nav>

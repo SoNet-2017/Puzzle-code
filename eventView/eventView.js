@@ -89,6 +89,8 @@ angular.module('puzzle.eventView', [
             $scope.tuttiGliEventi.elencoutenti = CommonProp.getAllUser();
             $scope.tuttiGliEventi.elencoEventi = eventiService.getAllEvent();
 
+            $scope.utenteRegistrato = CommonProp.getUserInfo(currentAuth.uid);
+
             $scope.event = {};
 
             $scope.creaEvento = function() {
