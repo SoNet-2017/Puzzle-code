@@ -18,66 +18,76 @@
 <body>
 
 <div class="container-fluid">
-    <div class="row ">
-        <div class="box">
-            <div class="post" ng-show="utenteRegistrato.ruolo === 'GENITORE'">
-                <!-- assegnata la classe post per dare lo stesso stile al pulsante -->
-                <button class="btn" type="button" data-toggle="modal" data-target="#aggiungiFile">
-                    <i class="glyphicon glyphicon-pencil"></i>
-                    &nbsp; Carica un nuovo file
-                </button>
+    <div class="box">
+
+        <div class="spazioGenitori">
+
+            <p id="titolo"> Spazio Genitori
+                - classe <b>{{utenteRegistrato.figlio1.classeFiglio}}{{utenteRegistrato.figlio1.sezioneFiglio}}</b></p> <br>
+
+                 <!-- TITOLO SE GENITORE
+                <div class="post" ng-if="utenteRegistrato.ruolo === 'GENITORE'">
+                    <p>Benvenuto nell'area comune della classe <b>{{utenteRegistrato.figlio1.classeFiglio}}{{utenteRegistrato.figlio1.sezioneFiglio}}</b>
+                        della scuola <b>{{utenteRegistrato.figlio1.scuolaFiglio | uppercase}}</b> di <b>{{utenteRegistrato.citta | uppercase}}</b> !
+                    </p>
+                </div>
+                ------------------------ -->
+            <div class="row" ng-show="utenteRegistrato.ruolo === 'GENITORE'">
+                    <!-- assegnata la classe post per dare lo stesso stile al pulsante -->
+                    <button class="btn" data-toggle="modal" data-target="#aggiungiFile">
+                        <i class="glyphicon glyphicon-plus-sign"></i>
+                        &nbsp; Condividi un nuovo file
+                    </button>
             </div>
 
-            <!-- TITOLO SE INSEGNANTE -->
-            <div class="post" ng-if="utenteRegistrato.ruolo === 'INSEGNANTE'">
-                <p>AREA COMUNE DELLA CLASSE <b>{{utenteRegistrato.classe}}{{utenteRegistrato.sezione}}</b>
-                    DELLA SCUOLA <b>{{utenteRegistrato.scuola | uppercase}}</b> DI <b>{{utenteRegistrato.citta | uppercase}}</b></p>
-            </div>
-            <!-- ------------------------ -->
+            <p ng-if="flag">Non sono ancora presenti file</p>          <!-- <label class="upload-group"><b>SPAZIO GENITORI</b></label> -->
 
-            <!-- TITOLO SE GENITORE -->
-            <div class="post" ng-if="utenteRegistrato.ruolo === 'GENITORE'">
-                <p>AREA COMUNE DELLA CLASSE <b>{{utenteRegistrato.figlio1.classeFiglio}}{{utenteRegistrato.figlio1.sezioneFiglio}}</b>
-                    DELLA SCUOLA <b>{{utenteRegistrato.figlio1.scuolaFiglio | uppercase}}</b> DI <b>{{utenteRegistrato.citta | uppercase}}</b></p>
-            </div>
-            <!-- ------------------------ -->
+            <div class="elencoFile" ng-repeat="elemento in elencoFile">
 
-            <div class="line"> </div>
+                <div class="row" ng-repeat="utente in elencoUtenti | filter: {'ID' : elemento.creatore} : true" ng-if="utente.ruolo === 'GENITORE' && controllo(utente)">
+                    <div class="line"> </div>
 
-            <div>
-                <p ng-if="flag">Non sono presenti file...</p>
-                <!-- <label class="upload-group"><b>SPAZIO GENITORI</b></label> -->
-                <ul ng-repeat="elemento in elencoFile">
-                    <li ng-repeat="utente in elencoUtenti | filter: {'ID' : elemento.creatore} : true" ng-if="utente.ruolo === 'GENITORE' && controllo(utente)">
+                    <div class="col-lg-8 media-list">
 
-                            <!-- CONTROLLO IMMAGINE/FOTO -->
-                            <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-12-camera.png" ng-if="immagine(elemento.tipo) === 'img'"/>
-                            <!-- CONTROLLO PDF -->
-                            <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-30-notes-2.png" ng-if="immagine(elemento.tipo) === 'pdf'"/>
-                            <!-- CONTROLLO MUSICA -->
-                            <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-18-music.png" ng-if="immagine(elemento.tipo) === 'music'"/>
-                            <!-- CONTROLLO VIDEO -->
-                            <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-9-film.png" ng-if="immagine(elemento.tipo) === 'video'"/>
-                            <!-- CONTROLLO ZIP -->
-                            <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-326-wallet.png" ng-if="immagine(elemento.tipo) === 'zip'"/>
-                            <!-- FILE GENERICO -->
-                            <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-63-paperclip.png" ng-if="immagine(elemento.tipo) === 'other'"/>
+                        <div class="row">
+                            <div class="media-left">
+                                <!-- CONTROLLO IMMAGINE/FOTO -->
+                                <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-12-camera.png" ng-if="immagine(elemento.tipo) === 'img'"/>
+                                <!-- CONTROLLO PDF -->
+                                <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-30-notes-2.png" ng-if="immagine(elemento.tipo) === 'pdf'"/>
+                                <!-- CONTROLLO MUSICA -->
+                                <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-18-music.png" ng-if="immagine(elemento.tipo) === 'music'"/>
+                                <!-- CONTROLLO VIDEO -->
+                                <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-9-film.png" ng-if="immagine(elemento.tipo) === 'video'"/>
+                                <!-- CONTROLLO ZIP -->
+                                <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-326-wallet.png" ng-if="immagine(elemento.tipo) === 'zip'"/>
+                                <!-- FILE GENERICO -->
+                                <img src="HomepageView/glyphicons_free/glyphicons/png/glyphicons-63-paperclip.png" ng-if="immagine(elemento.tipo) === 'other'"/>
+                            </div>
+                            <div class="media-body">
+                                &nbsp; {{elemento.titolo}}
+                            </div>
+                        </div>
 
-                            | {{elemento.titolo}} | {{utente.nome}} {{utente.cognome}}
+                        <div class="row" id="dettagliUtente">
+                            <p>file caricato da {{utente.nome}} {{utente.cognome}}</p>
+                        </div>
+                    </div>
 
-                            <a href='{{elemento.url}}' target=”_blank”>
-                                <button>DOWNLOAD</button>
-                            </a>
-
-                            <button type="button" ng-click="deleteFile(elemento)" data-toggle="modal" data-target="#elimina" ng-show="elemento.creatore === uid">
-                            <i class="glyphicon glyphicon-trash"></i> Elimina
+                    <div class="col-lg-4">
+                        <a href='{{elemento.url}}' target=”_blank”>
+                            <button type="button">
+                                <i class="glyphicon glyphicon-download"></i> Scarica
                             </button>
+                        </a>
+                        <button type="button" ng-click="deleteFile(elemento)" data-toggle="modal" data-target="#elimina" ng-show="elemento.creatore === uid">
+                            <i class="glyphicon glyphicon-trash"></i> Elimina
+                        </button>
+                    </div>
 
-
-                    </li>
-                </ul>
-
+                </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -131,8 +141,7 @@
                 <h4 class="modal-title">Elimina file</h4>
             </div>
             <div class="modal-body">
-                <p><em>Sei sicuro di voler eliminare questo file?</em></p>
-                <p><em>{{fileDaEliminare.titolo}}</em></p>
+                <p><em>Sei sicuro di voler rimuovere definitivamente "<b>{{fileDaEliminare.titolo}}</b>"?</em></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn" data-dismiss="modal" ng-click="confirmDeleteFile(fileDaEliminare)">Elimina</button>

@@ -909,7 +909,55 @@ impostazioni di tutti gli altri bottoni dei modal!!!  */
 
 /*------ STORAGE - GENITORI-----*/
 
+#titolo {  /*Titolo "Spazio Genitori"*/
+    font-family: "Brush Script MT";
+    font-size: 30px;
+    text-decoration: underline;
+}
+.spazioGenitori button{
+    margin-bottom: 20px;
+    margin-right: 15px;
+    margin-left: 20px;
+    background-color: #308E89;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.spazioGenitori .btn:hover,
+.spazioGenitori .btn:focus,
+.spazioGenitori .btn:active{
+    color: #FFF;
+    box-shadow: 0 0 0 2px rgb(48,142,137);
+    -moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    -o-box-shadow: 0 0 2px rgb(48,142,137) inset;
+    background-color: rgb(48,142,137);
+    border: 1px solid rgb(48,142,137);
+    outline: none;
+}
+.spazioGenitori {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    background: #fff;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+}
+.spazioGenitori img{
+    margin-left: 40px;
+}
+#dettagliUtente p{
+    margin-left: 85px;
+    margin-top: 5px;
+    font-size: 14px;
+    font-style: italic;
+    color: #9d9d9d;
+}
 
+
+
+
+/*---------------------------------------------------*/
 
 /*-- modal: si è dovuto creare perchè rispetto agli atri modal, qui non abbiamo textarea -- */
 .modal-content input{
