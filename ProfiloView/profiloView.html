@@ -167,6 +167,8 @@
             <i class="glyphicon glyphicon-plus-sign"></i> &nbsp; Carica un nuovo file
         </button>
 
+        <!--        <div ng-if="flag">Non hai ancora caricato materiale didattico</div>      -->
+
         <div class="container-fluid" ng-repeat="elemento in elencoFile | filter: {'creatore' : IDLoggato} : true">
 
             <div class="row">
