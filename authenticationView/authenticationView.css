@@ -229,7 +229,7 @@ body {
 	background-size:contain;
 	background-repeat:no-repeat;
 	/*display:inline-block;*/
-	width:70px; height:70px;
+	width:70px; height:70px; /* con la versione NUOVA(orizzontale) bisogna ingrandire le immagini:    width:90px; height:90px;  */
 	-webkit-transition: all 100ms ease-in;
 	-moz-transition: all 100ms ease-in;
 	transition: all 100ms ease-in;

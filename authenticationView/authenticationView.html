@@ -37,10 +37,9 @@
   <div ng-show="step.vistaCorrente === 0">
     <br>
     <h2 class="fs-title">Chi sono</h2>
-    <br>
+    <br><br>
 
-    <!-- BOX SCELTA INSEGNANTE/GENITORE -->
-
+    <!-- BOX SCELTA INSEGNANTE/GENITORE --- VECCHIA (verticale) - al momento lasciata questa perchè la nuova ha un problema!!!!!!!!!!! -->
     <input id="genitore" type="radio" name="ruolo" value="GENITORE" ng-model="user.ruolo"/>
     <label class="simboloUtente genitore" for="genitore"></label> <br>Genitore<br><br>
 
@@ -48,9 +47,23 @@
     <label class="simboloUtente insegnante"for="insegnante"></label> <br>Insegnante<br>
     <!-- FINE BOX -->
 
+    <!-- BOX SCELTA INSEGNANTE/GENITORE --- NUOVA (orizzontale) ma non rimane acceso il bottone quando premuto!!!!!!!!!!! ---
+    <label class="simboloUtente genitore radio-inline" for="genitore">
+        <input id="genitore" type="radio" name="ruolo" value="GENITORE" ng-model="user.ruolo"/>
+    </label>
+    &emsp;
+    <label class="simboloUtente insegnante radio-inline"for="insegnante">
+        <input id="insegnante" type="radio" name="ruolo" value="INSEGNANTE" ng-model="user.ruolo"/>
+    </label>
+    <br> <br>
+    <label>&nbsp;&nbsp; Genitore</label>
+    &emsp; &emsp;
+    <label>&nbsp;Insegnante</label>
+    <br>
+    FINE BOX --- se si utilizza questa NUOVA versione, modificare dimensione loghi dal CSS (90x90)-->
 
-    <br>
-    <br>
+
+    <br><br>
     <!-- BOX COMANDI SLIDE -->
     <input type="button" name="next" class="next action-button" value="Continua"
            ng-click="stepUp()" ng-disabled="user.ruolo != 'INSEGNANTE' && user.ruolo != 'GENITORE'"/>
