@@ -90,12 +90,27 @@
     <input type="text" class="form-control" id="txtName" name="nome" placeholder="Nome" ng-model="user.nome" required/>
     <input type="text" class="form-control" id="txtSurname" name="cognome" placeholder="Cognome" ng-model="user.cognome" required/>
 
-    <!-- BOX SCELTA SESSO -->
-    <input type="radio" name="sesso" value="M" ng-model="user.sesso"/>
-    <label for="genitore"></label> <br>Uomo<br><br>
+    <!--BOX SCELTA SESSO  -- VECCHIA! ho conservato quello vecchio nel dubbio servisse per il filtragio ma è da cancellare!
+      <input type="radio" name="sesso" value="M" ng-model="user.sesso"/>
+      <label for="genitore"></label> <br>Uomo<br><br>
 
-    <input type="radio" name="ruolo" value="F" ng-model="user.sesso"/>
-    <label for="insegnante"></label> <br>Donna<br>
+      <input type="radio" name="ruolo" value="F" ng-model="user.sesso"/>
+      <label for="insegnante"></label> <br>Donna<br>
+    -->
+    <!--BOX SCELTA SESSO  -- NUOVA! con radio button allineati-->
+    <label class="radio-inline" for="genitore">
+      <input type="radio" name="sesso" value="M" ng-model="user.sesso"/>
+    </label>
+    &emsp; &emsp; &emsp;
+    <label class="radio-inline" for="insegnante">
+      <input type="radio" name="ruolo" value="F" ng-model="user.sesso"/>
+    </label>
+    <br><br>
+    <label>Uomo</label>
+    &emsp; &emsp;
+    <label>Donna</label>
+    <br><br>
+    <!-- FINE BOX SCELTA SESSO -->
 
 
     <!-- MENU A TENDINA ELENCO CITTA -->
