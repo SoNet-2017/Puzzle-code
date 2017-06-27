@@ -939,8 +939,7 @@ impostazioni di tutti gli altri bottoni dei modal!!!  */
     padding-bottom: 50px;
     padding-left: 50px;
     padding-right: 50px;
-    background: #fff;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0);
     font-size: 15px;
 }
 .spazioGenitori img{
