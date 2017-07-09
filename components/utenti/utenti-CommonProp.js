@@ -10,8 +10,9 @@ angular.module('puzzle.utenti.CommonProp', [])
 
         return {
             getUserInfo: function(userId) {
+
                 // RICHIESTA DELL'OGGETTO UTENTE PRESENTE NEL DATABASE "utenti"
-                // DI FIREBASE MEDIANTE PASSAGGIO DELL'ID (IDENTIFICATORE UNIVOCO)
+                // DI FIREBASE MEDIANTE PASSAGGIO DELL'ID
 
                 var userRef = firebase.database().ref().child("utenti").child(userId);
                 return $firebaseObject(userRef);
@@ -27,7 +28,6 @@ angular.module('puzzle.utenti.CommonProp', [])
             setFotoProfilo: function(userId, url){
 
                 var ref = firebase.database().ref().child("utenti").child(userId);
-                //var obj = $firebaseObject(ref).update(url);
 
                 ref.update({
                    urlFoto: url

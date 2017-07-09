@@ -22,15 +22,23 @@
                     <!-- IMMAGINE DEL PROFILO -->
                     <div class="col-md-4 header-left">
 
+                        <!-- AVATAR DI BASE GENITORE - UOMO -->
                         <img src="../Puzzle-code/images/avatars/AvatarGenitore_uomo.png" class="media-object img-thumbnail img-profilo"
                              alt="GENITORE MASCHIO" ng-if="utenteRegistrato.user.ruolo === 'GENITORE' &&  utenteRegistrato.user.sesso === 'M' && utenteRegistrato.user.urlFoto === 'no'">
+
+                        <!-- AVATAR DI BASE GENITORE - DONNA -->
                         <img src="../Puzzle-code/images/avatars/AvatarGenitore.png" class="media-object img-thumbnail img-profilo"
                              alt="GENITORE MASCHIO" ng-if="utenteRegistrato.user.ruolo === 'GENITORE' &&  utenteRegistrato.user.sesso === 'F' && utenteRegistrato.user.urlFoto === 'no'">
+
+                        <!-- AVATAR DI BASE INSEGNANTE - DONNA -->
                         <img src="../Puzzle-code/images/avatars/AvatarInsegnante.png" class="media-object img-thumbnail img-profilo"
                              alt="INSEGNANTE" ng-if="utenteRegistrato.user.ruolo === 'INSEGNANTE' &&  utenteRegistrato.user.sesso === 'F' && utenteRegistrato.user.urlFoto === 'no'">
+
+                        <!-- AVATAR DI BASE INSEGNANTE - UOMO -->
                         <img src="../Puzzle-code/images/avatars/AvatarInsegnante_uomo.png" class="media-object img-thumbnail img-profilo"
                              alt="INSEGNANTE" ng-if="utenteRegistrato.user.ruolo === 'INSEGNANTE' &&  utenteRegistrato.user.sesso === 'M' && utenteRegistrato.user.urlFoto === 'no'">
 
+                        <!-- FOTO PROFILO CARICATA DA UTENTE -->
                         <img src="{{utenteRegistrato.user.urlFoto}}" class="media-object img-thumbnail img-profilo"
                              alt="INSEGNANTE" ng-if="utenteRegistrato.user.urlFoto != 'no'">
 

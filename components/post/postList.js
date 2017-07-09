@@ -17,11 +17,13 @@ angular.module('puzzle.post.postList', [])
                 return $firebaseArray(ref);
             },
 
+
+            // RITORNO DI UNA STRINGA CONTENENTE LA DATA ATTUALE
             getTimestamp: function (){
 
                 var today = new Date();
                 var day = today.getUTCDate();
-                var month = today.getUTCMonth()+1; //January is 0!
+                var month = today.getUTCMonth()+1;      //Gennaio è 0!
                 var year = today.getUTCFullYear();
                 var hours = today.getUTCHours();
                 var minutes = today.getUTCMinutes();

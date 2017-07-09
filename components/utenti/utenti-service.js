@@ -90,7 +90,6 @@ angular.module('puzzle.utenti.utentiService', [])
                     urlFoto: 'no'
                 });
 
-
             }
 
 

@@ -50,11 +50,7 @@ angular.module('puzzle.eventi.eventiService', [
 
                     console.log("Evento Aggiunto Correttamente!");
 
-            },
-
-            searchByDate: function (evento) {
-
-                return true;
             }
+
         };
     });

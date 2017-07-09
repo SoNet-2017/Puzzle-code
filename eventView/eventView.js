@@ -16,11 +16,7 @@ angular.module('puzzle.eventView', [
             templateUrl: 'eventView/eventView.html',
             controller: 'eventViewCTRL',
             resolve: {
-                // controller will not be loaded until $requireSignIn resolves
-                // Auth refers to our $firebaseAuth wrapper in the factory below
                 "currentAuth": ["Auth", function (Auth) {
-                    // $requireSignIn returns a promise so the resolve waits for it to complete
-                    // If the promise is rejected, it will throw a $routeChangeError (see above)
                     return Auth.$requireSignIn();
                 }]
 
@@ -98,8 +94,6 @@ angular.module('puzzle.eventView', [
                 $scope.event.oraI = $filter('date')($scope.oraInizio, 'H:mm', 'CET');
                 $scope.event.oraF = $filter('date')($scope.oraFine, 'H:mm', 'CET');
                 eventiService.creaNuovoEvento($scope.event, $filter('date')($scope.myDate, 'dd/MM/yyyy', 'CET'), currentAuth.uid);
-                //console.log($scope.event);
-
 
             };
 
@@ -125,10 +119,6 @@ angular.module('puzzle.eventView', [
             $scope.getUtente = function (utente) {
                 return true;
             }
-
-
-
-
 
     }]);
 

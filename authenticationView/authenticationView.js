@@ -42,10 +42,11 @@ angular.module('puzzle.authView', ['ngRoute'])
 
         $scope.user = {};
 
+        $scope.noValue = "noValue";
+
         $scope.signUp = function () {
-            //check if the second password is equal to the first one
-            if ($scope.user.password != '' && $scope.user.password === $scope.user.password2) {
-                //create a new user with specified email and password
+            if ($scope.user.password !== '') {
+                // CREAZIONE NUOVO UTENTE TRAMITE EMAIL E PASSWORD
                 Auth.$createUserWithEmailAndPassword($scope.user.email, $scope.user.password)
                     .then(function (firebaseUser) {
                         Auth.$signInWithEmailAndPassword($scope.user.email, $scope.user.password).then(function (internalFirebaseUser) {
@@ -81,7 +82,7 @@ angular.module('puzzle.authView', ['ngRoute'])
         };
 
 
-        // FUNZIONI RELATIVO ALLO SCORRERE DEGLI STEP DI REGISTRAZIONE
+        // FUNZIONI RELATIVE ALLO SCORRERE DEGLI STEP DI REGISTRAZIONE
         $rootScope.step = {};
         $rootScope.step.vistaCorrente = 0;
 

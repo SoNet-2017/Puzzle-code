@@ -12,9 +12,7 @@
 
 
 <!-- MESSAGGIO DI ERRORE -->
-<div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">
-    Login failed! {{ error.message }}
-</div>
+
 <!-- FINE MESSAGGIO DI ERRORE -->
 
 <form id="msform" name="loginForm" role="form" ng-submit="signIn()">
@@ -29,6 +27,12 @@
     <div>
         <input type="text" name="email_login" placeholder="Inserisci Email" required="" autofocus="" ng-model="user.email"/>
         <input type="password" name="password_login" placeholder="Inserisci password" required="" ng-model="user.password"/>
+
+        <!-- ERRORE PASSWORD -->
+        <p ng-if="flagPasswordNonValida">Errore! Password non valida!</p>
+
+        <!-- ERRORE EMAIL -->
+        <p ng-if="flagEmailNonValida">Errore! Email non valida!</p>
 
         <br>
         <input type="submit" name="next" class="next action-button" value="LogIn" ng-disabled="loginForm.$invalid"/>

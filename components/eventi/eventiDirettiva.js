@@ -127,13 +127,6 @@ angular.module('puzzle.eventi.eventiDirettiva', [])
                         date: date
                     });
 
-
-
-                //console.log(date.month());
-
-
-                console.log();
-
                 date = date.clone();
                 date.add(1, "d");
             }

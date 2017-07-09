@@ -44,14 +44,18 @@
                     <div class="col-md-6 tabset">
 
                         <uib-tabset active="activeJustified" justified="true">
-                            <!-- TAB CASA -->
+
+                            <!------------- TAB CASA ------------->
+
                             <uib-tab index="0" heading="CASA" ng-click="selezioneTab('CASA')">
+
                                 <!-- LOOP EVENTI IN PROGRAMMA --->
+
                                 <div class="row">
-                                    <ul class="listaEventi" ng-if="evento.tipo === 'CASA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                                    <ul class="listaEventi" ng-repeat="evento in filtroEventiCASA = (tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true | filter: {'tipo' : 'CASA'} : true)">
                                         <li>
                                             <div class="col-lg-8">
-                                                &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                                &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}}
                                             </div>
                                             <div class="col-lg-4">
                                             <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
@@ -60,18 +64,37 @@
                                             </div>
                                             <div class="lineEventiInterna"></div>
                                         </li>
+
                                     </ul>
+                                    <!-- FINE LOOP --->
+
+                                    <!-- FLAG PRESENZA EVENTI -->
+                                    <ul class="listaEventi" ng-if="filtroEventiCASA.length === 0">
+                                        <li>
+                                            <div class="col-lg-8">
+                                                <p>Non sono presenti eventi nella data selezionata</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <!-- FINE FLAG -->
+
                                 </div>
 
-                                <!-- FINE LOOP --->
+
 
                             </uib-tab>
 
-                            <!-- TAB SCUOLA -->
+
+                            <!------------- FINE TAB CASA ---------->
+
+                            <!-------------------------------------->
+
+                            <!------------- TAB SCUOLA ------------->
+
                             <uib-tab index="1" heading="SCUOLA" ng-click="selezioneTab('SCUOLA')">
                                 <!-- LOOP EVENTI IN PROGRAMMA --->
                                 <div class="row">
-                                    <ul class="listaEventi" ng-if="evento.tipo === 'SCUOLA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                                    <ul class="listaEventi" ng-repeat="evento in filtroEventiSCUOLA = (tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true | filter: {'tipo' : 'SCUOLA'} : true)">
                                         <li>
                                             <div class="col-lg-8">
                                                 &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
@@ -84,15 +107,31 @@
                                             <div class="lineEventiInterna"></div>
                                         </li>
                                     </ul>
+                                    <!-- FINE LOOP --->
+
+                                    <!-- FLAG PRESENZA EVENTI -->
+                                    <ul class="listaEventi" ng-if="filtroEventiSCUOLA.length === 0">
+                                        <li>
+                                            <div class="col-lg-8">
+                                                <p>Non sono presenti eventi nella data selezionata</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <!-- FINE FLAG -->
                                 </div>
-                                <!-- FINE LOOP --->
+
                             </uib-tab>
 
-                            <!-- TAB EXTRA -->
+                            <!----------- FINE TAB SCUOLA --------->
+
+                            <!------------------------------------->
+
+                            <!------------- TAB EXTRA ------------->
+
                             <uib-tab index="2" heading="EXTRA" ng-click="selezioneTab('EXTRA')">
                                 <!-- LOOP EVENTI IN PROGRAMMA --->
                             <div class="row">
-                                <ul class="listaEventi" ng-if="evento.tipo === 'EXTRA'" ng-repeat="evento in tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true">
+                                <ul class="listaEventi"  ng-repeat="evento in filtroEventiEXTRA = (tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true | filter: {'tipo' : 'EXTRA'} : true)">
 
                                     <li>
                                         <div class="col-lg-8">
@@ -105,9 +144,23 @@
                                         <div class="lineEventiInterna"></div>
                                     </li>
                                 </ul>
-                            </div>
                                 <!-- FINE LOOP --->
+
+                                <!-- FLAG PRESENZA EVENTI -->
+                                <ul class="listaEventi" ng-if="filtroEventiEXTRA.length === 0">
+                                    <li>
+                                        <div class="col-lg-8">
+                                            <p>Non sono presenti eventi nella data selezionata</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <!-- FINE FLAG -->
+
+                            </div>
+
                             </uib-tab>
+
+                            <!----------- FINE TAB EXTRA --------->
 
                         </uib-tabset>
 

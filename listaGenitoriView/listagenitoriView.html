@@ -1,4 +1,3 @@
-
 <head>
 
     <title>PUZZLE - Elenco Genitori</title>
@@ -9,22 +8,24 @@
 
 <body>
 
-    <!-- Box  -->
+    <!-- BOX  -->
     <div class="container-fluid">
         <div class="row">
             <div class="box">
 
-
-                    <!-- ------------------------------------------------- -->
+                    <!-- AVVISO SE NON SONO PRESENTI ELEMENTI NELL'ARRAY - LATO GENITORE -->
                     <p ng-if="utenteRegistrato.user.ruolo === 'GENITORE' && flag">
                         Non ci sono genitori iscritti nella {{utenteRegistrato.user.figlio1.classeFiglio}}°{{utenteRegistrato.user.figlio1.sezioneFiglio}}
                         della scuola "{{utenteRegistrato.user.figlio1.scuolaFiglio}}" di {{utenteRegistrato.user.citta}}
                     </p>
+                    <!-- FINE AVVISO -->
+
+                    <!-- AVVISO SE NON SONO PRESENTI ELEMENTI NELL'ARRAY - LATO INSEGNANTE -->
                     <p ng-if="utenteRegistrato.user.ruolo === 'INSEGNANTE' && flag">
                         Non ci sono genitori iscritti nella {{utenteRegistrato.user.classe}}°{{utenteRegistrato.user.sezione}}
                         della scuola "{{utenteRegistrato.user.scuola}}" di {{utenteRegistrato.user.citta}}
                     </p>
-                    <!-- ------------------------------------------------- -->
+                    <!-- FINE AVVISO -->
 
                     <div class="post" ng-repeat="genitore in tuttiGliUtenti.elencoUtenti | filter: {'ruolo' : 'GENITORE' } : true"
                          ng-if="controllo(genitore)">
@@ -72,7 +73,7 @@
                         </div>
                     </div>
 
-                    <!-- ---x---------------------------------------------- -->
+                    <!-- ------------------------------------------------- -->
                 </div>
     </div>
     </div>

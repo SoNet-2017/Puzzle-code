@@ -22,16 +22,12 @@
 
         <div class="spazioGenitori">
 
-            <p id="titolo"> Spazio Genitori
-                - classe <b>{{utenteRegistrato.figlio1.classeFiglio}}{{utenteRegistrato.figlio1.sezioneFiglio}}</b></p> <br>
+            <p id="titolo"> Spazio Genitori - classe
+                <b>{{utenteRegistrato.figlio1.classeFiglio}}{{utenteRegistrato.figlio1.sezioneFiglio}}</b>
+            </p>
 
-                 <!-- TITOLO SE GENITORE
-                <div class="post" ng-if="utenteRegistrato.ruolo === 'GENITORE'">
-                    <p>Benvenuto nell'area comune della classe <b>{{utenteRegistrato.figlio1.classeFiglio}}{{utenteRegistrato.figlio1.sezioneFiglio}}</b>
-                        della scuola <b>{{utenteRegistrato.figlio1.scuolaFiglio | uppercase}}</b> di <b>{{utenteRegistrato.citta | uppercase}}</b> !
-                    </p>
-                </div>
-                ------------------------ -->
+            <br>
+
             <div class="row" ng-show="utenteRegistrato.ruolo === 'GENITORE'">
                     <!-- assegnata la classe post per dare lo stesso stile al pulsante -->
                     <button class="btn" data-toggle="modal" data-target="#aggiungiFile">
@@ -40,7 +36,9 @@
                     </button>
             </div>
 
-            <p ng-if="flag">Non sono ancora presenti file</p>          <!-- <label class="upload-group"><b>SPAZIO GENITORI</b></label> -->
+            <!-- FLAG PRESENZA FILE -->
+            <p ng-if="flag">Non sono ancora presenti file</p>
+            <!-- FINE FLAG -->
 
             <div class="elencoFile" ng-repeat="elemento in elencoFile">
 

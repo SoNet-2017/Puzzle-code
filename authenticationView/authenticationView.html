@@ -1,87 +1,68 @@
 <head>
-  <meta charset="UTF-8">
+
   <title> PUZZLE - Registrazione </title>
 
-  <!-- IMPORTAZIONE STILI -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
   <link rel="stylesheet" href="authenticationView/authenticationView.css">
-
-
 
 </head>
 
 <body ng-controller="AuthCtrl">
 
-
-<!-- BOX ERRORE -->
-<!--
-<div class="alert alert-danger alert-dismissible" role="alert" ng-if="error">Login failed! {{ error.message }}</div>
--->
-<!-- FINE BOX ERRORE -->
-
-<!-- multistep form -->
+<!-- INIZIO FORM LOGIN -->
 <form id="msform" name="msform" role="form" ng-submit="signUp()">
 
-  <!-- progressbar -->
+  <!-- PROGRESS BAR -->
   <ul id="progressbar">
     <li class="active"> Chi sono </li>
     <li ng-class="{'active' : step.vistaCorrente >= 1}">Dati Social</li>
     <li ng-class="{'active' : step.vistaCorrente >= 2}">Dati Anagrafici</li>
     <li ng-class="{'active' : step.vistaCorrente === 3}">Dati Scuola</li>
   </ul>
+  <!-- FINE PROGRESS BAR -->
 
-  <!-- fieldsets -->
 
-
-  <!-- fieldsets 0 -->
+  <!-- FIELDSET 0 -->
   <div ng-show="step.vistaCorrente === 0">
     <br>
     <h2 class="fs-title">Chi sono</h2>
     <br><br>
 
-    <!-- BOX SCELTA INSEGNANTE/GENITORE --- VECCHIA (verticale) - al momento lasciata questa perchè la nuova ha un problema!!!!!!!!!!! -->
+    <!-- BOX SCELTA INSEGNANTE/GENITORE -->
+    <!-- INSEGNANTE -->
     <input id="genitore" type="radio" name="ruolo" value="GENITORE" ng-model="user.ruolo"/>
-    <label class="simboloUtente genitore" for="genitore"></label> <br>Genitore<br><br>
+    <label class="simboloUtente genitore" for="genitore"></label>
+    <br>Genitore<br><br>
 
+    <!-- GENITORE -->
     <input id="insegnante" type="radio" name="ruolo" value="INSEGNANTE" ng-model="user.ruolo"/>
-    <label class="simboloUtente insegnante"for="insegnante"></label> <br>Insegnante<br>
+    <label class="simboloUtente insegnante" for="insegnante"></label>
+    <br>Insegnante<br>
     <!-- FINE BOX -->
 
-    <!-- BOX SCELTA INSEGNANTE/GENITORE --- NUOVA (orizzontale) ma non rimane acceso il bottone quando premuto!!!!!!!!!!! ---
-    <label class="simboloUtente genitore radio-inline" for="genitore">
-        <input id="genitore" type="radio" name="ruolo" value="GENITORE" ng-model="user.ruolo"/>
-    </label>
-    &emsp;
-    <label class="simboloUtente insegnante radio-inline"for="insegnante">
-        <input id="insegnante" type="radio" name="ruolo" value="INSEGNANTE" ng-model="user.ruolo"/>
-    </label>
-    <br> <br>
-    <label>&nbsp;&nbsp; Genitore</label>
-    &emsp; &emsp;
-    <label>&nbsp;Insegnante</label>
-    <br>
-    FINE BOX --- se si utilizza questa NUOVA versione, modificare dimensione loghi dal CSS (90x90)-->
-
-
     <br><br>
+
     <!-- BOX COMANDI SLIDE -->
     <input type="button" name="next" class="next action-button" value="Continua"
            ng-click="stepUp()" ng-disabled="user.ruolo != 'INSEGNANTE' && user.ruolo != 'GENITORE'"/>
     <!-- FINE BOX -->
   </div>
+  <!-- FINE FIELDSET 0 -->
 
-  <!-- fieldsets 1 -->
+  <!-- FIELDSET 1 -->
   <div ng-show="step.vistaCorrente === 1">
+
     <br>
     <h2 class="fs-title">Dati Social</h2>
     <br>
+
     <!-- BOX EMAIL -->
     <input type="email" class="form-control" id="txtEmail" name="email" placeholder="Email" ng-model="user.email" required/>
     <!-- FINE BOX -->
     <!-- BOX PASSWORD -->
     <input type="password" class="form-control" id="txtPass"name="password" placeholder="Password" ng-model="user.password" required/>
-    <input type="password" class="form-control" id="txtPass2" name="password2" placeholder="Conferma Password" ng-model="user.password2" required/>
     <!-- FINE BOX -->
+
     <br>
     <br>
 
@@ -89,95 +70,101 @@
     <input type="button" name="previous" class="previous action-button" value="Indietro"
            ng-click="stepDown()"/>
     <input type="button" name="next" class="next action-button" value="Continua"
-           ng-click="stepUp()" ng-disabled="msform.email.$invalid || msform.password.$invalid || msform.password2.$invalid"/>
+           ng-click="stepUp()" ng-disabled="msform.email.$invalid || msform.password.$invalid "/>
     <!-- FINE BOX -->
+
   </div>
+  <!-- FINE FIELDSET 1 -->
 
 
-  <!-- fieldsets 2 -->
+  <!-- FIELDSET 2 -->
   <div ng-show="step.vistaCorrente === 2">
+
     <br>
     <h2 class="fs-title">Dati Anagrafici</h2>
     <br>
+
     <!-- BOX NOME - COGNOME - SESSO - CITTA -->
     <input type="text" class="form-control" id="txtName" name="nome" placeholder="Nome" ng-model="user.nome" required/>
     <input type="text" class="form-control" id="txtSurname" name="cognome" placeholder="Cognome" ng-model="user.cognome" required/>
 
-    <!--BOX SCELTA SESSO  -- VECCHIA! ho conservato quello vecchio nel dubbio servisse per il filtragio ma è da cancellare!
-      <input type="radio" name="sesso" value="M" ng-model="user.sesso"/>
-      <label for="genitore"></label> <br>Uomo<br><br>
 
-      <input type="radio" name="ruolo" value="F" ng-model="user.sesso"/>
-      <label for="insegnante"></label> <br>Donna<br>
-    -->
-    <!--BOX SCELTA SESSO  -- NUOVA! con radio button allineati-->
+    <!--BOX SCELTA SESSO -->
     <label class="radio-inline" for="genitore">
       <input type="radio" name="sesso" value="M" ng-model="user.sesso"/>
     </label>
     &emsp; &emsp; &emsp;
     <label class="radio-inline" for="insegnante">
-      <input type="radio" name="ruolo" value="F" ng-model="user.sesso"/>
+      <input type="radio" name="sesso" value="F" ng-model="user.sesso"/>
     </label>
     <br><br>
     <label>Uomo</label>
     &emsp; &emsp;
     <label>Donna</label>
     <br><br>
-    <!-- FINE BOX SCELTA SESSO -->
+    <!-- FINE BOX -->
 
 
     <!-- MENU A TENDINA ELENCO CITTA -->
-
-    <select id="tendine" class="form-control" ng-model="user.citta" required>
+    <select id="tendine" class="form-control" ng-model="user.citta" ng-init="user.citta = noValue" required>
       <option value="noValue"> --- SELEZIONA UNA CITTA --- </option>
       <option ng-repeat="citta in elencoCitta" value="{{citta}}">{{citta}}</option>
     </select>
     <!-- FINE MENU A TENDINA -->
 
-    <!-- FINE BOX -->
     <br>
     <br>
+
     <!-- BOX COMANDI SLIDE -->
     <input type="button" name="previous" class="previous action-button" value="Indietro"
            ng-click="stepDown()"/>
     <input type="button" name="next" class="next action-button" value="Continua"
-           ng-click="stepUp()" ng-disabled="msform.nome.$invalid || msform.cognome.$invalid || msform.citta === 'noValue'"/>
+         ng-click="stepUp()" ng-disabled="user.nome.$invalid || user.cognome.$invalid || user.citta === noValue || (user.sesso != 'M' && user.sesso != 'F')"/>
     <!-- FINE BOX -->
+
   </div>
+  <!-- FINE FIELDSET 2 -->
 
 
-  <!-- fieldsets 3 -->
+  <!-- FIELDSET 3 -->
   <div ng-show="step.vistaCorrente === 3">
+
     <br>
     <h2 class="fs-title">Dati Scuola</h2>
     <br>
+
     <!-- BOX DATI FIGLIO (solo Genitore)-->
     <input type="text" class="form-control" id="txtNameSon" name="nomeFiglio" placeholder="Nome Figlio"
            ng-model="user.nomeFiglio" ng-if="user.ruolo === 'GENITORE'" required="user.ruolo === 'GENITORE'"/>
-    <p ng-show="user.nomeFiglio == 'Ciccio' || user.nomeFiglio == 'ciccio' || user.nomeFiglio == 'CICCIO'">
-        PAMELA NON SCRIVERE CICCIO SEMPRE!
-    </p>
+
     <input type="text" class="form-control" id="txtSurnameSon" name="cognomeFiglio" placeholder="Cognome Figlio"
            ng-model="user.cognomeFiglio" ng-if="user.ruolo === 'GENITORE'" required="user.ruolo === 'GENITORE'"/>
     <!-- FINE BOX -->
-    <!-- BOX SCELTA SCUOLA -->
 
-    <select id="tendine1" class="form-control" ng-model="user.scuola" required>
+    <!-- BOX SCELTA SCUOLA -->
+    <select id="tendine1" class="form-control" ng-model="user.scuola" ng-init="user.scuola = noValue" required>
+      <option value="noValue"> SCUOLA </option>
       <option ng-repeat="scuola in elencoScuole | filter:{codice: user.citta}" value="{{scuola.scuola}}">{{scuola.scuola}}</option>
     </select>
     <!-- FINE BOX -->
+
     <!-- BOX SCELTA CLASSE -->
-    <select id="tendine2" class="form-control" ng-model="user.fasciaClasse" required>
+    <select id="tendine2" class="form-control" ng-model="user.fasciaClasse" ng-init="user.fasciaClasse = noValue" required>
+      <option value="noValue"> CLASSE </option>
       <option ng-repeat="numero in numeriClassi" value="{{numero}}">{{numero}}</option>
     </select>
     <!-- FINE BOX -->
+
     <!-- BOX SCELTA CLASSE -->
-    <select id="tendine3" class="form-control" ng-model="user.sezioneClasse" required>
+    <select id="tendine3" class="form-control" ng-model="user.sezioneClasse" ng-init="user.sezioneClasse = noValue" required>
+      <option value="noValue"> SEZIONE </option>
       <option ng-repeat="sezione in sezioniClassi" value="{{sezione}}">{{sezione}}</option>
     </select>
     <!-- FINE BOX -->
+
     <!-- BOX MATERIA (solo Insegnante) -->
-    <select id="tendine4" class="form-control" ng-model="user.materia" ng-if="user.ruolo === 'INSEGNANTE'" required="user.ruolo === 'INSEGNANTE'">
+    <select id="tendine4" class="form-control" ng-model="user.materia" ng-if="user.ruolo === 'INSEGNANTE'" ng-init="user.materia = noValue">
+      <option value="noValue"> MATERIA </option>
       <option ng-repeat="materia in elencoMaterie" value="{{materia}}" ng-if="user.ruolo === 'INSEGNANTE'">{{materia}}</option>
     </select>
 
@@ -188,7 +175,8 @@
     <input type="button" name="previous" class="previous action-button" value="Indietro"
            ng-click="stepDown()"/>
     <input type="submit" name="submit" class="submit action-button" value="Conferma"
-           ng-click="signUp()" ng-disabled="step4.$invalid"/>
+           ng-click="signUp()" ng-disabled="user.ruolo === 'INSEGNANTE' && (user.materia === noValue || user.sezioneClasse === noValue || user.fasciaClasse === noValue || user.scuola === noValue)
+                                         || user.ruolo === 'GENITORE' && (user.nomeFiglio.$invalid || user.cognomeFiglio.$invalid || user.sezioneClasse === noValue || user.fasciaClasse === noValue || user.scuola === noValue)"/>
     <!-- FINE BOX -->
   </div>
 

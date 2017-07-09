@@ -15,7 +15,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-//
+
 // ANGULAR
 
 angular.module('puzzle', [
@@ -26,7 +26,6 @@ angular.module('puzzle', [
     'puzzle.authentication',
     'puzzle.utenti',
     'puzzle.profiloView',
-    'puzzle.addPostView',
     'puzzle.post',
     'puzzle.listaGenitoriView',
     'puzzle.listaInsegnantiView',
@@ -64,26 +63,6 @@ angular.module('puzzle', [
 
         moment.locale('it');
 
-        $scope.menuIns = false;
-        $scope.menuGen = false;
-
-        $scope.showMenuIns = function(){
-            $scope.menuIns = !$scope.menuIns;
-        };
-
-        $scope.showMenuGen = function(){
-            $scope.menuGen = !$scope.menuGen;
-        };
-
-        $scope.elencoUtenti = CommonProp.getAllUser();
-
-        $scope.set = function(id){
-            profiloEsterno.setUser(id);
-        };
-
-
-        //$scope.user = {};
-
         $scope.controlloSidebar = function(){
             if($scope.pagina.pagCorrente !== "loginView" && $scope.pagina.pagCorrente !== "authView"){
                 return true;
@@ -91,15 +70,5 @@ angular.module('puzzle', [
                 return false;
             }
         };
-
-        $scope.noUtente = function(){
-            return false;
-        };
-
-        $scope.outUser = function(){
-            $scope.flag = true;
-            utenti.logoutUser();
-        }
-
 
     }]);

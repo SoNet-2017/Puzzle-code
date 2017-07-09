@@ -12,11 +12,7 @@ angular.module('puzzle.listaInsegnantiView', [
             templateUrl: 'listaInsegnantiView/listaInsegnantiView.html',
             controller: 'listaInsegnantiCTRL',
             resolve: {
-                // controller will not be loaded until $requireSignIn resolves
-                // Auth refers to our $firebaseAuth wrapper in the factory below
                 "currentAuth": ["Auth", function(Auth) {
-                    // $requireSignIn returns a promise so the resolve waits for it to complete
-                    // If the promise is rejected, it will throw a $routeChangeError (see above)
                     return Auth.$requireSignIn();
                 }]
 
@@ -53,13 +49,6 @@ angular.module('puzzle.listaInsegnantiView', [
             $scope.control = function(ins){
 
                 var t = false;
-
-
-
-                // EVITO CHE L'UTENTE LOGGATO SIA PRESENTE NELL'ELENCO INSEGNANTI
-                // if(ins.$id === $scope.utenteRegistrato.uid){
-                //     return false;
-                // }
 
                 if($scope.utenteRegistrato.user.ruolo === 'GENITORE'){
                     if($scope.utenteRegistrato.user.citta === ins.citta) {
