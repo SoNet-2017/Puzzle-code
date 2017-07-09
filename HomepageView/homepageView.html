@@ -32,7 +32,7 @@
             <!-- ---------------------------------------            POST            --------------------------------------- -->
 
             <div class="post" ng-if="flag">
-                <p>Non sono presenti post...</p>
+                <p>Non sono presenti post</p>
             </div>
             <div  ng-repeat="singoloPost in post.listaPost | orderBy:'-timestamp'">
                 <div class="post" ng-repeat="utente in tuttiGliUtenti.elencoUtenti | filter: {'ID' : singoloPost.IDutente} : true" ng-if="controllo(utente)">

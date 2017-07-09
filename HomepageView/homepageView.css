@@ -1,16 +1,13 @@
 /*@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";*/
 
 html{
-    /* ho dovuto dare il background anche all'html perché dava problemi! se nel body non ci fossero stati elementi
-    sufficienti ad arrivare a fine pagina, il background si sarebbe fermanto a dove stavano gli elementi!
-     */
     background: url(homepageImages/InizioSito_50.png) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-
 }
+
 /* ---------------------------------------------------
     BODY
 ----------------------------------------------------- */
@@ -22,11 +19,9 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-    /* height: 100vh; */
 }
 
 p {
-    /*font-family: 'Poppins', sans-serif;*/
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
@@ -96,66 +91,10 @@ i, span {
     height:100vh;
 }
 
-
-
-/*SIDEBAR PICCOLO ATTIVATO
-#sidebar.active {
-    min-width: 80px;
-    max-width: 80px;
-    /*text-align: center; si sminchia quando si chiude, mi piacerebbe allinearlo centralmente ma non ci sono riuscita
-}
-
-
-#sidebar.active .sidebar-header h3 {
-    display: none;
-}
-
-
-/*nel menu' rimpicciolito mantengo anche il menu' di sopra
-#sidebar.active .sidebar-header strong {
-    display: block;
-}
-
-#sidebar.active ul li a {
-    padding: 20px 10px;
-}
-
-#sidebar.active ul li a {
-    font-size: 0.85em;
-}
-#sidebar.active ul li a i {
-    margin-right:  0;
-    display: block;
-    font-size: 1.8em;
-    margin-bottom: 5px;
-}
-
-#sidebar.active ul ul a {
-    padding: 10px !important;
-}
-
-
-/*menu piccolo attivo, traslazione icone + testi
-#sidebar.active a[aria-expanded="false"]::before, #sidebar.active a[aria-expanded="true"]::before {
-    top: auto;
-    bottom: 5px;
-    right: 50%;
-    -webkit-transform: translateX(50%);
-    -ms-transform: translateX(50%);
-    transform: translateX(50%);
-}
-*/
 #sidebar .sidebar-header {
     padding: 20px;
     background: #308e89;
 }
-
-/*
-#sidebar .sidebar-header strong {
-    display: none;
-    font-size: 1.8em;
-}
-*/
 
 #sidebar ul.components {
     padding: 20px 0;
@@ -168,8 +107,8 @@ i, span {
     padding: 10px;
     font-size: 1.1em;
     display: block;
-
 }
+
 /*testi con mouse */
 #sidebar ul li a:hover {
     color: #308e89;
@@ -314,7 +253,6 @@ ul ul a {
     margin-left: 60px;
     width: 70px;
     height: 70px;
-    /*display: block;*/
 }
 
 .post a {
@@ -343,7 +281,7 @@ ul ul a {
 .post .btn:focus,
 .post .btn:active,
 /* siccome ai bottoni modifica ed elimina sotto il post liliana non ha dato classi per questione di layout,
-    bisogna considerarli conisderarli come bottoni normali senza bootstrap, quindi aggiungo .post button */
+    bisogna considerarli come bottoni normali senza bootstrap, quindi aggiungo .post button */
 .post button:hover,
 .post button:focus,
 .post button:active{
@@ -430,9 +368,6 @@ ul ul a {
     outline: none;
 }
 
-
-
-
 /*-------MODAL PER CONDIVIDI LA TUA GIORNATA--------- */
 #condividiGiornata{ /* textarea*/
     height: 120px;
@@ -441,8 +376,6 @@ ul ul a {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
-
 
 /*-------- MODAL PER MODIFICA POST ------ */
 #modificaPost{ /*textarea */
@@ -490,7 +423,6 @@ ul ul a {
 /* margin-left: 40px;*/
 }
 
-
 /*sono genitore/insegnante di */
 .profilo .header-right h6 {
     font-size: 1.2em;
@@ -498,11 +430,7 @@ ul ul a {
     margin-top: 0.8em;
     letter-spacing: 6px;
     font-family: 'Overlock';
-    /*margin-left: 40px;*/
-
 }
-
-
 
 /*elenco informazioni personali */
 ul.informazioniPersonali{
@@ -511,15 +439,13 @@ ul.informazioniPersonali{
     padding-top: 1em;
     list-style-type: none;
     padding-left: 5px;
-
-    /*non mi mette i puntini dell'elenco puntato*/
 }
+
 li.informazioniPersonali-text{
     font-size: 1.1em;
     color: #343434;
     margin-top: 0.8em;
 }
-
 
 
 /* -------- Materiale Didattico ----------- */
@@ -579,7 +505,6 @@ e margin diverse rispetto a quelle date alla classe post e perché le line erano
 }
 
 
-
 .listagenitori .line {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -598,8 +523,6 @@ e margin diverse rispetto a quelle date alla classe post e perché le line erano
     margin-top: 12px;
     margin-left: 20px;
     width: 94%;
-
-
 }
 
 /*----------------- LISTA INSEGNANTI ---------------- */
@@ -607,11 +530,7 @@ e margin diverse rispetto a quelle date alla classe post e perché le line erano
 
 .listainsegnanti{
     margin-right: 45px;
-    /*padding-right: 150px;
-    padding-left: 150px; eliminiamo i commenti se non lo vogliamo centrare!*/
 }
-
-
 
 .listainsegnanti .line {
     margin-top: 0px;
@@ -624,7 +543,6 @@ e margin diverse rispetto a quelle date alla classe post e perché le line erano
     padding-right: 70px;
 }
 
-
 /*data Eventi*/
 .dataEvento{
     margin-left: 800px;
@@ -632,6 +550,15 @@ e margin diverse rispetto a quelle date alla classe post e perché le line erano
     font-size: 30px;
     color: black;
 }
+
+#titoloEventi {  /*Titolo "Eventi in programma"*/
+    margin-left: 20px;
+    margin-bottom: 30px;
+    font-family: "Brush Script MT";
+    font-size: 30px;
+    text-decoration: underline;
+}
+
 /*linea divisoria Eventi esterna*/
 .lineEventi{
     width: 100%;
@@ -859,7 +786,7 @@ ul.listaEventi{
 }
 
 /*orario */
-/* ho dovuto creare una classe timepicker perché altrimenti le frecce(che risultano bottoni) prendevano le stess
+/* ho dovuto creare una classe timepicker perché altrimenti le frecce(che risultano bottoni) prendevano le stesse
 impostazioni di tutti gli altri bottoni dei modal!!!  */
 .timepicker .btn{
     background-color: white;
@@ -952,8 +879,6 @@ impostazioni di tutti gli altri bottoni dei modal!!!  */
     font-style: italic;
     color: #9d9d9d;
 }
-
-
 
 
 /*------------------------------------------------*/

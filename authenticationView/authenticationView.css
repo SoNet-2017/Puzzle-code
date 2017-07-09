@@ -11,8 +11,6 @@ html {
 	background-position: right top;
 	background-attachment: fixed;
 	background-size: cover;
-
-
 }
 
 body {
@@ -22,11 +20,8 @@ body {
 	background-position: right top;
 	background-attachment: fixed;
 	background-size: cover;
-
 }
 
-
-/*form styles*/
 #msform {
 	width: 400px;
 	margin: 50px auto;
@@ -43,12 +38,9 @@ body {
 	box-sizing: border-box;
 	width: 80%;
 	margin: 0 10%;
-	/*stacking fieldsets above each other*/
 	position: relative;
 }
 
-
-/*inputs*/
 #msform input {
 	padding: 15px;
 	border: 1px solid #ccc;
@@ -59,9 +51,8 @@ body {
 	font-family: montserrat;
 	color: #343434;
 	font-size: 13px;
-
-
 }
+
 #msform input:focus {
 	-moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
 	-o-box-shadow: 0 0 2px rgb(48,142,137) inset;
@@ -71,7 +62,6 @@ body {
 	outline: none;
 }
 
-/*buttons*/
 #msform .action-button {
 	width: 100px;
 	background: rgb(48,142,137);
@@ -89,8 +79,6 @@ body {
 }
 
 
-
-
 #msform .action-button:hover, #msform .action-button:focus {
 	box-shadow: 0 0 0 2px rgb(48,142,137);
 	-moz-box-shadow: 0 0 2px rgb(48,142,137) inset;
@@ -100,14 +88,12 @@ body {
 	background-color: rgb(48,142,137);
 	border: 1px solid rgb(48,142,137);
 	outline: none;
-
 }
 
 #tendine, #tendine1, #tendine2, #tendine3, #tendine4{
 	margin-bottom: 10px;
 	font-family: montserrat;
 	font-size: 13px;
-
 }
 
 
@@ -123,9 +109,9 @@ body {
 	box-shadow: 0 0 2px rgb(48,142,137) inset;
 	border: 1px solid rgb(48,142,137);
 	outline: none;
-
 }
-/*headings*/
+
+/*heading*/
 .fs-title {
 	font-size: 15px;
 	text-transform: uppercase;
@@ -133,12 +119,10 @@ body {
 	margin-bottom: 10px;
 }
 
-
 /*progressbar*/
 #progressbar {
 	margin-bottom: 30px;
 	overflow: hidden;
-	/*CSS counters to number the steps*/
 	counter-reset: step;
 }
 #progressbar li { /*testo al di sotto della progress bar */
@@ -146,7 +130,7 @@ body {
 	color: rgb(48,142,137);
 	text-transform: uppercase;
 	font-size: 9px;
-	width: 25%; /*prima era 33.33, dopo aver aggiunto il quarto campo l'ho dovuta cambiare*/
+	width: 25%;
 	float: left;
 	position: relative;
 }
@@ -162,7 +146,7 @@ body {
 	border-radius: 3px;
 	margin: 0 auto 5px auto;
 }
-/*progressbar connectors*/
+
 #progressbar li:after {
 	content: '';
 	width: 100%;
@@ -174,16 +158,13 @@ body {
 	z-index: -1; /*per metterlo dietro i numeri*/
 }
 #progressbar li:first-child:after {
-	/*connector not needed before the first step*/
 	content: none;
 }
-/*marking active/completed steps blue*/
-/*The number of the step and the connector before it = blue*/
+
 #progressbar li.active:before,  #progressbar li.active:after{
 	background: rgb(48,142,137);
 	color: white;
 }
-
 
 #payoff{
 	padding-top: 10px;
@@ -214,22 +195,17 @@ body {
 
 #insegnante:active +.simboloUtente{opacity: .9;}  /*simbolo opaco finchè non viene selezionato*/
 #genitore:checked +.simboloUtente{ /*il simbolo si accende quando viene selezionato*/
-	/*-webkit-filter: none;
-	-moz-filter: none;*/
 	filter: none;
 }
 
 #insegnante:checked +.simboloUtente{ /*il simbolo si accende quando viene selezionato*/
-	/*-webkit-filter: none;
-	-moz-filter: none;*/
 	filter: none;
 }
 .simboloUtente{
 	cursor:pointer;             /*manina*/
 	background-size:contain;
 	background-repeat:no-repeat;
-	/*display:inline-block;*/
-	width:70px; height:70px; /* con la versione NUOVA(orizzontale) bisogna ingrandire le immagini:    width:90px; height:90px;  */
+	width:70px; height:70px;
 	-webkit-transition: all 100ms ease-in;
 	-moz-transition: all 100ms ease-in;
 	transition: all 100ms ease-in;
@@ -242,7 +218,3 @@ body {
 	-moz-filter: brightness(1.2) grayscale(.5) opacity(.9);
 	filter: brightness(1.2) grayscale(.5) opacity(.9);
 }
-
-
-
-/* UOMO E DONNA*/

@@ -35,6 +35,8 @@
 
                 <div class="row">
 
+                    <p id="titoloEventi"> Eventi in programma </p>
+
                 <!-- CALENDARIO -->
                     <div class="col-md-6 ">
                         <calendar selected="day" t="sezione" elenco-eventi="tuttiGliEventi.elencoEventi"> </calendar>
@@ -72,7 +74,7 @@
                                     <ul class="listaEventi" ng-if="filtroEventiCASA.length === 0">
                                         <li>
                                             <div class="col-lg-8">
-                                                <p>Non sono presenti eventi nella data selezionata</p>
+                                                <p><em>Non sono presenti eventi</em></p>
                                             </div>
                                         </li>
                                     </ul>
@@ -97,7 +99,7 @@
                                     <ul class="listaEventi" ng-repeat="evento in filtroEventiSCUOLA = (tuttiGliEventi.elencoEventi | filter: {'giorno' : day.format('DD/MM/YYYY')} : true | filter: {'tipo' : 'SCUOLA'} : true)">
                                         <li>
                                             <div class="col-lg-8">
-                                                &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                                &thinsp; <b>{{evento.oraI}}</b> - {{evento.titolo}}
                                             </div>
                                             <div class="col-lg-4">
                                                 <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
@@ -113,7 +115,7 @@
                                     <ul class="listaEventi" ng-if="filtroEventiSCUOLA.length === 0">
                                         <li>
                                             <div class="col-lg-8">
-                                                <p>Non sono presenti eventi nella data selezionata</p>
+                                                <p><em>Non sono presenti eventi</em></p>
                                             </div>
                                         </li>
                                     </ul>
@@ -135,7 +137,7 @@
 
                                     <li>
                                         <div class="col-lg-8">
-                                            <b>{{evento.oraI}}</b> - {{evento.titolo}} | {{evento.tipo}} |
+                                            <b>{{evento.oraI}}</b> - {{evento.titolo}}
                                         </div>
                                         <div class="col-lg-4">
                                             <a ng-click="viewEvento(evento.$id)" data-toggle="modal" data-target="#visualizzaEvento">
@@ -150,7 +152,7 @@
                                 <ul class="listaEventi" ng-if="filtroEventiEXTRA.length === 0">
                                     <li>
                                         <div class="col-lg-8">
-                                            <p>Non sono presenti eventi nella data selezionata</p>
+                                            <p><em>Non sono presenti eventi</em></p>
                                         </div>
                                     </li>
                                 </ul>
@@ -172,7 +174,7 @@
                 <div class="row creaEvento" >
                     <!-- PULSANTE CREAZIONE NUOVO EVENTO -->
                     <button  class="btn" type="button" data-toggle="modal" data-target="#creaEvento">
-                        Crea Nuovo Evento
+                        Crea un nuovo evento
                     </button>
                 </div>
             </div>
