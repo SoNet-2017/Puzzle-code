@@ -198,9 +198,9 @@
                         <!-- RADIO BUTTON SCELTA TIPO EVENTO -->
                         <div class ="row">
                             <div class = "col-lg-4">
-                                <input id="casa" type="radio" name="tipo" value="CASA" ng-model="event.tipo"/>
-                                <label class="simboloEvento casa img-thumbnail center-block" for="casa"></label>
-                                <div class="row text-center" id="textCasa"><h4> Casa <br><br> </h4> </div>
+                                <input id="casa" type="radio" name="tipo" value="CASA" ng-model="event.tipo" ng-if="utenteRegistrato.ruolo === 'GENITORE'"/>
+                                <label class="simboloEvento casa img-thumbnail center-block" for="casa" ng-if="utenteRegistrato.ruolo === 'GENITORE'"></label>
+                                <div class="row text-center" id="textCasa" ng-if="utenteRegistrato.ruolo === 'GENITORE'"><h4> Casa <br><br> </h4> </div>
                             </div>
                             <div class = "col-lg-4">
                                 <input id="scuola" type="radio" name="tipo" value="SCUOLA" ng-model="event.tipo"/>
@@ -209,9 +209,9 @@
 
                             </div>
                             <div class = "col-lg-4">
-                                <input id="extra" type="radio" name="tipo" value="EXTRA" ng-model="event.tipo"/>
-                                <label class="simboloEvento extra img-thumbnail center-block" for="extra"></label>
-                                <div class="row text-center" id="textExtra"> <h4> Extra <br><br> </h4> </div>
+                                <input id="extra" type="radio" name="tipo" value="EXTRA" ng-model="event.tipo" ng-if="utenteRegistrato.ruolo === 'GENITORE'"/>
+                                <label class="simboloEvento extra img-thumbnail center-block" for="extra" ng-if="utenteRegistrato.ruolo === 'GENITORE'"></label>
+                                <div class="row text-center" id="textExtra" ng-if="utenteRegistrato.ruolo === 'GENITORE'"> <h4> Extra <br><br> </h4> </div>
                             </div>
                         </div>
                         <!-- FINE RADIO BUTTON -->

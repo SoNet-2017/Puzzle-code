@@ -25,7 +25,7 @@ angular.module('puzzle.post.postList', [])
                 var day = today.getUTCDate();
                 var month = today.getUTCMonth()+1;      //Gennaio è 0!
                 var year = today.getUTCFullYear();
-                var hours = today.getUTCHours();
+                var hours = today.getUTCHours() + 2;
                 var minutes = today.getUTCMinutes();
                 var seconds = today.getUTCSeconds();
 
@@ -45,7 +45,7 @@ angular.module('puzzle.post.postList', [])
                 if(seconds<10) {
                     seconds='0'+seconds;
                 }
-                var currentDate = year.toString()+'/'+month.toString()+'/'+day.toString()+' '+hours.toString()+':'+minutes.toString()+':'+seconds.toString();
+                var currentDate = year.toString()+'/'+month.toString()+'/'+day.toString()+' '+hours.toString()+':'+minutes.toString();
 
                 return currentDate;
             }
