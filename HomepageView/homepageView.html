@@ -61,7 +61,7 @@
                                 {{utente.nome}} {{utente.cognome}}
                             </a>
                             <!-- --------------------------------------------------- -->
-                            <a href="#!/profiloExtView" ng-click="set(utente.$id)" ng-if="utente.$id != utenteRegistrato.uid">
+                            <a href="#!/profiloExtView/{{utente.$id}}" ng-if="utente.$id != utenteRegistrato.uid">
                                 {{utente.nome}} {{utente.cognome}}
                             </a>
                             <!-- FINE CONTROLLO -->

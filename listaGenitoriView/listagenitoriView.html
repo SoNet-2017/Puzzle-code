@@ -48,11 +48,11 @@
 
                                 <!-- CONTROLLO LINK SE E' UGUALE A UTENTE LOGGATO -->
 
-                                <a href="#!/profiloView" ng-if="genitore.$id === utenteRegistrato.uid">
+                                <a href="#!/profiloView/" ng-if="genitore.$id === utenteRegistrato.uid">
                                     {{genitore.nome}} {{genitore.cognome}}
                                 </a>
                                 <!-- -------------------------------------------- -->
-                                <a href="#!/profiloExtView" ng-click="set(genitore.$id)" ng-if="genitore.$id != utenteRegistrato.uid">
+                                <a href="#!/profiloExtView/{{genitore.$id}}" ng-if="genitore.$id != utenteRegistrato.uid">
                                     {{genitore.nome}} {{genitore.cognome}}</a>
                                 <!-- FINE CONTROLLO-->
                                 <h4> Genitore di {{genitore.figlio1.nomeFiglio}} {{genitore.figlio1.cognomeFiglio}} </h4>

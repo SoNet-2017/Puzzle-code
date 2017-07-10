@@ -51,7 +51,7 @@
                             {{insegnante.nome}} {{insegnante.cognome}}
                         </a>
                         <!-- --------------------------------------- -->
-                        <a href="#!/profiloExtView" ng-click="set(insegnante.$id)" ng-if="insegnante.$id != utenteRegistrato.uid">
+                        <a href="#!/profiloExtView/{{insegnante.$id}}" ng-if="insegnante.$id != utenteRegistrato.uid">
                             {{insegnante.nome}} {{insegnante.cognome}}
                         </a>
                         <!-- FINE CONTROLLO  -->

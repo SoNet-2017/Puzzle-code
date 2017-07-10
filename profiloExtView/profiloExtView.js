@@ -12,7 +12,7 @@ angular.module('puzzle.profiloExtView', [
 ])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/profiloExtView', {
+        $routeProvider.when('/profiloExtView/:userID', {
             templateUrl: 'ProfiloExtView/profiloExtView.html',
             controller: 'ProfiloExtCtrl',
             resolve: {
@@ -24,19 +24,13 @@ angular.module('puzzle.profiloExtView', [
     }])
 
     .controller('ProfiloExtCtrl',
-        ['$scope', '$rootScope', 'CommonProp', 'utenti', 'profiloEsterno', 'storeService', 'currentAuth',
-            function($scope, $rootScope, CommonProp, utenti, profiloEsterno, storeService, currentAuth) {
+        ['$scope', '$rootScope', 'CommonProp', 'utenti', 'profiloEsterno', 'storeService', '$routeParams',
+            function($scope, $rootScope, CommonProp, utenti, profiloEsterno, storeService, $routeParams) {
 
                 $rootScope.pagina = {};
                 $rootScope.pagina.pagCorrente = 'profiloExtUtente';
 
-
-
-                $scope.utenteRegistrato = {};
-                $scope.utenteRegistrato.uid = currentAuth.uid;
-                $scope.utenteRegistrato.user = CommonProp.getUserInfo($scope.utenteRegistrato.uid);
-
-                $scope.visitatore = CommonProp.getUserInfo(profiloEsterno.getUser());
+                $scope.visitatore = CommonProp.getUserInfo($routeParams.userID);
 
                 $scope.elencoFile = storeService.getAllFile();
 
